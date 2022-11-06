@@ -13,7 +13,7 @@ public class Ride {
     @JoinColumn(name = "startlocation_id",referencedColumnName = "id")
     private Location startLocation;
     @OneToOne
-    @JoinColumn(name = "endlocation_id",referencedColumnName = "id")
+    @JoinColumn(name = "destination_id",referencedColumnName = "id")
     private Location destination;
     private long startTime;
     private long endTime;
