@@ -7,17 +7,18 @@ import javax.persistence.*;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN",initialValue=205, allocationSize=12)
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator="seq-gen")
     @Column(name="id")
     private Long id;
     private String country;
     private String city;
     private String streetName;
-    private int zipCode;
+    private String zipCode;
     private long coordinateX;
     private long coordinateY;
 
-    public Location(String country, String city, String streetName, int zipCode, long coordinateX, long coordinateY) {
+    public Location(String country, String city, String streetName, String zipCode, long coordinateX, long coordinateY) {
         this.country = country;
         this.city = city;
         this.streetName = streetName;
@@ -54,11 +55,11 @@ public class Location {
         this.streetName = streetName;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 

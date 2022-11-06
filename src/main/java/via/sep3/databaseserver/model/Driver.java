@@ -9,10 +9,19 @@ import java.util.List;
 public class Driver {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private long id;
+    @SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN",initialValue=205, allocationSize=12)
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator="seq-gen")    @Column(name="id")
+    private int id;
     private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String phone;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "driver")
     private List<Ride> rides;

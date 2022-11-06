@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface RideRepository extends CrudRepository<Ride, Long> {
+public interface RideRepository extends CrudRepository<Ride, Integer> {
 
-    List<Ride> findByStartLocation(Location location);
-    List<Ride> findByDestination(Location location);
-    List<Ride> findAllByStartTimeIsGreaterThanEqualAndEndTimeIsLessThanEqual(Long startTime, Long endTime);
-    List<Ride> findAllByEndTime(Long epoch);
+    List<Ride> findAllByStartLocation(Location location);
+    List<Ride> findAllByDestination(Location location);
+    List<Ride> findAllByStartTimeIsBetween(Long startTime, Long endTime);
+
 
 }

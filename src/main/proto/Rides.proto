@@ -1,15 +1,15 @@
 syntax = "proto3";
 
 option java_multiple_files= true;
-option java_package= "via.sep3.databaseserver";
+option java_package= "via.sep3.databaseserver.protobuff";
 
 service Rides{
-  rpc getRides(EpochTimeline) returns (RidesCollection);
-  rpc joinRide(JoinRideDto) returns (Confirmation);
+  rpc getRides(EpochTimelineMessage) returns (RidesCollection);
+  rpc joinRide(JoinRideDto) returns (ConfirmationMessage);
 }
 
 //Probably not needed for now
-message EpochTimeline{
+message EpochTimelineMessage{
   optional int64 epochLowerBound = 1;
   optional int64 epochUpperBound = 2;
 }
@@ -17,19 +17,19 @@ message EpochTimeline{
 
 
 message RidesCollection{
-  repeated Ride rides = 1;
-  message Ride {
-    Location startLocation = 2;
-    Location endLocation = 3;
-    int64 epochTime = 4;
-    Driver driver = 5;
+  repeated RideMessage rides = 1;
+  message RideMessage {
+    LocationMessage startLocation = 2;
+    LocationMessage endLocation = 3;
+    int64 startTime = 4;
+    DriverMessage driver = 5;
 
     //imo that's needed although not included in uml
     int32 id = 6;
   }
 }
 
-message Location{
+message LocationMessage{
   string country = 1;
   string city = 2;
   string street = 3;
@@ -38,11 +38,12 @@ message Location{
   int64 coordinateY = 6;
 }
 
-message Driver{
+message DriverMessage{
   string name = 1;
+  string phone = 2;
 
   //imo that's needed although not included in uml
-  int32 id = 2;
+  int32 id = 3;
 }
 
 message JoinRideDto{
@@ -51,7 +52,7 @@ message JoinRideDto{
   string passengerPhone = 3;
 }
 
-message Confirmation{
+message ConfirmationMessage{
   string confirmationMessage = 1;
 }
 

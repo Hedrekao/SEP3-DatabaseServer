@@ -6,9 +6,10 @@ import javax.persistence.*;
 @Table(name="rides")
 public class Ride {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN",initialValue=205, allocationSize=12)
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator="seq-gen")
     @Column(name="id")
-    private Long id;
+    private int id;
     @OneToOne
     @JoinColumn(name = "startlocation_id",referencedColumnName = "id")
     private Location startLocation;
@@ -16,7 +17,6 @@ public class Ride {
     @JoinColumn(name = "destination_id",referencedColumnName = "id")
     private Location destination;
     private long startTime;
-    private long endTime;
     @ManyToOne
     @JoinColumn(name = "driver_id", referencedColumnName = "id")
     private Driver driver;
@@ -25,7 +25,6 @@ public class Ride {
         this.startLocation = startLocation;
         this.destination = destination;
         this.startTime = startTime;
-        this.endTime = endTime;
         this.driver = driver;
     }
 
@@ -58,12 +57,12 @@ public class Ride {
         this.startTime = startTime;
     }
 
-    public long getEndTime() {
-        return endTime;
+    public int getId() {
+        return id;
     }
 
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Driver getDriver() {
