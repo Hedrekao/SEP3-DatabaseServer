@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option java_multiple_files= true;
+option java_package= "via.sep3.databaseserver";
+
+service Rides{
+  rpc getRides(EpochTimeline) returns (RidesCollection);
+  rpc joinRide(JoinRideDto) returns (Confirmation);
+}
+
+//Probably not needed for now
+message EpochTimeline{
+  optional int64 epochLowerBound = 1;
+  optional int64 epochUpperBound = 2;
+}
+
+
+
+message RidesCollection{
+  repeated Ride rides = 1;
+  message Ride {
+    Location startLocation = 2;
+    Location endLocation = 3;
+    int64 epochTime = 4;
+    Driver driver = 5;
+
+    //imo that's needed although not included in uml
+    int32 id = 6;
+  }
+}
+
+message Location{
+  string country = 1;
+  string city = 2;
+  string street = 3;
+  string zipcode = 4;
+  int64 coordinateX = 5;
+  int64 coordinateY = 6;
+}
+
+message Driver{
+  string name = 1;
+
+  //imo that's needed although not included in uml
+  int32 id = 2;
+}
+
+message JoinRideDto{
+  int32 rideId = 1;
+  string passengerName = 2;
+  string passengerPhone = 3;
+}
+
+message Confirmation{
+  string confirmationMessage = 1;
+}
+
