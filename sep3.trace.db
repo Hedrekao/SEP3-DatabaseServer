@@ -1,0 +1,3 @@
+2022-11-24 15:59:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RIDES" not found (this database is empty); SQL statement:
+select ride0_.id as id1_3_, ride0_.destination_id as destinat3_3_, ride0_.driver_id as driver_i4_3_, ride0_.startlocation_id as startloc5_3_, ride0_.start_time as start_ti2_3_ from rides ride0_ [42104-214]
