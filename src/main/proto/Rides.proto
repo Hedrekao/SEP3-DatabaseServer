@@ -7,26 +7,12 @@ service Rides{
   rpc getRides(EpochTimelineMessage) returns (RidesCollection);
   rpc joinRide(JoinRideMessage) returns (ConfirmationMessage);
   rpc createRide(CreateRideMessage) returns (RideMessage);
-  rpc acceptPassenger(AcceptMessage) returns (ReservationMessage);
 }
 
 //Probably not needed for now
 message EpochTimelineMessage{
   optional int64 epochLowerBound = 1;
   optional int64 epochUpperBound = 2;
-}
-
-message AcceptMessage{
-  int32 reservationId = 1;
-  bool didAccept = 2;
-}
-
-message ReservationMessage{
-  int32 rideId = 1;
-  string name = 2;
-  string phone = 3;
-  bool didAccept = 4;
-  //Maybe isAccepted?
 }
 
 message CreateRideMessage{
