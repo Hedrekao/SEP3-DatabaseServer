@@ -152,11 +152,17 @@ private static final long serialVersionUID = 0L;
     via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder();
 
     /**
+     * <code>int32 capacity = 6;</code>
+     * @return The capacity.
+     */
+    int getCapacity();
+
+    /**
      * <pre>
      *imo that's needed although not included in uml
      * </pre>
      *
-     * <code>int32 id = 6;</code>
+     * <code>int32 id = 7;</code>
      * @return The id.
      */
     int getId();
@@ -251,6 +257,11 @@ private static final long serialVersionUID = 0L;
               break;
             }
             case 48: {
+
+              capacity_ = input.readInt32();
+              break;
+            }
+            case 56: {
 
               id_ = input.readInt32();
               break;
@@ -378,14 +389,25 @@ private static final long serialVersionUID = 0L;
       return getDriver();
     }
 
-    public static final int ID_FIELD_NUMBER = 6;
+    public static final int CAPACITY_FIELD_NUMBER = 6;
+    private int capacity_;
+    /**
+     * <code>int32 capacity = 6;</code>
+     * @return The capacity.
+     */
+    @java.lang.Override
+    public int getCapacity() {
+      return capacity_;
+    }
+
+    public static final int ID_FIELD_NUMBER = 7;
     private int id_;
     /**
      * <pre>
      *imo that's needed although not included in uml
      * </pre>
      *
-     * <code>int32 id = 6;</code>
+     * <code>int32 id = 7;</code>
      * @return The id.
      */
     @java.lang.Override
@@ -419,8 +441,11 @@ private static final long serialVersionUID = 0L;
       if (driver_ != null) {
         output.writeMessage(5, getDriver());
       }
+      if (capacity_ != 0) {
+        output.writeInt32(6, capacity_);
+      }
       if (id_ != 0) {
-        output.writeInt32(6, id_);
+        output.writeInt32(7, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -447,9 +472,13 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getDriver());
       }
+      if (capacity_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, capacity_);
+      }
       if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, id_);
+          .computeInt32Size(7, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -483,6 +512,8 @@ private static final long serialVersionUID = 0L;
         if (!getDriver()
             .equals(other.getDriver())) return false;
       }
+      if (getCapacity()
+          != other.getCapacity()) return false;
       if (getId()
           != other.getId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -511,6 +542,8 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DRIVER_FIELD_NUMBER;
         hash = (53 * hash) + getDriver().hashCode();
       }
+      hash = (37 * hash) + CAPACITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCapacity();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -666,6 +699,8 @@ private static final long serialVersionUID = 0L;
           driver_ = null;
           driverBuilder_ = null;
         }
+        capacity_ = 0;
+
         id_ = 0;
 
         return this;
@@ -710,6 +745,7 @@ private static final long serialVersionUID = 0L;
         } else {
           result.driver_ = driverBuilder_.build();
         }
+        result.capacity_ = capacity_;
         result.id_ = id_;
         onBuilt();
         return result;
@@ -770,6 +806,9 @@ private static final long serialVersionUID = 0L;
         }
         if (other.hasDriver()) {
           mergeDriver(other.getDriver());
+        }
+        if (other.getCapacity() != 0) {
+          setCapacity(other.getCapacity());
         }
         if (other.getId() != 0) {
           setId(other.getId());
@@ -1191,13 +1230,44 @@ private static final long serialVersionUID = 0L;
         return driverBuilder_;
       }
 
+      private int capacity_ ;
+      /**
+       * <code>int32 capacity = 6;</code>
+       * @return The capacity.
+       */
+      @java.lang.Override
+      public int getCapacity() {
+        return capacity_;
+      }
+      /**
+       * <code>int32 capacity = 6;</code>
+       * @param value The capacity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCapacity(int value) {
+        
+        capacity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 capacity = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCapacity() {
+        
+        capacity_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int id_ ;
       /**
        * <pre>
        *imo that's needed although not included in uml
        * </pre>
        *
-       * <code>int32 id = 6;</code>
+       * <code>int32 id = 7;</code>
        * @return The id.
        */
       @java.lang.Override
@@ -1209,7 +1279,7 @@ private static final long serialVersionUID = 0L;
        *imo that's needed although not included in uml
        * </pre>
        *
-       * <code>int32 id = 6;</code>
+       * <code>int32 id = 7;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
@@ -1224,7 +1294,7 @@ private static final long serialVersionUID = 0L;
        *imo that's needed although not included in uml
        * </pre>
        *
-       * <code>int32 id = 6;</code>
+       * <code>int32 id = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {

@@ -5,7 +5,8 @@ option java_package= "via.sep3.databaseserver.protobuff";
 
 service Rides{
   rpc getRides(EpochTimelineMessage) returns (RidesCollection);
-  rpc joinRide(JoinRideMessage) returns (ConfirmationMessage);
+  rpc joinRide(JoinRideDto) returns (ConfirmationMessage);
+  rpc createRide(CreateRideMessage) returns (RideMessage);
 }
 
 //Probably not needed for now
@@ -14,7 +15,26 @@ message EpochTimelineMessage{
   optional int64 epochUpperBound = 2;
 }
 
+//thats what i added
 
+message CreateRideMessage{
+  LocationMessage startLocation = 1;
+  LocationMessage destination = 2;
+  int64 startDate = 3;
+  string driver = 4;
+  int32 capacity = 5;
+}
+
+message RideMessage{
+  int32 id = 1;
+  LocationMessage startLocation = 2;
+  LocationMessage destination = 3;
+  int64 startDate = 4;
+  string driver = 5;
+  int32 capacity = 6;
+}
+
+//thats it thx
 
 message RidesCollection{
   repeated RideMessage rides = 1;
@@ -23,9 +43,11 @@ message RidesCollection{
     LocationMessage endLocation = 3;
     int64 startTime = 4;
     DriverMessage driver = 5;
+    int32 capacity = 6;
+
 
     //imo that's needed although not included in uml
-    int32 id = 6;
+    int32 id = 7;
   }
 }
 
@@ -46,7 +68,7 @@ message DriverMessage{
   int32 id = 3;
 }
 
-message JoinRideMessage{
+message JoinRideDto{
   int32 rideId = 1;
   string passengerName = 2;
   string passengerPhone = 3;
@@ -55,4 +77,3 @@ message JoinRideMessage{
 message ConfirmationMessage{
   string confirmationMessage = 1;
 }
-
