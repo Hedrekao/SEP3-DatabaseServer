@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files= true;
 option java_package= "via.sep3.databaseserver.protobuff";
 
-service Rides{
+service Reservations{
   rpc acceptPassenger(AcceptMessage) returns (ReservationMessage);
   rpc getAllReservationsToAccept(NullMessage) returns (ReservationsToAcceptCollection);
 }
@@ -13,11 +13,17 @@ message AcceptMessage{
   bool didAccept = 2;
 }
 
+message BoolValue
+{
+  bool value = 1;
+}
+
 message ReservationMessage{
   int32 rideId = 1;
   string name = 2;
   string phone = 3;
-  bool didAccept = 4;
+  optional BoolValue didAccept = 4;
+  int32 id = 5;
   //Maybe isAccepted?
 }
 

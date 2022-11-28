@@ -101,9 +101,18 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                     destination.getCoordinateX(), destination.getCoordinateY());
             Driver driverTemp = null;
             Optional<Driver> optionalDriver = driverRepository.findByName(driver);
-            driverTemp = optionalDriver.orElseGet(() -> new Driver(driver, "69420", null));
+            if(optionalDriver.isEmpty())
+            {
+                driverTemp = new Driver(driver, "69420", null);
+                driverRepository.save(driverTemp);
+            }
+            else
+            {
+                driverTemp = optionalDriver.get();
+            }
 
-            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, 0, driverTemp, capacity);
+
+            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, driverTemp, capacity);
             rideRepository.save(ride);
 
             RideMessage rideMessage1 = createRideMessage(ride);

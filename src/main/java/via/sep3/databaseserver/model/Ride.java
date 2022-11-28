@@ -1,5 +1,7 @@
 package via.sep3.databaseserver.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,9 +13,11 @@ public class Ride {
     @Column(name="id")
     private int id;
     @OneToOne
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "startlocation_id",referencedColumnName = "id")
     private Location startLocation;
     @OneToOne
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @JoinColumn(name = "destination_id",referencedColumnName = "id")
     private Location destination;
     private long startTime;
@@ -21,9 +25,10 @@ public class Ride {
     @JoinColumn(name = "driver_id", referencedColumnName = "id")
     private Driver driver;
 
+    @Column(columnDefinition = "int default 5")
     private int capacity;
 
-    public Ride(Location startLocation, Location destination, long startTime, long endTime, Driver driver, int capacity) {
+    public Ride(Location startLocation, Location destination, long startTime, Driver driver, int capacity) {
         this.startLocation = startLocation;
         this.destination = destination;
         this.startTime = startTime;
