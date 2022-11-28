@@ -21,11 +21,14 @@ public class Ride {
     @JoinColumn(name = "driver_id", referencedColumnName = "id")
     private Driver driver;
 
-    public Ride(Location startLocation, Location destination, long startTime, long endTime, Driver driver) {
+    private int capacity;
+
+    public Ride(Location startLocation, Location destination, long startTime, long endTime, Driver driver, int capacity) {
         this.startLocation = startLocation;
         this.destination = destination;
         this.startTime = startTime;
         this.driver = driver;
+        this.capacity = capacity;
     }
 
     protected Ride()

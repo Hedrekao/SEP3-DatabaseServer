@@ -50,16 +50,19 @@ public interface RideMessageOrBuilder extends
   long getStartDate();
 
   /**
-   * <code>string driver = 5;</code>
+   * <code>.DriverMessage driver = 5;</code>
+   * @return Whether the driver field is set.
+   */
+  boolean hasDriver();
+  /**
+   * <code>.DriverMessage driver = 5;</code>
    * @return The driver.
    */
-  java.lang.String getDriver();
+  via.sep3.databaseserver.protobuff.DriverMessage getDriver();
   /**
-   * <code>string driver = 5;</code>
-   * @return The bytes for driver.
+   * <code>.DriverMessage driver = 5;</code>
    */
-  com.google.protobuf.ByteString
-      getDriverBytes();
+  via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder();
 
   /**
    * <code>int32 capacity = 6;</code>

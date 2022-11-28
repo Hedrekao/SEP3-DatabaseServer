@@ -8,26 +8,26 @@ public interface RidesCollectionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
-  java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> 
+  java.util.List<via.sep3.databaseserver.protobuff.RideMessage> 
       getRidesList();
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
-  via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getRides(int index);
+  via.sep3.databaseserver.protobuff.RideMessage getRides(int index);
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   int getRidesCount();
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
-  java.util.List<? extends via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder> 
+  java.util.List<? extends via.sep3.databaseserver.protobuff.RideMessageOrBuilder> 
       getRidesOrBuilderList();
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
-  via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder getRidesOrBuilder(
+  via.sep3.databaseserver.protobuff.RideMessageOrBuilder getRidesOrBuilder(
       int index);
 }

@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RideMessage() {
-    driver_ = "";
   }
 
   @java.lang.Override
@@ -86,9 +85,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+            via.sep3.databaseserver.protobuff.DriverMessage.Builder subBuilder = null;
+            if (driver_ != null) {
+              subBuilder = driver_.toBuilder();
+            }
+            driver_ = input.readMessage(via.sep3.databaseserver.protobuff.DriverMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(driver_);
+              driver_ = subBuilder.buildPartial();
+            }
 
-            driver_ = s;
             break;
           }
           case 48: {
@@ -205,41 +211,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DRIVER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object driver_;
+  private via.sep3.databaseserver.protobuff.DriverMessage driver_;
   /**
-   * <code>string driver = 5;</code>
+   * <code>.DriverMessage driver = 5;</code>
+   * @return Whether the driver field is set.
+   */
+  @java.lang.Override
+  public boolean hasDriver() {
+    return driver_ != null;
+  }
+  /**
+   * <code>.DriverMessage driver = 5;</code>
    * @return The driver.
    */
   @java.lang.Override
-  public java.lang.String getDriver() {
-    java.lang.Object ref = driver_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      driver_ = s;
-      return s;
-    }
+  public via.sep3.databaseserver.protobuff.DriverMessage getDriver() {
+    return driver_ == null ? via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
   }
   /**
-   * <code>string driver = 5;</code>
-   * @return The bytes for driver.
+   * <code>.DriverMessage driver = 5;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDriverBytes() {
-    java.lang.Object ref = driver_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      driver_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder() {
+    return getDriver();
   }
 
   public static final int CAPACITY_FIELD_NUMBER = 6;
@@ -279,8 +273,8 @@ private static final long serialVersionUID = 0L;
     if (startDate_ != 0L) {
       output.writeInt64(4, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(driver_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, driver_);
+    if (driver_ != null) {
+      output.writeMessage(5, getDriver());
     }
     if (capacity_ != 0) {
       output.writeInt32(6, capacity_);
@@ -310,8 +304,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(driver_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, driver_);
+    if (driver_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getDriver());
     }
     if (capacity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -346,8 +341,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getStartDate()
         != other.getStartDate()) return false;
-    if (!getDriver()
-        .equals(other.getDriver())) return false;
+    if (hasDriver() != other.hasDriver()) return false;
+    if (hasDriver()) {
+      if (!getDriver()
+          .equals(other.getDriver())) return false;
+    }
     if (getCapacity()
         != other.getCapacity()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -374,8 +372,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + STARTDATE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getStartDate());
-    hash = (37 * hash) + DRIVER_FIELD_NUMBER;
-    hash = (53 * hash) + getDriver().hashCode();
+    if (hasDriver()) {
+      hash = (37 * hash) + DRIVER_FIELD_NUMBER;
+      hash = (53 * hash) + getDriver().hashCode();
+    }
     hash = (37 * hash) + CAPACITY_FIELD_NUMBER;
     hash = (53 * hash) + getCapacity();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -527,8 +527,12 @@ private static final long serialVersionUID = 0L;
       }
       startDate_ = 0L;
 
-      driver_ = "";
-
+      if (driverBuilder_ == null) {
+        driver_ = null;
+      } else {
+        driver_ = null;
+        driverBuilder_ = null;
+      }
       capacity_ = 0;
 
       return this;
@@ -569,7 +573,11 @@ private static final long serialVersionUID = 0L;
         result.destination_ = destinationBuilder_.build();
       }
       result.startDate_ = startDate_;
-      result.driver_ = driver_;
+      if (driverBuilder_ == null) {
+        result.driver_ = driver_;
+      } else {
+        result.driver_ = driverBuilder_.build();
+      }
       result.capacity_ = capacity_;
       onBuilt();
       return result;
@@ -631,9 +639,8 @@ private static final long serialVersionUID = 0L;
       if (other.getStartDate() != 0L) {
         setStartDate(other.getStartDate());
       }
-      if (!other.getDriver().isEmpty()) {
-        driver_ = other.driver_;
-        onChanged();
+      if (other.hasDriver()) {
+        mergeDriver(other.getDriver());
       }
       if (other.getCapacity() != 0) {
         setCapacity(other.getCapacity());
@@ -967,80 +974,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object driver_ = "";
+    private via.sep3.databaseserver.protobuff.DriverMessage driver_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder> driverBuilder_;
     /**
-     * <code>string driver = 5;</code>
+     * <code>.DriverMessage driver = 5;</code>
+     * @return Whether the driver field is set.
+     */
+    public boolean hasDriver() {
+      return driverBuilder_ != null || driver_ != null;
+    }
+    /**
+     * <code>.DriverMessage driver = 5;</code>
      * @return The driver.
      */
-    public java.lang.String getDriver() {
-      java.lang.Object ref = driver_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        driver_ = s;
-        return s;
+    public via.sep3.databaseserver.protobuff.DriverMessage getDriver() {
+      if (driverBuilder_ == null) {
+        return driver_ == null ? via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
       } else {
-        return (java.lang.String) ref;
+        return driverBuilder_.getMessage();
       }
     }
     /**
-     * <code>string driver = 5;</code>
-     * @return The bytes for driver.
+     * <code>.DriverMessage driver = 5;</code>
      */
-    public com.google.protobuf.ByteString
-        getDriverBytes() {
-      java.lang.Object ref = driver_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        driver_ = b;
-        return b;
+    public Builder setDriver(via.sep3.databaseserver.protobuff.DriverMessage value) {
+      if (driverBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        driver_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        driverBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string driver = 5;</code>
-     * @param value The driver to set.
-     * @return This builder for chaining.
+     * <code>.DriverMessage driver = 5;</code>
      */
     public Builder setDriver(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      driver_ = value;
-      onChanged();
+        via.sep3.databaseserver.protobuff.DriverMessage.Builder builderForValue) {
+      if (driverBuilder_ == null) {
+        driver_ = builderForValue.build();
+        onChanged();
+      } else {
+        driverBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string driver = 5;</code>
-     * @return This builder for chaining.
+     * <code>.DriverMessage driver = 5;</code>
+     */
+    public Builder mergeDriver(via.sep3.databaseserver.protobuff.DriverMessage value) {
+      if (driverBuilder_ == null) {
+        if (driver_ != null) {
+          driver_ =
+            via.sep3.databaseserver.protobuff.DriverMessage.newBuilder(driver_).mergeFrom(value).buildPartial();
+        } else {
+          driver_ = value;
+        }
+        onChanged();
+      } else {
+        driverBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.DriverMessage driver = 5;</code>
      */
     public Builder clearDriver() {
-      
-      driver_ = getDefaultInstance().getDriver();
-      onChanged();
+      if (driverBuilder_ == null) {
+        driver_ = null;
+        onChanged();
+      } else {
+        driver_ = null;
+        driverBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string driver = 5;</code>
-     * @param value The bytes for driver to set.
-     * @return This builder for chaining.
+     * <code>.DriverMessage driver = 5;</code>
      */
-    public Builder setDriverBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public via.sep3.databaseserver.protobuff.DriverMessage.Builder getDriverBuilder() {
       
-      driver_ = value;
       onChanged();
-      return this;
+      return getDriverFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.DriverMessage driver = 5;</code>
+     */
+    public via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder() {
+      if (driverBuilder_ != null) {
+        return driverBuilder_.getMessageOrBuilder();
+      } else {
+        return driver_ == null ?
+            via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
+      }
+    }
+    /**
+     * <code>.DriverMessage driver = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder> 
+        getDriverFieldBuilder() {
+      if (driverBuilder_ == null) {
+        driverBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder>(
+                getDriver(),
+                getParentForChildren(),
+                isClean());
+        driver_ = null;
+      }
+      return driverBuilder_;
     }
 
     private int capacity_ ;

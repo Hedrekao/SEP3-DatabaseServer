@@ -10,6 +10,7 @@ import via.sep3.databaseserver.model.Ride;
 
 
 import via.sep3.databaseserver.protobuff.*;
+import via.sep3.databaseserver.repository.DriverRepository;
 import via.sep3.databaseserver.repository.ReservationRepository;
 import via.sep3.databaseserver.repository.RideRepository;
 
@@ -25,10 +26,13 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     private RideRepository rideRepository;
     private ReservationRepository reservationRepository;
 
-    public RidesServiceGrpcImpl(RideRepository repository, ReservationRepository reservationRepository)
+    private DriverRepository driverRepository;
+
+    public RidesServiceGrpcImpl(RideRepository repository, ReservationRepository reservationRepository, DriverRepository driverRepository)
     {
         rideRepository = repository;
         this.reservationRepository = reservationRepository;
+        this.driverRepository = driverRepository;
     }
 
 
@@ -37,36 +41,11 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     {
 //        List<Ride> rides = rideRepository.findAllByStartTimeIsBetween(request.getEpochLowerBound(), request.getEpochUpperBound());
 //    for future update!!
-        Iterable<Ride> iterable = rideRepository.findAll();
-        List<RidesCollection.RideMessage> rides = new ArrayList<>();
+        List<Ride> iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
+        List<RideMessage> rides = new ArrayList<>();
         for (Ride ride : iterable)
         {
-            Location destination = ride.getDestination();
-            Location startLocation = ride.getStartLocation();
-            Driver driver = ride.getDriver();
-            DriverMessage driverMessage = DriverMessage.newBuilder().setId(driver.getId()).setName(driver.getName()).setPhone(driver.getPhone()).build();
-            LocationMessage startLocationMessage = LocationMessage.newBuilder().
-                    setCity(startLocation.getCity()).
-                    setCountry(startLocation.getCountry()).
-                    setCoordinateX(startLocation.getCoordinateX()).
-                    setCoordinateY(startLocation.getCoordinateY()).
-                    setStreet(startLocation.getStreetName()).
-                    setZipcode(startLocation.getZipCode()).build();
-            LocationMessage destinationMessage = LocationMessage.newBuilder().
-                    setCity(destination.getCity()).
-                    setCountry(destination.getCountry()).
-                    setCoordinateX(destination.getCoordinateX()).
-                    setCoordinateY(destination.getCoordinateY()).
-                    setStreet(destination.getStreetName()).
-                    setZipcode(destination.getZipCode()).build();
-
-
-            RidesCollection.RideMessage rideMessage = RidesCollection.RideMessage.newBuilder().
-                    setStartTime(ride.getStartTime()).
-                    setDriver(driverMessage).
-                    setEndLocation(destinationMessage).
-                    setStartLocation(startLocationMessage).setId(ride.getId()).
-                    build();
+            RideMessage rideMessage = createRideMessage(ride);
             rides.add(rideMessage);
         }
         RidesCollection ridesCollection = RidesCollection.newBuilder().addAllRides(rides).build();
@@ -75,7 +54,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     }
 
     @Override
-    public void joinRide(JoinRideDto request, StreamObserver<ConfirmationMessage> responseObserver)
+    public void joinRide(JoinRideMessage request, StreamObserver<ConfirmationMessage> responseObserver)
     {
         try
         {
@@ -120,38 +99,14 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                     startLocation.getCoordinateX(), startLocation.getCoordinateY());
             Location destinationTemp = new Location(destination.getCountry(), destination.getCity(), destination.getStreet(), destination.getZipcode(),
                     destination.getCoordinateX(), destination.getCoordinateY());
-            //TODO @Hederkao fix it pls
-            Driver driverTemp = new Driver(driver, "69420", null);
+            Driver driverTemp = null;
+            Optional<Driver> optionalDriver = driverRepository.findByName(driver);
+            driverTemp = optionalDriver.orElseGet(() -> new Driver(driver, "69420", null));
 
-            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, 0, driverTemp);
+            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, 0, driverTemp, capacity);
             rideRepository.save(ride);
 
-            Location destination1 = ride.getDestination();
-            Location startLocation1 = ride.getStartLocation();
-            Driver driver1 = ride.getDriver();
-            LocationMessage startLocationMessage = LocationMessage.newBuilder().
-                    setCity(startLocation1.getCity()).
-                    setCountry(startLocation1.getCountry()).
-                    setCoordinateX(startLocation1.getCoordinateX()).
-                    setCoordinateY(startLocation1.getCoordinateY()).
-                    setStreet(startLocation1.getStreetName()).
-                    setZipcode(startLocation1.getZipCode()).build();
-            LocationMessage destinationMessage = LocationMessage.newBuilder().
-                    setCity(destination1.getCity()).
-                    setCountry(destination1.getCountry()).
-                    setCoordinateX(destination1.getCoordinateX()).
-                    setCoordinateY(destination1.getCoordinateY()).
-                    setStreet(destination1.getStreetName()).
-                    setZipcode(destination1.getZipCode()).build();
-
-
-
-            RideMessage rideMessage1 = RideMessage.newBuilder().
-                    setStartDate(ride.getStartTime()).
-                    setDriver(ride.getDriver().getName()).
-                    setDestination(destinationMessage).
-                    setStartLocation(startLocationMessage).setId(ride.getId()).
-                    build();
+            RideMessage rideMessage1 = createRideMessage(ride);
             rideMessage.onNext(rideMessage1);
             rideMessage.onCompleted();
         }
@@ -159,5 +114,37 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         {
             System.out.println(e.getMessage());
         }
+    }
+
+    private RideMessage createRideMessage(Ride ride)
+    {
+        Location destination = ride.getDestination();
+        Location startLocation = ride.getStartLocation();
+        Driver driver = ride.getDriver();
+        DriverMessage driverMessage = DriverMessage.newBuilder().setId(driver.getId()).setName(driver.getName()).setPhone(driver.getPhone()).build();
+        LocationMessage startLocationMessage = LocationMessage.newBuilder().
+                setCity(startLocation.getCity()).
+                setCountry(startLocation.getCountry()).
+                setCoordinateX(startLocation.getCoordinateX()).
+                setCoordinateY(startLocation.getCoordinateY()).
+                setStreet(startLocation.getStreetName()).
+                setZipcode(startLocation.getZipCode()).build();
+        LocationMessage destinationMessage = LocationMessage.newBuilder().
+                setCity(destination.getCity()).
+                setCountry(destination.getCountry()).
+                setCoordinateX(destination.getCoordinateX()).
+                setCoordinateY(destination.getCoordinateY()).
+                setStreet(destination.getStreetName()).
+                setZipcode(destination.getZipCode()).build();
+
+
+        RideMessage rideMessage = RideMessage.newBuilder().
+                setStartDate(ride.getStartTime()).
+                setDriver(driverMessage).
+                setDestination(destinationMessage).
+                setStartLocation(startLocationMessage).setId(ride.getId()).
+                build();
+
+        return rideMessage;
     }
 }

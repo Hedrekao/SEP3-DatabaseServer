@@ -6,4 +6,6 @@ import via.sep3.databaseserver.model.Reservation;
 
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation,Integer> {
+
 }
+

@@ -15,5 +15,7 @@ public interface RideRepository extends CrudRepository<Ride, Integer> {
     List<Ride> findAllByDestination(Location location);
     List<Ride> findAllByStartTimeIsBetween(Long startTime, Long endTime);
 
+    List<Ride> findAllByCapacityIsGreaterThan(int capacity);
+
 
 }

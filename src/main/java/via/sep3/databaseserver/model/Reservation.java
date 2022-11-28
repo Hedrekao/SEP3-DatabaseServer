@@ -17,6 +17,8 @@ public class Reservation {
     private String passengerName;
     private String passengerPhone;
 
+    private boolean isAccepted;
+
     protected Reservation()
     {
 

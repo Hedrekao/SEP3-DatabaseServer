@@ -3,8 +3,8 @@
 
 package via.sep3.databaseserver.protobuff;
 
-public interface JoinRideDtoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:JoinRideDto)
+public interface JoinRideMessageOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:JoinRideMessage)
     com.google.protobuf.MessageOrBuilder {
 
   /**
