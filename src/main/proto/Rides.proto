@@ -5,7 +5,7 @@ option java_package= "via.sep3.databaseserver.protobuff";
 
 service Rides{
   rpc getRides(EpochTimelineMessage) returns (RidesCollection);
-  rpc joinRide(JoinRideDto) returns (ConfirmationMessage);
+  rpc joinRide(JoinRideMessage) returns (ConfirmationMessage);
 }
 
 //Probably not needed for now
@@ -46,7 +46,7 @@ message DriverMessage{
   int32 id = 3;
 }
 
-message JoinRideDto{
+message JoinRideMessage{
   int32 rideId = 1;
   string passengerName = 2;
   string passengerPhone = 3;

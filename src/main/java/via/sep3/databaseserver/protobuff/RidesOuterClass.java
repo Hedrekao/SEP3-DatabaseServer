@@ -40,10 +40,10 @@ public final class RidesOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_DriverMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_JoinRideDto_descriptor;
+    internal_static_JoinRideMessage_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_JoinRideDto_fieldAccessorTable;
+      internal_static_JoinRideMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ConfirmationMessage_descriptor;
   static final 
@@ -71,14 +71,14 @@ public final class RidesOuterClass {
       "\004city\030\002 \001(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004" +
       " \001(\t\022\023\n\013coordinateX\030\005 \001(\003\022\023\n\013coordinateY" +
       "\030\006 \001(\003\"8\n\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n" +
-      "\005phone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"L\n\013JoinRideDto\022" +
-      "\016\n\006rideId\030\001 \001(\005\022\025\n\rpassengerName\030\002 \001(\t\022\026" +
-      "\n\016passengerPhone\030\003 \001(\t\"2\n\023ConfirmationMe" +
-      "ssage\022\033\n\023confirmationMessage\030\001 \001(\t2l\n\005Ri" +
-      "des\0223\n\010getRides\022\025.EpochTimelineMessage\032\020" +
-      ".RidesCollection\022.\n\010joinRide\022\014.JoinRideD" +
-      "to\032\024.ConfirmationMessageB%\n!via.sep3.dat" +
-      "abaseserver.protobuffP\001b\006proto3"
+      "\005phone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"P\n\017JoinRideMess" +
+      "age\022\016\n\006rideId\030\001 \001(\005\022\025\n\rpassengerName\030\002 \001" +
+      "(\t\022\026\n\016passengerPhone\030\003 \001(\t\"2\n\023Confirmati" +
+      "onMessage\022\033\n\023confirmationMessage\030\001 \001(\t2p" +
+      "\n\005Rides\0223\n\010getRides\022\025.EpochTimelineMessa" +
+      "ge\032\020.RidesCollection\0222\n\010joinRide\022\020.JoinR" +
+      "ideMessage\032\024.ConfirmationMessageB%\n!via." +
+      "sep3.databaseserver.protobuffP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -114,11 +114,11 @@ public final class RidesOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DriverMessage_descriptor,
         new java.lang.String[] { "Name", "Phone", "Id", });
-    internal_static_JoinRideDto_descriptor =
+    internal_static_JoinRideMessage_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_JoinRideDto_fieldAccessorTable = new
+    internal_static_JoinRideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_JoinRideDto_descriptor,
+        internal_static_JoinRideMessage_descriptor,
         new java.lang.String[] { "RideId", "PassengerName", "PassengerPhone", });
     internal_static_ConfirmationMessage_descriptor =
       getDescriptor().getMessageTypes().get(5);
