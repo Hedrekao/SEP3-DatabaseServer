@@ -139,6 +139,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
 
 
         RideMessage rideMessage = RideMessage.newBuilder().
+                setCapacity(ride.getCapacity()).
                 setStartDate(ride.getStartTime()).
                 setDriver(driverMessage).
                 setDestination(destinationMessage).
