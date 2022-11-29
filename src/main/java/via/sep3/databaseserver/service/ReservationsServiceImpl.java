@@ -41,10 +41,11 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
 
     @Override
     public void acceptPassenger(AcceptMessage request, StreamObserver<ReservationMessage> responseObserver) {
+
         int id = request.getReservationId();
         Reservation reservation = reservationRepository.findById(id).get();
 
-        reservation.setAccepted(true);
+        reservation.setAccepted(request.getDidAccept());
         reservationRepository.save(reservation);
 
         Ride ride = rideRepository.findById(reservation.getRide().getId()).get();
@@ -66,6 +67,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
                     .setDidAccept(BoolValue.newBuilder().setValue(reservation.isAccepted()).build())
                     .setRideId(reservation.getRide().getId()).
                      setId(reservation.getId()).build();
+
         }
         else
         {
