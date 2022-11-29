@@ -45,27 +45,27 @@ public final class RidesGrpc {
     return getGetRidesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideDto,
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideMessage,
       via.sep3.databaseserver.protobuff.ConfirmationMessage> getJoinRideMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "joinRide",
-      requestType = via.sep3.databaseserver.protobuff.JoinRideDto.class,
+      requestType = via.sep3.databaseserver.protobuff.JoinRideMessage.class,
       responseType = via.sep3.databaseserver.protobuff.ConfirmationMessage.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideDto,
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideMessage,
       via.sep3.databaseserver.protobuff.ConfirmationMessage> getJoinRideMethod() {
-    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideDto, via.sep3.databaseserver.protobuff.ConfirmationMessage> getJoinRideMethod;
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.JoinRideMessage, via.sep3.databaseserver.protobuff.ConfirmationMessage> getJoinRideMethod;
     if ((getJoinRideMethod = RidesGrpc.getJoinRideMethod) == null) {
       synchronized (RidesGrpc.class) {
         if ((getJoinRideMethod = RidesGrpc.getJoinRideMethod) == null) {
           RidesGrpc.getJoinRideMethod = getJoinRideMethod =
-              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.JoinRideDto, via.sep3.databaseserver.protobuff.ConfirmationMessage>newBuilder()
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.JoinRideMessage, via.sep3.databaseserver.protobuff.ConfirmationMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "joinRide"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sep3.databaseserver.protobuff.JoinRideDto.getDefaultInstance()))
+                  via.sep3.databaseserver.protobuff.JoinRideMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.ConfirmationMessage.getDefaultInstance()))
               .setSchemaDescriptor(new RidesMethodDescriptorSupplier("joinRide"))
@@ -74,6 +74,37 @@ public final class RidesGrpc {
       }
     }
     return getJoinRideMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateRideMessage,
+      via.sep3.databaseserver.protobuff.RideMessage> getCreateRideMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "createRide",
+      requestType = via.sep3.databaseserver.protobuff.CreateRideMessage.class,
+      responseType = via.sep3.databaseserver.protobuff.RideMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateRideMessage,
+      via.sep3.databaseserver.protobuff.RideMessage> getCreateRideMethod() {
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateRideMessage, via.sep3.databaseserver.protobuff.RideMessage> getCreateRideMethod;
+    if ((getCreateRideMethod = RidesGrpc.getCreateRideMethod) == null) {
+      synchronized (RidesGrpc.class) {
+        if ((getCreateRideMethod = RidesGrpc.getCreateRideMethod) == null) {
+          RidesGrpc.getCreateRideMethod = getCreateRideMethod =
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.CreateRideMessage, via.sep3.databaseserver.protobuff.RideMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createRide"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.CreateRideMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.RideMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new RidesMethodDescriptorSupplier("createRide"))
+              .build();
+        }
+      }
+    }
+    return getCreateRideMethod;
   }
 
   /**
@@ -133,9 +164,16 @@ public final class RidesGrpc {
 
     /**
      */
-    public void joinRide(via.sep3.databaseserver.protobuff.JoinRideDto request,
+    public void joinRide(via.sep3.databaseserver.protobuff.JoinRideMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getJoinRideMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void createRide(via.sep3.databaseserver.protobuff.CreateRideMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RideMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateRideMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -151,9 +189,16 @@ public final class RidesGrpc {
             getJoinRideMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                via.sep3.databaseserver.protobuff.JoinRideDto,
+                via.sep3.databaseserver.protobuff.JoinRideMessage,
                 via.sep3.databaseserver.protobuff.ConfirmationMessage>(
                   this, METHODID_JOIN_RIDE)))
+          .addMethod(
+            getCreateRideMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sep3.databaseserver.protobuff.CreateRideMessage,
+                via.sep3.databaseserver.protobuff.RideMessage>(
+                  this, METHODID_CREATE_RIDE)))
           .build();
     }
   }
@@ -182,10 +227,18 @@ public final class RidesGrpc {
 
     /**
      */
-    public void joinRide(via.sep3.databaseserver.protobuff.JoinRideDto request,
+    public void joinRide(via.sep3.databaseserver.protobuff.JoinRideMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getJoinRideMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void createRide(via.sep3.databaseserver.protobuff.CreateRideMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RideMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateRideMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -212,9 +265,16 @@ public final class RidesGrpc {
 
     /**
      */
-    public via.sep3.databaseserver.protobuff.ConfirmationMessage joinRide(via.sep3.databaseserver.protobuff.JoinRideDto request) {
+    public via.sep3.databaseserver.protobuff.ConfirmationMessage joinRide(via.sep3.databaseserver.protobuff.JoinRideMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getJoinRideMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sep3.databaseserver.protobuff.RideMessage createRide(via.sep3.databaseserver.protobuff.CreateRideMessage request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateRideMethod(), getCallOptions(), request);
     }
   }
 
@@ -243,14 +303,23 @@ public final class RidesGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.ConfirmationMessage> joinRide(
-        via.sep3.databaseserver.protobuff.JoinRideDto request) {
+        via.sep3.databaseserver.protobuff.JoinRideMessage request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getJoinRideMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.RideMessage> createRide(
+        via.sep3.databaseserver.protobuff.CreateRideMessage request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateRideMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_RIDES = 0;
   private static final int METHODID_JOIN_RIDE = 1;
+  private static final int METHODID_CREATE_RIDE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -274,8 +343,12 @@ public final class RidesGrpc {
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RidesCollection>) responseObserver);
           break;
         case METHODID_JOIN_RIDE:
-          serviceImpl.joinRide((via.sep3.databaseserver.protobuff.JoinRideDto) request,
+          serviceImpl.joinRide((via.sep3.databaseserver.protobuff.JoinRideMessage) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage>) responseObserver);
+          break;
+        case METHODID_CREATE_RIDE:
+          serviceImpl.createRide((via.sep3.databaseserver.protobuff.CreateRideMessage) request,
+              (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RideMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -340,6 +413,7 @@ public final class RidesGrpc {
               .setSchemaDescriptor(new RidesFileDescriptorSupplier())
               .addMethod(getGetRidesMethod())
               .addMethod(getJoinRideMethod())
+              .addMethod(getCreateRideMethod())
               .build();
         }
       }

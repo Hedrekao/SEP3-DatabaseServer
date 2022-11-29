@@ -1,5 +1,6 @@
 package via.sep3.databaseserver.model;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 
 @Entity
@@ -17,12 +18,15 @@ public class Reservation {
     private String passengerName;
     private String passengerPhone;
 
+    @Column(nullable=true)
+    private Boolean isAccepted;
+
     protected Reservation()
     {
 
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -34,6 +38,7 @@ public class Reservation {
         this.ride = ride;
         this.passengerName = passengerName;
         this.passengerPhone = passengerPhone;
+        isAccepted = null;
     }
 
     public Ride getRide() {
@@ -58,5 +63,13 @@ public class Reservation {
 
     public void setPassengerPhone(String passengerPhone) {
         this.passengerPhone = passengerPhone;
+    }
+
+    public Boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 }

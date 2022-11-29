@@ -52,11 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              rides_ = new java.util.ArrayList<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage>();
+              rides_ = new java.util.ArrayList<via.sep3.databaseserver.protobuff.RideMessage>();
               mutable_bitField0_ |= 0x00000001;
             }
             rides_.add(
-                input.readMessage(via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.parser(), extensionRegistry));
+                input.readMessage(via.sep3.databaseserver.protobuff.RideMessage.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -96,1232 +96,42 @@ private static final long serialVersionUID = 0L;
             via.sep3.databaseserver.protobuff.RidesCollection.class, via.sep3.databaseserver.protobuff.RidesCollection.Builder.class);
   }
 
-  public interface RideMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RidesCollection.RideMessage)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     * @return Whether the startLocation field is set.
-     */
-    boolean hasStartLocation();
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     * @return The startLocation.
-     */
-    via.sep3.databaseserver.protobuff.LocationMessage getStartLocation();
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     */
-    via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getStartLocationOrBuilder();
-
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     * @return Whether the endLocation field is set.
-     */
-    boolean hasEndLocation();
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     * @return The endLocation.
-     */
-    via.sep3.databaseserver.protobuff.LocationMessage getEndLocation();
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     */
-    via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getEndLocationOrBuilder();
-
-    /**
-     * <code>int64 startTime = 4;</code>
-     * @return The startTime.
-     */
-    long getStartTime();
-
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     * @return Whether the driver field is set.
-     */
-    boolean hasDriver();
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     * @return The driver.
-     */
-    via.sep3.databaseserver.protobuff.DriverMessage getDriver();
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     */
-    via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder();
-
-    /**
-     * <pre>
-     *imo that's needed although not included in uml
-     * </pre>
-     *
-     * <code>int32 id = 6;</code>
-     * @return The id.
-     */
-    int getId();
-  }
-  /**
-   * Protobuf type {@code RidesCollection.RideMessage}
-   */
-  public static final class RideMessage extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RidesCollection.RideMessage)
-      RideMessageOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use RideMessage.newBuilder() to construct.
-    private RideMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RideMessage() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new RideMessage();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private RideMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              via.sep3.databaseserver.protobuff.LocationMessage.Builder subBuilder = null;
-              if (startLocation_ != null) {
-                subBuilder = startLocation_.toBuilder();
-              }
-              startLocation_ = input.readMessage(via.sep3.databaseserver.protobuff.LocationMessage.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startLocation_);
-                startLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              via.sep3.databaseserver.protobuff.LocationMessage.Builder subBuilder = null;
-              if (endLocation_ != null) {
-                subBuilder = endLocation_.toBuilder();
-              }
-              endLocation_ = input.readMessage(via.sep3.databaseserver.protobuff.LocationMessage.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endLocation_);
-                endLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-
-              startTime_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              via.sep3.databaseserver.protobuff.DriverMessage.Builder subBuilder = null;
-              if (driver_ != null) {
-                subBuilder = driver_.toBuilder();
-              }
-              driver_ = input.readMessage(via.sep3.databaseserver.protobuff.DriverMessage.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(driver_);
-                driver_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 48: {
-
-              id_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_RidesCollection_RideMessage_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_RidesCollection_RideMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.class, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder.class);
-    }
-
-    public static final int STARTLOCATION_FIELD_NUMBER = 2;
-    private via.sep3.databaseserver.protobuff.LocationMessage startLocation_;
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     * @return Whether the startLocation field is set.
-     */
-    @java.lang.Override
-    public boolean hasStartLocation() {
-      return startLocation_ != null;
-    }
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     * @return The startLocation.
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.LocationMessage getStartLocation() {
-      return startLocation_ == null ? via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : startLocation_;
-    }
-    /**
-     * <code>.LocationMessage startLocation = 2;</code>
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getStartLocationOrBuilder() {
-      return getStartLocation();
-    }
-
-    public static final int ENDLOCATION_FIELD_NUMBER = 3;
-    private via.sep3.databaseserver.protobuff.LocationMessage endLocation_;
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     * @return Whether the endLocation field is set.
-     */
-    @java.lang.Override
-    public boolean hasEndLocation() {
-      return endLocation_ != null;
-    }
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     * @return The endLocation.
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.LocationMessage getEndLocation() {
-      return endLocation_ == null ? via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : endLocation_;
-    }
-    /**
-     * <code>.LocationMessage endLocation = 3;</code>
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getEndLocationOrBuilder() {
-      return getEndLocation();
-    }
-
-    public static final int STARTTIME_FIELD_NUMBER = 4;
-    private long startTime_;
-    /**
-     * <code>int64 startTime = 4;</code>
-     * @return The startTime.
-     */
-    @java.lang.Override
-    public long getStartTime() {
-      return startTime_;
-    }
-
-    public static final int DRIVER_FIELD_NUMBER = 5;
-    private via.sep3.databaseserver.protobuff.DriverMessage driver_;
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     * @return Whether the driver field is set.
-     */
-    @java.lang.Override
-    public boolean hasDriver() {
-      return driver_ != null;
-    }
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     * @return The driver.
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.DriverMessage getDriver() {
-      return driver_ == null ? via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
-    }
-    /**
-     * <code>.DriverMessage driver = 5;</code>
-     */
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder() {
-      return getDriver();
-    }
-
-    public static final int ID_FIELD_NUMBER = 6;
-    private int id_;
-    /**
-     * <pre>
-     *imo that's needed although not included in uml
-     * </pre>
-     *
-     * <code>int32 id = 6;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (startLocation_ != null) {
-        output.writeMessage(2, getStartLocation());
-      }
-      if (endLocation_ != null) {
-        output.writeMessage(3, getEndLocation());
-      }
-      if (startTime_ != 0L) {
-        output.writeInt64(4, startTime_);
-      }
-      if (driver_ != null) {
-        output.writeMessage(5, getDriver());
-      }
-      if (id_ != 0) {
-        output.writeInt32(6, id_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (startLocation_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getStartLocation());
-      }
-      if (endLocation_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getEndLocation());
-      }
-      if (startTime_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, startTime_);
-      }
-      if (driver_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getDriver());
-      }
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, id_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof via.sep3.databaseserver.protobuff.RidesCollection.RideMessage)) {
-        return super.equals(obj);
-      }
-      via.sep3.databaseserver.protobuff.RidesCollection.RideMessage other = (via.sep3.databaseserver.protobuff.RidesCollection.RideMessage) obj;
-
-      if (hasStartLocation() != other.hasStartLocation()) return false;
-      if (hasStartLocation()) {
-        if (!getStartLocation()
-            .equals(other.getStartLocation())) return false;
-      }
-      if (hasEndLocation() != other.hasEndLocation()) return false;
-      if (hasEndLocation()) {
-        if (!getEndLocation()
-            .equals(other.getEndLocation())) return false;
-      }
-      if (getStartTime()
-          != other.getStartTime()) return false;
-      if (hasDriver() != other.hasDriver()) return false;
-      if (hasDriver()) {
-        if (!getDriver()
-            .equals(other.getDriver())) return false;
-      }
-      if (getId()
-          != other.getId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasStartLocation()) {
-        hash = (37 * hash) + STARTLOCATION_FIELD_NUMBER;
-        hash = (53 * hash) + getStartLocation().hashCode();
-      }
-      if (hasEndLocation()) {
-        hash = (37 * hash) + ENDLOCATION_FIELD_NUMBER;
-        hash = (53 * hash) + getEndLocation().hashCode();
-      }
-      hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStartTime());
-      if (hasDriver()) {
-        hash = (37 * hash) + DRIVER_FIELD_NUMBER;
-        hash = (53 * hash) + getDriver().hashCode();
-      }
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(via.sep3.databaseserver.protobuff.RidesCollection.RideMessage prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code RidesCollection.RideMessage}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RidesCollection.RideMessage)
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_RidesCollection_RideMessage_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_RidesCollection_RideMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.class, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder.class);
-      }
-
-      // Construct using via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (startLocationBuilder_ == null) {
-          startLocation_ = null;
-        } else {
-          startLocation_ = null;
-          startLocationBuilder_ = null;
-        }
-        if (endLocationBuilder_ == null) {
-          endLocation_ = null;
-        } else {
-          endLocation_ = null;
-          endLocationBuilder_ = null;
-        }
-        startTime_ = 0L;
-
-        if (driverBuilder_ == null) {
-          driver_ = null;
-        } else {
-          driver_ = null;
-          driverBuilder_ = null;
-        }
-        id_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_RidesCollection_RideMessage_descriptor;
-      }
-
-      @java.lang.Override
-      public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getDefaultInstanceForType() {
-        return via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage build() {
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage buildPartial() {
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage result = new via.sep3.databaseserver.protobuff.RidesCollection.RideMessage(this);
-        if (startLocationBuilder_ == null) {
-          result.startLocation_ = startLocation_;
-        } else {
-          result.startLocation_ = startLocationBuilder_.build();
-        }
-        if (endLocationBuilder_ == null) {
-          result.endLocation_ = endLocation_;
-        } else {
-          result.endLocation_ = endLocationBuilder_.build();
-        }
-        result.startTime_ = startTime_;
-        if (driverBuilder_ == null) {
-          result.driver_ = driver_;
-        } else {
-          result.driver_ = driverBuilder_.build();
-        }
-        result.id_ = id_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof via.sep3.databaseserver.protobuff.RidesCollection.RideMessage) {
-          return mergeFrom((via.sep3.databaseserver.protobuff.RidesCollection.RideMessage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(via.sep3.databaseserver.protobuff.RidesCollection.RideMessage other) {
-        if (other == via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.getDefaultInstance()) return this;
-        if (other.hasStartLocation()) {
-          mergeStartLocation(other.getStartLocation());
-        }
-        if (other.hasEndLocation()) {
-          mergeEndLocation(other.getEndLocation());
-        }
-        if (other.getStartTime() != 0L) {
-          setStartTime(other.getStartTime());
-        }
-        if (other.hasDriver()) {
-          mergeDriver(other.getDriver());
-        }
-        if (other.getId() != 0) {
-          setId(other.getId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (via.sep3.databaseserver.protobuff.RidesCollection.RideMessage) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private via.sep3.databaseserver.protobuff.LocationMessage startLocation_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder> startLocationBuilder_;
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       * @return Whether the startLocation field is set.
-       */
-      public boolean hasStartLocation() {
-        return startLocationBuilder_ != null || startLocation_ != null;
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       * @return The startLocation.
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessage getStartLocation() {
-        if (startLocationBuilder_ == null) {
-          return startLocation_ == null ? via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : startLocation_;
-        } else {
-          return startLocationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public Builder setStartLocation(via.sep3.databaseserver.protobuff.LocationMessage value) {
-        if (startLocationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          startLocation_ = value;
-          onChanged();
-        } else {
-          startLocationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public Builder setStartLocation(
-          via.sep3.databaseserver.protobuff.LocationMessage.Builder builderForValue) {
-        if (startLocationBuilder_ == null) {
-          startLocation_ = builderForValue.build();
-          onChanged();
-        } else {
-          startLocationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public Builder mergeStartLocation(via.sep3.databaseserver.protobuff.LocationMessage value) {
-        if (startLocationBuilder_ == null) {
-          if (startLocation_ != null) {
-            startLocation_ =
-              via.sep3.databaseserver.protobuff.LocationMessage.newBuilder(startLocation_).mergeFrom(value).buildPartial();
-          } else {
-            startLocation_ = value;
-          }
-          onChanged();
-        } else {
-          startLocationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public Builder clearStartLocation() {
-        if (startLocationBuilder_ == null) {
-          startLocation_ = null;
-          onChanged();
-        } else {
-          startLocation_ = null;
-          startLocationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessage.Builder getStartLocationBuilder() {
-        
-        onChanged();
-        return getStartLocationFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getStartLocationOrBuilder() {
-        if (startLocationBuilder_ != null) {
-          return startLocationBuilder_.getMessageOrBuilder();
-        } else {
-          return startLocation_ == null ?
-              via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : startLocation_;
-        }
-      }
-      /**
-       * <code>.LocationMessage startLocation = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder> 
-          getStartLocationFieldBuilder() {
-        if (startLocationBuilder_ == null) {
-          startLocationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder>(
-                  getStartLocation(),
-                  getParentForChildren(),
-                  isClean());
-          startLocation_ = null;
-        }
-        return startLocationBuilder_;
-      }
-
-      private via.sep3.databaseserver.protobuff.LocationMessage endLocation_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder> endLocationBuilder_;
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       * @return Whether the endLocation field is set.
-       */
-      public boolean hasEndLocation() {
-        return endLocationBuilder_ != null || endLocation_ != null;
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       * @return The endLocation.
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessage getEndLocation() {
-        if (endLocationBuilder_ == null) {
-          return endLocation_ == null ? via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : endLocation_;
-        } else {
-          return endLocationBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public Builder setEndLocation(via.sep3.databaseserver.protobuff.LocationMessage value) {
-        if (endLocationBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          endLocation_ = value;
-          onChanged();
-        } else {
-          endLocationBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public Builder setEndLocation(
-          via.sep3.databaseserver.protobuff.LocationMessage.Builder builderForValue) {
-        if (endLocationBuilder_ == null) {
-          endLocation_ = builderForValue.build();
-          onChanged();
-        } else {
-          endLocationBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public Builder mergeEndLocation(via.sep3.databaseserver.protobuff.LocationMessage value) {
-        if (endLocationBuilder_ == null) {
-          if (endLocation_ != null) {
-            endLocation_ =
-              via.sep3.databaseserver.protobuff.LocationMessage.newBuilder(endLocation_).mergeFrom(value).buildPartial();
-          } else {
-            endLocation_ = value;
-          }
-          onChanged();
-        } else {
-          endLocationBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public Builder clearEndLocation() {
-        if (endLocationBuilder_ == null) {
-          endLocation_ = null;
-          onChanged();
-        } else {
-          endLocation_ = null;
-          endLocationBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessage.Builder getEndLocationBuilder() {
-        
-        onChanged();
-        return getEndLocationFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      public via.sep3.databaseserver.protobuff.LocationMessageOrBuilder getEndLocationOrBuilder() {
-        if (endLocationBuilder_ != null) {
-          return endLocationBuilder_.getMessageOrBuilder();
-        } else {
-          return endLocation_ == null ?
-              via.sep3.databaseserver.protobuff.LocationMessage.getDefaultInstance() : endLocation_;
-        }
-      }
-      /**
-       * <code>.LocationMessage endLocation = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder> 
-          getEndLocationFieldBuilder() {
-        if (endLocationBuilder_ == null) {
-          endLocationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              via.sep3.databaseserver.protobuff.LocationMessage, via.sep3.databaseserver.protobuff.LocationMessage.Builder, via.sep3.databaseserver.protobuff.LocationMessageOrBuilder>(
-                  getEndLocation(),
-                  getParentForChildren(),
-                  isClean());
-          endLocation_ = null;
-        }
-        return endLocationBuilder_;
-      }
-
-      private long startTime_ ;
-      /**
-       * <code>int64 startTime = 4;</code>
-       * @return The startTime.
-       */
-      @java.lang.Override
-      public long getStartTime() {
-        return startTime_;
-      }
-      /**
-       * <code>int64 startTime = 4;</code>
-       * @param value The startTime to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStartTime(long value) {
-        
-        startTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 startTime = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStartTime() {
-        
-        startTime_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private via.sep3.databaseserver.protobuff.DriverMessage driver_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder> driverBuilder_;
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       * @return Whether the driver field is set.
-       */
-      public boolean hasDriver() {
-        return driverBuilder_ != null || driver_ != null;
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       * @return The driver.
-       */
-      public via.sep3.databaseserver.protobuff.DriverMessage getDriver() {
-        if (driverBuilder_ == null) {
-          return driver_ == null ? via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
-        } else {
-          return driverBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public Builder setDriver(via.sep3.databaseserver.protobuff.DriverMessage value) {
-        if (driverBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          driver_ = value;
-          onChanged();
-        } else {
-          driverBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public Builder setDriver(
-          via.sep3.databaseserver.protobuff.DriverMessage.Builder builderForValue) {
-        if (driverBuilder_ == null) {
-          driver_ = builderForValue.build();
-          onChanged();
-        } else {
-          driverBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public Builder mergeDriver(via.sep3.databaseserver.protobuff.DriverMessage value) {
-        if (driverBuilder_ == null) {
-          if (driver_ != null) {
-            driver_ =
-              via.sep3.databaseserver.protobuff.DriverMessage.newBuilder(driver_).mergeFrom(value).buildPartial();
-          } else {
-            driver_ = value;
-          }
-          onChanged();
-        } else {
-          driverBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public Builder clearDriver() {
-        if (driverBuilder_ == null) {
-          driver_ = null;
-          onChanged();
-        } else {
-          driver_ = null;
-          driverBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public via.sep3.databaseserver.protobuff.DriverMessage.Builder getDriverBuilder() {
-        
-        onChanged();
-        return getDriverFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      public via.sep3.databaseserver.protobuff.DriverMessageOrBuilder getDriverOrBuilder() {
-        if (driverBuilder_ != null) {
-          return driverBuilder_.getMessageOrBuilder();
-        } else {
-          return driver_ == null ?
-              via.sep3.databaseserver.protobuff.DriverMessage.getDefaultInstance() : driver_;
-        }
-      }
-      /**
-       * <code>.DriverMessage driver = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder> 
-          getDriverFieldBuilder() {
-        if (driverBuilder_ == null) {
-          driverBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              via.sep3.databaseserver.protobuff.DriverMessage, via.sep3.databaseserver.protobuff.DriverMessage.Builder, via.sep3.databaseserver.protobuff.DriverMessageOrBuilder>(
-                  getDriver(),
-                  getParentForChildren(),
-                  isClean());
-          driver_ = null;
-        }
-        return driverBuilder_;
-      }
-
-      private int id_ ;
-      /**
-       * <pre>
-       *imo that's needed although not included in uml
-       * </pre>
-       *
-       * <code>int32 id = 6;</code>
-       * @return The id.
-       */
-      @java.lang.Override
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <pre>
-       *imo that's needed although not included in uml
-       * </pre>
-       *
-       * <code>int32 id = 6;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *imo that's needed although not included in uml
-       * </pre>
-       *
-       * <code>int32 id = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:RidesCollection.RideMessage)
-    }
-
-    // @@protoc_insertion_point(class_scope:RidesCollection.RideMessage)
-    private static final via.sep3.databaseserver.protobuff.RidesCollection.RideMessage DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.RidesCollection.RideMessage();
-    }
-
-    public static via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<RideMessage>
-        PARSER = new com.google.protobuf.AbstractParser<RideMessage>() {
-      @java.lang.Override
-      public RideMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RideMessage(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RideMessage> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RideMessage> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public static final int RIDES_FIELD_NUMBER = 1;
-  private java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> rides_;
+  private java.util.List<via.sep3.databaseserver.protobuff.RideMessage> rides_;
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> getRidesList() {
+  public java.util.List<via.sep3.databaseserver.protobuff.RideMessage> getRidesList() {
     return rides_;
   }
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder> 
+  public java.util.List<? extends via.sep3.databaseserver.protobuff.RideMessageOrBuilder> 
       getRidesOrBuilderList() {
     return rides_;
   }
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   @java.lang.Override
   public int getRidesCount() {
     return rides_.size();
   }
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   @java.lang.Override
-  public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getRides(int index) {
+  public via.sep3.databaseserver.protobuff.RideMessage getRides(int index) {
     return rides_.get(index);
   }
   /**
-   * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+   * <code>repeated .RideMessage rides = 1;</code>
    */
   @java.lang.Override
-  public via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder getRidesOrBuilder(
+  public via.sep3.databaseserver.protobuff.RideMessageOrBuilder getRidesOrBuilder(
       int index) {
     return rides_.get(index);
   }
@@ -1668,22 +478,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> rides_ =
+    private java.util.List<via.sep3.databaseserver.protobuff.RideMessage> rides_ =
       java.util.Collections.emptyList();
     private void ensureRidesIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        rides_ = new java.util.ArrayList<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage>(rides_);
+        rides_ = new java.util.ArrayList<via.sep3.databaseserver.protobuff.RideMessage>(rides_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder, via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder> ridesBuilder_;
+        via.sep3.databaseserver.protobuff.RideMessage, via.sep3.databaseserver.protobuff.RideMessage.Builder, via.sep3.databaseserver.protobuff.RideMessageOrBuilder> ridesBuilder_;
 
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> getRidesList() {
+    public java.util.List<via.sep3.databaseserver.protobuff.RideMessage> getRidesList() {
       if (ridesBuilder_ == null) {
         return java.util.Collections.unmodifiableList(rides_);
       } else {
@@ -1691,7 +501,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public int getRidesCount() {
       if (ridesBuilder_ == null) {
@@ -1701,9 +511,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage getRides(int index) {
+    public via.sep3.databaseserver.protobuff.RideMessage getRides(int index) {
       if (ridesBuilder_ == null) {
         return rides_.get(index);
       } else {
@@ -1711,10 +521,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder setRides(
-        int index, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage value) {
+        int index, via.sep3.databaseserver.protobuff.RideMessage value) {
       if (ridesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1728,10 +538,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder setRides(
-        int index, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder builderForValue) {
+        int index, via.sep3.databaseserver.protobuff.RideMessage.Builder builderForValue) {
       if (ridesBuilder_ == null) {
         ensureRidesIsMutable();
         rides_.set(index, builderForValue.build());
@@ -1742,9 +552,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public Builder addRides(via.sep3.databaseserver.protobuff.RidesCollection.RideMessage value) {
+    public Builder addRides(via.sep3.databaseserver.protobuff.RideMessage value) {
       if (ridesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1758,10 +568,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder addRides(
-        int index, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage value) {
+        int index, via.sep3.databaseserver.protobuff.RideMessage value) {
       if (ridesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1775,10 +585,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder addRides(
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder builderForValue) {
+        via.sep3.databaseserver.protobuff.RideMessage.Builder builderForValue) {
       if (ridesBuilder_ == null) {
         ensureRidesIsMutable();
         rides_.add(builderForValue.build());
@@ -1789,10 +599,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder addRides(
-        int index, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder builderForValue) {
+        int index, via.sep3.databaseserver.protobuff.RideMessage.Builder builderForValue) {
       if (ridesBuilder_ == null) {
         ensureRidesIsMutable();
         rides_.add(index, builderForValue.build());
@@ -1803,10 +613,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder addAllRides(
-        java.lang.Iterable<? extends via.sep3.databaseserver.protobuff.RidesCollection.RideMessage> values) {
+        java.lang.Iterable<? extends via.sep3.databaseserver.protobuff.RideMessage> values) {
       if (ridesBuilder_ == null) {
         ensureRidesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1818,7 +628,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder clearRides() {
       if (ridesBuilder_ == null) {
@@ -1831,7 +641,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
     public Builder removeRides(int index) {
       if (ridesBuilder_ == null) {
@@ -1844,16 +654,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder getRidesBuilder(
+    public via.sep3.databaseserver.protobuff.RideMessage.Builder getRidesBuilder(
         int index) {
       return getRidesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder getRidesOrBuilder(
+    public via.sep3.databaseserver.protobuff.RideMessageOrBuilder getRidesOrBuilder(
         int index) {
       if (ridesBuilder_ == null) {
         return rides_.get(index);  } else {
@@ -1861,9 +671,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public java.util.List<? extends via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder> 
+    public java.util.List<? extends via.sep3.databaseserver.protobuff.RideMessageOrBuilder> 
          getRidesOrBuilderList() {
       if (ridesBuilder_ != null) {
         return ridesBuilder_.getMessageOrBuilderList();
@@ -1872,33 +682,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder addRidesBuilder() {
+    public via.sep3.databaseserver.protobuff.RideMessage.Builder addRidesBuilder() {
       return getRidesFieldBuilder().addBuilder(
-          via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.getDefaultInstance());
+          via.sep3.databaseserver.protobuff.RideMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder addRidesBuilder(
+    public via.sep3.databaseserver.protobuff.RideMessage.Builder addRidesBuilder(
         int index) {
       return getRidesFieldBuilder().addBuilder(
-          index, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.getDefaultInstance());
+          index, via.sep3.databaseserver.protobuff.RideMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .RidesCollection.RideMessage rides = 1;</code>
+     * <code>repeated .RideMessage rides = 1;</code>
      */
-    public java.util.List<via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder> 
+    public java.util.List<via.sep3.databaseserver.protobuff.RideMessage.Builder> 
          getRidesBuilderList() {
       return getRidesFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        via.sep3.databaseserver.protobuff.RidesCollection.RideMessage, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder, via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder> 
+        via.sep3.databaseserver.protobuff.RideMessage, via.sep3.databaseserver.protobuff.RideMessage.Builder, via.sep3.databaseserver.protobuff.RideMessageOrBuilder> 
         getRidesFieldBuilder() {
       if (ridesBuilder_ == null) {
         ridesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            via.sep3.databaseserver.protobuff.RidesCollection.RideMessage, via.sep3.databaseserver.protobuff.RidesCollection.RideMessage.Builder, via.sep3.databaseserver.protobuff.RidesCollection.RideMessageOrBuilder>(
+            via.sep3.databaseserver.protobuff.RideMessage, via.sep3.databaseserver.protobuff.RideMessage.Builder, via.sep3.databaseserver.protobuff.RideMessageOrBuilder>(
                 rides_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
