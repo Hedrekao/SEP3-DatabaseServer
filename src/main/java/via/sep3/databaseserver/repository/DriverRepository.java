@@ -16,5 +16,13 @@ public interface DriverRepository extends CrudRepository<Driver, Integer> {
     @Query("select d from Driver d where d.name = ?1")
     Optional<Driver> findByName(String name);
 
+    //kuba's mocks please change tom
+    Optional<Driver> saveAccount(Driver driver);
+    Optional<Driver> findByEmailPassword(String email, String password);
+
+    Optional<Driver> findDriverById(int id);
+
+
+
 
 }
