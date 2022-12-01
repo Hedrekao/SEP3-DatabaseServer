@@ -14,6 +14,14 @@ public class Driver {
     private int id;
     private String name;
 
+    private int phone;
+
+    private int licenseNo;
+
+    private String email;
+
+    private String password;
+
     public int getId() {
         return id;
     }
@@ -22,13 +30,45 @@ public class Driver {
         this.id = id;
     }
 
-    private String phone;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "driver")
     private List<Ride> rides;
 
-    public Driver(String name, String phone, List<Ride> rides) {
+    public Driver(String name, int phone, List<Ride> rides, int licenseNo, String email, String password) {
         this.name = name;
         this.phone = phone;
+        this.rides = rides;
+        this.licenseNo = licenseNo;
+        this.email = email;
+        this.password = password;
+    }
+
+
+
+    public int getLicenseNo() {
+        return licenseNo;
+    }
+
+    public void setLicenseNo(int licenseNo) {
+        this.licenseNo = licenseNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRides(List<Ride> rides) {
         this.rides = rides;
     }
 
@@ -45,11 +85,11 @@ public class Driver {
         this.name = name;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 

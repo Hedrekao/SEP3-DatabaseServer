@@ -27,16 +27,13 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
         try{
             Driver driver = new Driver(
                     request.getName(),
-                    Integer.toString(request.getPhoneNumber()),
-                    //wrong type accoring to uml ^ tbchanged in model probably idk
-                    new ArrayList<>()
-                    //
-                    //request.getLicenseNo(),
-                    //request.getEmail(),
-                    //request.getPassword()
-                    //uncomment above after implemented in model
+                   request.getPhoneNumber(),
+                    new ArrayList<>(),
+                    request.getLicenseNo(),
+                    request.getEmail(),
+                    request.getPassword()
             );
-            driverRepository.saveAccount(driver);
+            driverRepository.save(driver);
             UserMessage userMessage1 = UserMessage.newBuilder()
                     .setName(request.getName())
                     .setPhoneNumber(request.getPhoneNumber())
@@ -54,7 +51,7 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     @Override
     public void login(LoginMessage request, StreamObserver<BoolMessage> boolMessage) {
         try{
-            Optional<Driver> optionalDriver = driverRepository.findByEmailPassword(request.getEmail(), request.getPassword());
+            Optional<Driver> optionalDriver = driverRepository.findByEmailAndPassword(request.getEmail(), request.getPassword());
             if(optionalDriver.isPresent()){
                 Driver driver = optionalDriver.get();
                 BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setDriverId(driver.getId()).setStatus(true).build();
@@ -62,7 +59,8 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
                 boolMessage.onCompleted();
             }
             else {
-                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setStatus(false).build();
+                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setStatus(false).setDriverId(-1).build();
+
                 //I'm not setting the driver id in that case idk if correct tomasz check pls
                 boolMessage.onNext(boolMessage1);
                 boolMessage.onCompleted();
@@ -81,8 +79,8 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
                 Driver driver = optionalDriver.get();
                 UserMessage userMessage1 = via.sep3.databaseserver.protobuff.UserMessage.newBuilder()
                         .setName(driver.getName())
-//                        .setPhoneNumber(driver.getPhone())
-//                        .setEmail(driver.getEmail)
+                        .setPhoneNumber(driver.getPhone())
+                        .setEmail(driver.getEmail())
                         .build();
                 userMessage.onNext(userMessage1);
                 userMessage.onCompleted();
