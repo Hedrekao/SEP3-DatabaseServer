@@ -44,16 +44,10 @@ public interface CreateRideMessageOrBuilder extends
   long getStartDate();
 
   /**
-   * <code>string driver = 4;</code>
-   * @return The driver.
+   * <code>int32 driverId = 4;</code>
+   * @return The driverId.
    */
-  java.lang.String getDriver();
-  /**
-   * <code>string driver = 4;</code>
-   * @return The bytes for driver.
-   */
-  com.google.protobuf.ByteString
-      getDriverBytes();
+  int getDriverId();
 
   /**
    * <code>int32 capacity = 5;</code>

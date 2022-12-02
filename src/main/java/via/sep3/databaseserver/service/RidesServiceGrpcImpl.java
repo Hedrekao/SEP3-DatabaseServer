@@ -92,7 +92,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
             LocationMessage startLocation = createRideMessage.getStartLocation();
             LocationMessage destination = createRideMessage.getDestination();
             long startDate = createRideMessage.getStartDate();
-            String driver = createRideMessage.getDriver();
+            int driverId = createRideMessage.getDriverId();
             int capacity = createRideMessage.getCapacity();
 
             Location startLocationTemp = new Location(startLocation.getCountry(), startLocation.getCity(), startLocation.getStreet(), startLocation.getZipcode(),
@@ -100,7 +100,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
             Location destinationTemp = new Location(destination.getCountry(), destination.getCity(), destination.getStreet(), destination.getZipcode(),
                     destination.getCoordinateX(), destination.getCoordinateY());
             Driver driverTemp = null;
-            Optional<Driver> optionalDriver = driverRepository.findByName(driver);
+            Optional<Driver> optionalDriver = driverRepository.findById(driverId);
 
             driverTemp = optionalDriver.get();
 

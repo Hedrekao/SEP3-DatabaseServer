@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateRideMessage() {
-    driver_ = "";
   }
 
   @java.lang.Override
@@ -80,10 +79,9 @@ private static final long serialVersionUID = 0L;
             startDate_ = input.readInt64();
             break;
           }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 32: {
 
-            driver_ = s;
+            driverId_ = input.readInt32();
             break;
           }
           case 40: {
@@ -188,42 +186,15 @@ private static final long serialVersionUID = 0L;
     return startDate_;
   }
 
-  public static final int DRIVER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object driver_;
+  public static final int DRIVERID_FIELD_NUMBER = 4;
+  private int driverId_;
   /**
-   * <code>string driver = 4;</code>
-   * @return The driver.
+   * <code>int32 driverId = 4;</code>
+   * @return The driverId.
    */
   @java.lang.Override
-  public java.lang.String getDriver() {
-    java.lang.Object ref = driver_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      driver_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string driver = 4;</code>
-   * @return The bytes for driver.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDriverBytes() {
-    java.lang.Object ref = driver_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      driver_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getDriverId() {
+    return driverId_;
   }
 
   public static final int CAPACITY_FIELD_NUMBER = 5;
@@ -260,8 +231,8 @@ private static final long serialVersionUID = 0L;
     if (startDate_ != 0L) {
       output.writeInt64(3, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(driver_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, driver_);
+    if (driverId_ != 0) {
+      output.writeInt32(4, driverId_);
     }
     if (capacity_ != 0) {
       output.writeInt32(5, capacity_);
@@ -287,8 +258,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(driver_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, driver_);
+    if (driverId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, driverId_);
     }
     if (capacity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -321,8 +293,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getStartDate()
         != other.getStartDate()) return false;
-    if (!getDriver()
-        .equals(other.getDriver())) return false;
+    if (getDriverId()
+        != other.getDriverId()) return false;
     if (getCapacity()
         != other.getCapacity()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -347,8 +319,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + STARTDATE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getStartDate());
-    hash = (37 * hash) + DRIVER_FIELD_NUMBER;
-    hash = (53 * hash) + getDriver().hashCode();
+    hash = (37 * hash) + DRIVERID_FIELD_NUMBER;
+    hash = (53 * hash) + getDriverId();
     hash = (37 * hash) + CAPACITY_FIELD_NUMBER;
     hash = (53 * hash) + getCapacity();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -498,7 +470,7 @@ private static final long serialVersionUID = 0L;
       }
       startDate_ = 0L;
 
-      driver_ = "";
+      driverId_ = 0;
 
       capacity_ = 0;
 
@@ -539,7 +511,7 @@ private static final long serialVersionUID = 0L;
         result.destination_ = destinationBuilder_.build();
       }
       result.startDate_ = startDate_;
-      result.driver_ = driver_;
+      result.driverId_ = driverId_;
       result.capacity_ = capacity_;
       onBuilt();
       return result;
@@ -598,9 +570,8 @@ private static final long serialVersionUID = 0L;
       if (other.getStartDate() != 0L) {
         setStartDate(other.getStartDate());
       }
-      if (!other.getDriver().isEmpty()) {
-        driver_ = other.driver_;
-        onChanged();
+      if (other.getDriverId() != 0) {
+        setDriverId(other.getDriverId());
       }
       if (other.getCapacity() != 0) {
         setCapacity(other.getCapacity());
@@ -903,78 +874,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object driver_ = "";
+    private int driverId_ ;
     /**
-     * <code>string driver = 4;</code>
-     * @return The driver.
+     * <code>int32 driverId = 4;</code>
+     * @return The driverId.
      */
-    public java.lang.String getDriver() {
-      java.lang.Object ref = driver_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        driver_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getDriverId() {
+      return driverId_;
     }
     /**
-     * <code>string driver = 4;</code>
-     * @return The bytes for driver.
-     */
-    public com.google.protobuf.ByteString
-        getDriverBytes() {
-      java.lang.Object ref = driver_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        driver_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string driver = 4;</code>
-     * @param value The driver to set.
+     * <code>int32 driverId = 4;</code>
+     * @param value The driverId to set.
      * @return This builder for chaining.
      */
-    public Builder setDriver(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      driver_ = value;
+    public Builder setDriverId(int value) {
+      
+      driverId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string driver = 4;</code>
+     * <code>int32 driverId = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDriver() {
+    public Builder clearDriverId() {
       
-      driver_ = getDefaultInstance().getDriver();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string driver = 4;</code>
-     * @param value The bytes for driver to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDriverBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      driver_ = value;
+      driverId_ = 0;
       onChanged();
       return this;
     }

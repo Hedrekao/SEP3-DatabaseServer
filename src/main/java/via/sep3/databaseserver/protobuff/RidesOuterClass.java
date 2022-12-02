@@ -66,30 +66,30 @@ public final class RidesOuterClass {
       "\n\013Rides.proto\"z\n\024EpochTimelineMessage\022\034\n" +
       "\017epochLowerBound\030\001 \001(\003H\000\210\001\001\022\034\n\017epochUppe" +
       "rBound\030\002 \001(\003H\001\210\001\001B\022\n\020_epochLowerBoundB\022\n" +
-      "\020_epochUpperBound\"\230\001\n\021CreateRideMessage\022" +
+      "\020_epochUpperBound\"\232\001\n\021CreateRideMessage\022" +
       "\'\n\rstartLocation\030\001 \001(\0132\020.LocationMessage" +
       "\022%\n\013destination\030\002 \001(\0132\020.LocationMessage\022" +
-      "\021\n\tstartDate\030\003 \001(\003\022\016\n\006driver\030\004 \001(\t\022\020\n\010ca" +
-      "pacity\030\005 \001(\005\"\256\001\n\013RideMessage\022\n\n\002id\030\001 \001(\005" +
-      "\022\'\n\rstartLocation\030\002 \001(\0132\020.LocationMessag" +
-      "e\022%\n\013destination\030\003 \001(\0132\020.LocationMessage" +
-      "\022\021\n\tstartDate\030\004 \001(\003\022\036\n\006driver\030\005 \001(\0132\016.Dr" +
-      "iverMessage\022\020\n\010capacity\030\006 \001(\005\".\n\017RidesCo" +
-      "llection\022\033\n\005rides\030\001 \003(\0132\014.RideMessage\"{\n" +
-      "\017LocationMessage\022\017\n\007country\030\001 \001(\t\022\014\n\004cit" +
-      "y\030\002 \001(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001(\t" +
-      "\022\023\n\013coordinateX\030\005 \001(\003\022\023\n\013coordinateY\030\006 \001" +
-      "(\003\"8\n\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005pho" +
-      "ne\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"P\n\017JoinRideMessage\022" +
-      "\016\n\006rideId\030\001 \001(\005\022\025\n\rpassengerName\030\002 \001(\t\022\026" +
-      "\n\016passengerPhone\030\003 \001(\t\"2\n\023ConfirmationMe" +
-      "ssage\022\033\n\023confirmationMessage\030\001 \001(\t2\240\001\n\005R" +
-      "ides\0223\n\010getRides\022\025.EpochTimelineMessage\032" +
-      "\020.RidesCollection\0222\n\010joinRide\022\020.JoinRide" +
-      "Message\032\024.ConfirmationMessage\022.\n\ncreateR" +
-      "ide\022\022.CreateRideMessage\032\014.RideMessageB%\n" +
-      "!via.sep3.databaseserver.protobuffP\001b\006pr" +
-      "oto3"
+      "\021\n\tstartDate\030\003 \001(\003\022\020\n\010driverId\030\004 \001(\005\022\020\n\010" +
+      "capacity\030\005 \001(\005\"\256\001\n\013RideMessage\022\n\n\002id\030\001 \001" +
+      "(\005\022\'\n\rstartLocation\030\002 \001(\0132\020.LocationMess" +
+      "age\022%\n\013destination\030\003 \001(\0132\020.LocationMessa" +
+      "ge\022\021\n\tstartDate\030\004 \001(\003\022\036\n\006driver\030\005 \001(\0132\016." +
+      "DriverMessage\022\020\n\010capacity\030\006 \001(\005\".\n\017Rides" +
+      "Collection\022\033\n\005rides\030\001 \003(\0132\014.RideMessage\"" +
+      "{\n\017LocationMessage\022\017\n\007country\030\001 \001(\t\022\014\n\004c" +
+      "ity\030\002 \001(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001" +
+      "(\t\022\023\n\013coordinateX\030\005 \001(\003\022\023\n\013coordinateY\030\006" +
+      " \001(\003\"8\n\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005p" +
+      "hone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"P\n\017JoinRideMessag" +
+      "e\022\016\n\006rideId\030\001 \001(\005\022\025\n\rpassengerName\030\002 \001(\t" +
+      "\022\026\n\016passengerPhone\030\003 \001(\t\"2\n\023Confirmation" +
+      "Message\022\033\n\023confirmationMessage\030\001 \001(\t2\240\001\n" +
+      "\005Rides\0223\n\010getRides\022\025.EpochTimelineMessag" +
+      "e\032\020.RidesCollection\0222\n\010joinRide\022\020.JoinRi" +
+      "deMessage\032\024.ConfirmationMessage\022.\n\ncreat" +
+      "eRide\022\022.CreateRideMessage\032\014.RideMessageB" +
+      "%\n!via.sep3.databaseserver.protobuffP\001b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -106,7 +106,7 @@ public final class RidesOuterClass {
     internal_static_CreateRideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRideMessage_descriptor,
-        new java.lang.String[] { "StartLocation", "Destination", "StartDate", "Driver", "Capacity", });
+        new java.lang.String[] { "StartLocation", "Destination", "StartDate", "DriverId", "Capacity", });
     internal_static_RideMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_RideMessage_fieldAccessorTable = new
