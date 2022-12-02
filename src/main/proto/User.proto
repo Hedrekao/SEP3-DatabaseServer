@@ -6,6 +6,11 @@ option java_package= "via.sep3.databaseserver.protobuff";
 service User{
   rpc createAccount(CreateAccountMessage) returns (UserMessage);
   rpc login(LoginMessage) returns (BoolMessage);
+  rpc getDriver(GetDriverMessage) returns (UserMessage);
+
+  rpc createAccountPassenger(CreateAccountMessagePassenger) returns (UserMessage);
+  rpc getPassenger(GetPassengerMessage) returns(UserMessage);
+  //Maybe for passenger we could use createAccountMessage as well but just add ? after licenseNo ?
 }
 
 message CreateAccountMessage{
@@ -14,6 +19,13 @@ message CreateAccountMessage{
   int32 phoneNumber = 3;
   string email = 4;
   string password = 5;
+}
+
+message CreateAccountMessagePassenger{
+  string name = 1;
+  int32 phoneNumber = 2;
+  string email = 3;
+  string password = 4;
 }
 
 message UserMessage{
@@ -30,4 +42,13 @@ message LoginMessage{
 
 message BoolMessage{
   bool status = 1;
+  int32 driverId = 2;
+}
+
+message GetDriverMessage{
+  int32 driverId = 1;
+}
+
+message GetPassengerMessage{
+  int32 passengerId = 1;
 }
