@@ -76,27 +76,27 @@ public final class UserGrpc {
     return getLoginMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.GetDriverMessage,
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.DriverMessageId,
       via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getDriver",
-      requestType = via.sep3.databaseserver.protobuff.GetDriverMessage.class,
+      requestType = via.sep3.databaseserver.protobuff.DriverMessageId.class,
       responseType = via.sep3.databaseserver.protobuff.UserMessage.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.GetDriverMessage,
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.DriverMessageId,
       via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod() {
-    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.GetDriverMessage, via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod;
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.DriverMessageId, via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod;
     if ((getGetDriverMethod = UserGrpc.getGetDriverMethod) == null) {
       synchronized (UserGrpc.class) {
         if ((getGetDriverMethod = UserGrpc.getGetDriverMethod) == null) {
           UserGrpc.getGetDriverMethod = getGetDriverMethod =
-              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.GetDriverMessage, via.sep3.databaseserver.protobuff.UserMessage>newBuilder()
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.DriverMessageId, via.sep3.databaseserver.protobuff.UserMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getDriver"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sep3.databaseserver.protobuff.GetDriverMessage.getDefaultInstance()))
+                  via.sep3.databaseserver.protobuff.DriverMessageId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.UserMessage.getDefaultInstance()))
               .setSchemaDescriptor(new UserMethodDescriptorSupplier("getDriver"))
@@ -105,6 +105,37 @@ public final class UserGrpc {
       }
     }
     return getGetDriverMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LicenseMessage,
+      via.sep3.databaseserver.protobuff.StatusMessage> getUpdateLicenseMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "updateLicense",
+      requestType = via.sep3.databaseserver.protobuff.LicenseMessage.class,
+      responseType = via.sep3.databaseserver.protobuff.StatusMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LicenseMessage,
+      via.sep3.databaseserver.protobuff.StatusMessage> getUpdateLicenseMethod() {
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LicenseMessage, via.sep3.databaseserver.protobuff.StatusMessage> getUpdateLicenseMethod;
+    if ((getUpdateLicenseMethod = UserGrpc.getUpdateLicenseMethod) == null) {
+      synchronized (UserGrpc.class) {
+        if ((getUpdateLicenseMethod = UserGrpc.getUpdateLicenseMethod) == null) {
+          UserGrpc.getUpdateLicenseMethod = getUpdateLicenseMethod =
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.LicenseMessage, via.sep3.databaseserver.protobuff.StatusMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateLicense"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.LicenseMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.StatusMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserMethodDescriptorSupplier("updateLicense"))
+              .build();
+        }
+      }
+    }
+    return getUpdateLicenseMethod;
   }
 
   /**
@@ -171,9 +202,16 @@ public final class UserGrpc {
 
     /**
      */
-    public void getDriver(via.sep3.databaseserver.protobuff.GetDriverMessage request,
+    public void getDriver(via.sep3.databaseserver.protobuff.DriverMessageId request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.UserMessage> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetDriverMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateLicense(via.sep3.databaseserver.protobuff.LicenseMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.StatusMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateLicenseMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -196,9 +234,16 @@ public final class UserGrpc {
             getGetDriverMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                via.sep3.databaseserver.protobuff.GetDriverMessage,
+                via.sep3.databaseserver.protobuff.DriverMessageId,
                 via.sep3.databaseserver.protobuff.UserMessage>(
                   this, METHODID_GET_DRIVER)))
+          .addMethod(
+            getUpdateLicenseMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sep3.databaseserver.protobuff.LicenseMessage,
+                via.sep3.databaseserver.protobuff.StatusMessage>(
+                  this, METHODID_UPDATE_LICENSE)))
           .build();
     }
   }
@@ -235,10 +280,18 @@ public final class UserGrpc {
 
     /**
      */
-    public void getDriver(via.sep3.databaseserver.protobuff.GetDriverMessage request,
+    public void getDriver(via.sep3.databaseserver.protobuff.DriverMessageId request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.UserMessage> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetDriverMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateLicense(via.sep3.databaseserver.protobuff.LicenseMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.StatusMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateLicenseMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -272,9 +325,16 @@ public final class UserGrpc {
 
     /**
      */
-    public via.sep3.databaseserver.protobuff.UserMessage getDriver(via.sep3.databaseserver.protobuff.GetDriverMessage request) {
+    public via.sep3.databaseserver.protobuff.UserMessage getDriver(via.sep3.databaseserver.protobuff.DriverMessageId request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetDriverMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sep3.databaseserver.protobuff.StatusMessage updateLicense(via.sep3.databaseserver.protobuff.LicenseMessage request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateLicenseMethod(), getCallOptions(), request);
     }
   }
 
@@ -311,15 +371,24 @@ public final class UserGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.UserMessage> getDriver(
-        via.sep3.databaseserver.protobuff.GetDriverMessage request) {
+        via.sep3.databaseserver.protobuff.DriverMessageId request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetDriverMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.StatusMessage> updateLicense(
+        via.sep3.databaseserver.protobuff.LicenseMessage request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateLicenseMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_CREATE_ACCOUNT = 0;
   private static final int METHODID_LOGIN = 1;
   private static final int METHODID_GET_DRIVER = 2;
+  private static final int METHODID_UPDATE_LICENSE = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -347,8 +416,12 @@ public final class UserGrpc {
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.BoolMessage>) responseObserver);
           break;
         case METHODID_GET_DRIVER:
-          serviceImpl.getDriver((via.sep3.databaseserver.protobuff.GetDriverMessage) request,
+          serviceImpl.getDriver((via.sep3.databaseserver.protobuff.DriverMessageId) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.UserMessage>) responseObserver);
+          break;
+        case METHODID_UPDATE_LICENSE:
+          serviceImpl.updateLicense((via.sep3.databaseserver.protobuff.LicenseMessage) request,
+              (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.StatusMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -414,6 +487,7 @@ public final class UserGrpc {
               .addMethod(getCreateAccountMethod())
               .addMethod(getLoginMethod())
               .addMethod(getGetDriverMethod())
+              .addMethod(getUpdateLicenseMethod())
               .build();
         }
       }

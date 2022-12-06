@@ -4,29 +4,25 @@
 package via.sep3.databaseserver.protobuff;
 
 /**
- * <pre>
- *it's not used but for some reason I can't build the project without it :(
- * </pre>
- *
- * Protobuf type {@code GetDriverMessage}
+ * Protobuf type {@code StatusMessage}
  */
-public final class GetDriverMessage extends
+public final class StatusMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:GetDriverMessage)
-    GetDriverMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:StatusMessage)
+    StatusMessageOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetDriverMessage.newBuilder() to construct.
-  private GetDriverMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use StatusMessage.newBuilder() to construct.
+  private StatusMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetDriverMessage() {
+  private StatusMessage() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GetDriverMessage();
+    return new StatusMessage();
   }
 
   @java.lang.Override
@@ -34,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetDriverMessage(
+  private StatusMessage(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,6 +48,11 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 8: {
+
+            status_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -75,15 +76,26 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_StatusMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_fieldAccessorTable
+    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_StatusMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            via.sep3.databaseserver.protobuff.GetDriverMessage.class, via.sep3.databaseserver.protobuff.GetDriverMessage.Builder.class);
+            via.sep3.databaseserver.protobuff.StatusMessage.class, via.sep3.databaseserver.protobuff.StatusMessage.Builder.class);
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 1;
+  private boolean status_;
+  /**
+   * <code>bool status = 1;</code>
+   * @return The status.
+   */
+  @java.lang.Override
+  public boolean getStatus() {
+    return status_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,6 +112,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (status_ != false) {
+      output.writeBool(1, status_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -109,6 +124,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (status_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(1, status_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -119,11 +138,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof via.sep3.databaseserver.protobuff.GetDriverMessage)) {
+    if (!(obj instanceof via.sep3.databaseserver.protobuff.StatusMessage)) {
       return super.equals(obj);
     }
-    via.sep3.databaseserver.protobuff.GetDriverMessage other = (via.sep3.databaseserver.protobuff.GetDriverMessage) obj;
+    via.sep3.databaseserver.protobuff.StatusMessage other = (via.sep3.databaseserver.protobuff.StatusMessage) obj;
 
+    if (getStatus()
+        != other.getStatus()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -135,74 +156,77 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getStatus());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(byte[] data)
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseDelimitedFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseDelimitedFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.StatusMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -215,7 +239,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(via.sep3.databaseserver.protobuff.GetDriverMessage prototype) {
+  public static Builder newBuilder(via.sep3.databaseserver.protobuff.StatusMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -231,30 +255,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   *it's not used but for some reason I can't build the project without it :(
-   * </pre>
-   *
-   * Protobuf type {@code GetDriverMessage}
+   * Protobuf type {@code StatusMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:GetDriverMessage)
-      via.sep3.databaseserver.protobuff.GetDriverMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:StatusMessage)
+      via.sep3.databaseserver.protobuff.StatusMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_StatusMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_fieldAccessorTable
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_StatusMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              via.sep3.databaseserver.protobuff.GetDriverMessage.class, via.sep3.databaseserver.protobuff.GetDriverMessage.Builder.class);
+              via.sep3.databaseserver.protobuff.StatusMessage.class, via.sep3.databaseserver.protobuff.StatusMessage.Builder.class);
     }
 
-    // Construct using via.sep3.databaseserver.protobuff.GetDriverMessage.newBuilder()
+    // Construct using via.sep3.databaseserver.protobuff.StatusMessage.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -272,23 +292,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      status_ = false;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_StatusMessage_descriptor;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstanceForType() {
-      return via.sep3.databaseserver.protobuff.GetDriverMessage.getDefaultInstance();
+    public via.sep3.databaseserver.protobuff.StatusMessage getDefaultInstanceForType() {
+      return via.sep3.databaseserver.protobuff.StatusMessage.getDefaultInstance();
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage build() {
-      via.sep3.databaseserver.protobuff.GetDriverMessage result = buildPartial();
+    public via.sep3.databaseserver.protobuff.StatusMessage build() {
+      via.sep3.databaseserver.protobuff.StatusMessage result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -296,8 +318,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage buildPartial() {
-      via.sep3.databaseserver.protobuff.GetDriverMessage result = new via.sep3.databaseserver.protobuff.GetDriverMessage(this);
+    public via.sep3.databaseserver.protobuff.StatusMessage buildPartial() {
+      via.sep3.databaseserver.protobuff.StatusMessage result = new via.sep3.databaseserver.protobuff.StatusMessage(this);
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -336,16 +359,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof via.sep3.databaseserver.protobuff.GetDriverMessage) {
-        return mergeFrom((via.sep3.databaseserver.protobuff.GetDriverMessage)other);
+      if (other instanceof via.sep3.databaseserver.protobuff.StatusMessage) {
+        return mergeFrom((via.sep3.databaseserver.protobuff.StatusMessage)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(via.sep3.databaseserver.protobuff.GetDriverMessage other) {
-      if (other == via.sep3.databaseserver.protobuff.GetDriverMessage.getDefaultInstance()) return this;
+    public Builder mergeFrom(via.sep3.databaseserver.protobuff.StatusMessage other) {
+      if (other == via.sep3.databaseserver.protobuff.StatusMessage.getDefaultInstance()) return this;
+      if (other.getStatus() != false) {
+        setStatus(other.getStatus());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -361,17 +387,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      via.sep3.databaseserver.protobuff.GetDriverMessage parsedMessage = null;
+      via.sep3.databaseserver.protobuff.StatusMessage parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (via.sep3.databaseserver.protobuff.GetDriverMessage) e.getUnfinishedMessage();
+        parsedMessage = (via.sep3.databaseserver.protobuff.StatusMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private boolean status_ ;
+    /**
+     * <code>bool status = 1;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public boolean getStatus() {
+      return status_;
+    }
+    /**
+     * <code>bool status = 1;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(boolean value) {
+      
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool status = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = false;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -387,41 +444,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:GetDriverMessage)
+    // @@protoc_insertion_point(builder_scope:StatusMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:GetDriverMessage)
-  private static final via.sep3.databaseserver.protobuff.GetDriverMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:StatusMessage)
+  private static final via.sep3.databaseserver.protobuff.StatusMessage DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.GetDriverMessage();
+    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.StatusMessage();
   }
 
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstance() {
+  public static via.sep3.databaseserver.protobuff.StatusMessage getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetDriverMessage>
-      PARSER = new com.google.protobuf.AbstractParser<GetDriverMessage>() {
+  private static final com.google.protobuf.Parser<StatusMessage>
+      PARSER = new com.google.protobuf.AbstractParser<StatusMessage>() {
     @java.lang.Override
-    public GetDriverMessage parsePartialFrom(
+    public StatusMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetDriverMessage(input, extensionRegistry);
+      return new StatusMessage(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetDriverMessage> parser() {
+  public static com.google.protobuf.Parser<StatusMessage> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GetDriverMessage> getParserForType() {
+  public com.google.protobuf.Parser<StatusMessage> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstanceForType() {
+  public via.sep3.databaseserver.protobuff.StatusMessage getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

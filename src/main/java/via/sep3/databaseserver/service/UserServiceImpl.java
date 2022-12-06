@@ -3,6 +3,7 @@ package via.sep3.databaseserver.service;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import via.sep3.databaseserver.model.Driver;
+import via.sep3.databaseserver.model.Reservation;
 import via.sep3.databaseserver.protobuff.*;
 import via.sep3.databaseserver.repository.DriverRepository;
 import via.sep3.databaseserver.repository.ReservationRepository;
@@ -72,7 +73,7 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     }
 
     @Override
-    public void getDriver(GetDriverMessage request, StreamObserver<UserMessage> userMessage) {
+    public void getDriver(DriverMessageId request, StreamObserver<UserMessage> userMessage) {
         try{
             Optional<Driver> optionalDriver = driverRepository.findById(request.getDriverId());
             if(optionalDriver.isPresent()){
@@ -91,6 +92,24 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
         }
         catch (Exception e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateLicense(LicenseMessage request, StreamObserver<StatusMessage> responseObserver) {
+        Driver driver = driverRepository.findById(request.getDriverId()).get();
+        if(driver != null){
+            driver.setLicenseNo(request.getLicenseNo());
+            driverRepository.save(driver);
+
+            StatusMessage statusMessage1 = StatusMessage.newBuilder().setStatus(true).build();
+            responseObserver.onNext(statusMessage1);
+            responseObserver.onCompleted();
+        }
+        else{
+            StatusMessage statusMessage1 = StatusMessage.newBuilder().setStatus(false).build();
+            responseObserver.onNext(statusMessage1);
+            responseObserver.onCompleted();
         }
     }
 }

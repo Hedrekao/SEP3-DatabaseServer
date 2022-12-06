@@ -6,10 +6,4 @@ package via.sep3.databaseserver.protobuff;
 public interface GetDriverMessageOrBuilder extends
     // @@protoc_insertion_point(interface_extends:GetDriverMessage)
     com.google.protobuf.MessageOrBuilder {
-
-  /**
-   * <code>int32 driverId = 1;</code>
-   * @return The driverId.
-   */
-  int getDriverId();
 }

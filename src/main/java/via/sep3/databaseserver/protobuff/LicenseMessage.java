@@ -4,29 +4,25 @@
 package via.sep3.databaseserver.protobuff;
 
 /**
- * <pre>
- *it's not used but for some reason I can't build the project without it :(
- * </pre>
- *
- * Protobuf type {@code GetDriverMessage}
+ * Protobuf type {@code LicenseMessage}
  */
-public final class GetDriverMessage extends
+public final class LicenseMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:GetDriverMessage)
-    GetDriverMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:LicenseMessage)
+    LicenseMessageOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetDriverMessage.newBuilder() to construct.
-  private GetDriverMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use LicenseMessage.newBuilder() to construct.
+  private LicenseMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetDriverMessage() {
+  private LicenseMessage() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GetDriverMessage();
+    return new LicenseMessage();
   }
 
   @java.lang.Override
@@ -34,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetDriverMessage(
+  private LicenseMessage(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,6 +48,16 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 8: {
+
+            licenseNo_ = input.readInt32();
+            break;
+          }
+          case 16: {
+
+            driverId_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -75,15 +81,37 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_LicenseMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_fieldAccessorTable
+    return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_LicenseMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            via.sep3.databaseserver.protobuff.GetDriverMessage.class, via.sep3.databaseserver.protobuff.GetDriverMessage.Builder.class);
+            via.sep3.databaseserver.protobuff.LicenseMessage.class, via.sep3.databaseserver.protobuff.LicenseMessage.Builder.class);
+  }
+
+  public static final int LICENSENO_FIELD_NUMBER = 1;
+  private int licenseNo_;
+  /**
+   * <code>int32 licenseNo = 1;</code>
+   * @return The licenseNo.
+   */
+  @java.lang.Override
+  public int getLicenseNo() {
+    return licenseNo_;
+  }
+
+  public static final int DRIVERID_FIELD_NUMBER = 2;
+  private int driverId_;
+  /**
+   * <code>int32 driverId = 2;</code>
+   * @return The driverId.
+   */
+  @java.lang.Override
+  public int getDriverId() {
+    return driverId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,6 +128,12 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (licenseNo_ != 0) {
+      output.writeInt32(1, licenseNo_);
+    }
+    if (driverId_ != 0) {
+      output.writeInt32(2, driverId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -109,6 +143,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (licenseNo_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, licenseNo_);
+    }
+    if (driverId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, driverId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -119,11 +161,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof via.sep3.databaseserver.protobuff.GetDriverMessage)) {
+    if (!(obj instanceof via.sep3.databaseserver.protobuff.LicenseMessage)) {
       return super.equals(obj);
     }
-    via.sep3.databaseserver.protobuff.GetDriverMessage other = (via.sep3.databaseserver.protobuff.GetDriverMessage) obj;
+    via.sep3.databaseserver.protobuff.LicenseMessage other = (via.sep3.databaseserver.protobuff.LicenseMessage) obj;
 
+    if (getLicenseNo()
+        != other.getLicenseNo()) return false;
+    if (getDriverId()
+        != other.getDriverId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -135,74 +181,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + LICENSENO_FIELD_NUMBER;
+    hash = (53 * hash) + getLicenseNo();
+    hash = (37 * hash) + DRIVERID_FIELD_NUMBER;
+    hash = (53 * hash) + getDriverId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(byte[] data)
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseDelimitedFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseDelimitedFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.LicenseMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -215,7 +265,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(via.sep3.databaseserver.protobuff.GetDriverMessage prototype) {
+  public static Builder newBuilder(via.sep3.databaseserver.protobuff.LicenseMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -231,30 +281,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   *it's not used but for some reason I can't build the project without it :(
-   * </pre>
-   *
-   * Protobuf type {@code GetDriverMessage}
+   * Protobuf type {@code LicenseMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:GetDriverMessage)
-      via.sep3.databaseserver.protobuff.GetDriverMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:LicenseMessage)
+      via.sep3.databaseserver.protobuff.LicenseMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_LicenseMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_fieldAccessorTable
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_LicenseMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              via.sep3.databaseserver.protobuff.GetDriverMessage.class, via.sep3.databaseserver.protobuff.GetDriverMessage.Builder.class);
+              via.sep3.databaseserver.protobuff.LicenseMessage.class, via.sep3.databaseserver.protobuff.LicenseMessage.Builder.class);
     }
 
-    // Construct using via.sep3.databaseserver.protobuff.GetDriverMessage.newBuilder()
+    // Construct using via.sep3.databaseserver.protobuff.LicenseMessage.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -272,23 +318,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      licenseNo_ = 0;
+
+      driverId_ = 0;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_GetDriverMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.UserOuterClass.internal_static_LicenseMessage_descriptor;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstanceForType() {
-      return via.sep3.databaseserver.protobuff.GetDriverMessage.getDefaultInstance();
+    public via.sep3.databaseserver.protobuff.LicenseMessage getDefaultInstanceForType() {
+      return via.sep3.databaseserver.protobuff.LicenseMessage.getDefaultInstance();
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage build() {
-      via.sep3.databaseserver.protobuff.GetDriverMessage result = buildPartial();
+    public via.sep3.databaseserver.protobuff.LicenseMessage build() {
+      via.sep3.databaseserver.protobuff.LicenseMessage result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -296,8 +346,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.GetDriverMessage buildPartial() {
-      via.sep3.databaseserver.protobuff.GetDriverMessage result = new via.sep3.databaseserver.protobuff.GetDriverMessage(this);
+    public via.sep3.databaseserver.protobuff.LicenseMessage buildPartial() {
+      via.sep3.databaseserver.protobuff.LicenseMessage result = new via.sep3.databaseserver.protobuff.LicenseMessage(this);
+      result.licenseNo_ = licenseNo_;
+      result.driverId_ = driverId_;
       onBuilt();
       return result;
     }
@@ -336,16 +388,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof via.sep3.databaseserver.protobuff.GetDriverMessage) {
-        return mergeFrom((via.sep3.databaseserver.protobuff.GetDriverMessage)other);
+      if (other instanceof via.sep3.databaseserver.protobuff.LicenseMessage) {
+        return mergeFrom((via.sep3.databaseserver.protobuff.LicenseMessage)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(via.sep3.databaseserver.protobuff.GetDriverMessage other) {
-      if (other == via.sep3.databaseserver.protobuff.GetDriverMessage.getDefaultInstance()) return this;
+    public Builder mergeFrom(via.sep3.databaseserver.protobuff.LicenseMessage other) {
+      if (other == via.sep3.databaseserver.protobuff.LicenseMessage.getDefaultInstance()) return this;
+      if (other.getLicenseNo() != 0) {
+        setLicenseNo(other.getLicenseNo());
+      }
+      if (other.getDriverId() != 0) {
+        setDriverId(other.getDriverId());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -361,17 +419,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      via.sep3.databaseserver.protobuff.GetDriverMessage parsedMessage = null;
+      via.sep3.databaseserver.protobuff.LicenseMessage parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (via.sep3.databaseserver.protobuff.GetDriverMessage) e.getUnfinishedMessage();
+        parsedMessage = (via.sep3.databaseserver.protobuff.LicenseMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private int licenseNo_ ;
+    /**
+     * <code>int32 licenseNo = 1;</code>
+     * @return The licenseNo.
+     */
+    @java.lang.Override
+    public int getLicenseNo() {
+      return licenseNo_;
+    }
+    /**
+     * <code>int32 licenseNo = 1;</code>
+     * @param value The licenseNo to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLicenseNo(int value) {
+      
+      licenseNo_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 licenseNo = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLicenseNo() {
+      
+      licenseNo_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int driverId_ ;
+    /**
+     * <code>int32 driverId = 2;</code>
+     * @return The driverId.
+     */
+    @java.lang.Override
+    public int getDriverId() {
+      return driverId_;
+    }
+    /**
+     * <code>int32 driverId = 2;</code>
+     * @param value The driverId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDriverId(int value) {
+      
+      driverId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 driverId = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDriverId() {
+      
+      driverId_ = 0;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -387,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:GetDriverMessage)
+    // @@protoc_insertion_point(builder_scope:LicenseMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:GetDriverMessage)
-  private static final via.sep3.databaseserver.protobuff.GetDriverMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:LicenseMessage)
+  private static final via.sep3.databaseserver.protobuff.LicenseMessage DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.GetDriverMessage();
+    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.LicenseMessage();
   }
 
-  public static via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstance() {
+  public static via.sep3.databaseserver.protobuff.LicenseMessage getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetDriverMessage>
-      PARSER = new com.google.protobuf.AbstractParser<GetDriverMessage>() {
+  private static final com.google.protobuf.Parser<LicenseMessage>
+      PARSER = new com.google.protobuf.AbstractParser<LicenseMessage>() {
     @java.lang.Override
-    public GetDriverMessage parsePartialFrom(
+    public LicenseMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetDriverMessage(input, extensionRegistry);
+      return new LicenseMessage(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetDriverMessage> parser() {
+  public static com.google.protobuf.Parser<LicenseMessage> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GetDriverMessage> getParserForType() {
+  public com.google.protobuf.Parser<LicenseMessage> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public via.sep3.databaseserver.protobuff.GetDriverMessage getDefaultInstanceForType() {
+  public via.sep3.databaseserver.protobuff.LicenseMessage getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
