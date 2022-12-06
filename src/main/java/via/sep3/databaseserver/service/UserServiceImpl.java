@@ -30,6 +30,9 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
                     request.getName(),
                    request.getPhoneNumber(),
                     new ArrayList<>(),
+                    //this line might throw an exception when creating a user without licenseNo
+                    //we probably need to wrap driver object creation in if statement,
+                    // check if it's null and use different constructors a'ight? tried to do that but couldn't check if licenseNo == null
                     request.getLicenseNo(),
                     request.getEmail(),
                     request.getPassword()

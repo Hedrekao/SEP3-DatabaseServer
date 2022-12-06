@@ -42,6 +42,14 @@ public class Driver {
         this.password = password;
     }
 
+    public Driver(String name, int phone, List<Ride> rides, String email, String password) {
+        this.name = name;
+        this.phone = phone;
+        this.rides = rides;
+        this.email = email;
+        this.password = password;
+    }
+
 
 
     public int getLicenseNo() {
