@@ -49,6 +49,3 @@ message DriverMessageId{
 }
 
 //it's not used but for some reason I can't build the project without it :(
-message GetDriverMessage{
-
-}

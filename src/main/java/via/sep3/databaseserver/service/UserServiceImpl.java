@@ -2,12 +2,9 @@ package via.sep3.databaseserver.service;
 
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
-<<<<<<< HEAD
+
 import via.sep3.databaseserver.model.User;
-=======
-import via.sep3.databaseserver.model.Driver;
-import via.sep3.databaseserver.model.Reservation;
->>>>>>> 3380355895f89e37f68f33331609ad4a3a72448d
+
 import via.sep3.databaseserver.protobuff.*;
 import via.sep3.databaseserver.repository.UserRepository;
 
@@ -99,10 +96,11 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
 
     @Override
     public void updateLicense(LicenseMessage request, StreamObserver<StatusMessage> responseObserver) {
-        Driver driver = driverRepository.findById(request.getDriverId()).get();
-        if(driver != null){
+        Optional<User> driverOptional = userRepository.findById(request.getDriverId());
+        if(driverOptional.isPresent()){
+            User driver = driverOptional.get();
             driver.setLicenseNo(request.getLicenseNo());
-            driverRepository.save(driver);
+            userRepository.save(driver);
 
             StatusMessage statusMessage1 = StatusMessage.newBuilder().setStatus(true).build();
             responseObserver.onNext(statusMessage1);
