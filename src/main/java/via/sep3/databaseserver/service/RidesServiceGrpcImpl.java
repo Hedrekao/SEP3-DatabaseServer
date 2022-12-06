@@ -37,9 +37,9 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     @Override
     public void getRides(EpochTimelineMessage request, StreamObserver<RidesCollection> responseObserver)
     {
-//        List<Ride> rides = rideRepository.findAllByStartTimeIsBetween(request.getEpochLowerBound(), request.getEpochUpperBound());
-//    for future update!!
-        List<Ride> iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
+        List<Ride> iterable = rideRepository.findAllByStartTimeIsBetween(request.getEpochLowerBound(), request.getEpochUpperBound());
+
+//        List<Ride> iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
         List<RideMessage> rides = new ArrayList<>();
         for (Ride ride : iterable)
         {
