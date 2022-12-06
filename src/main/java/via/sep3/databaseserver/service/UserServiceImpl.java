@@ -3,6 +3,7 @@ package via.sep3.databaseserver.service;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
+import via.sep3.databaseserver.model.Ride;
 import via.sep3.databaseserver.model.User;
 
 import via.sep3.databaseserver.protobuff.*;
@@ -25,14 +26,28 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     @Override
     public void createAccount(CreateAccountMessage request,  StreamObserver<UserMessage> userMessage){
         try{
-            User user = new User(
-                    request.getName(),
-                   request.getPhoneNumber(),
-                    new ArrayList<>(),
-                    request.getLicenseNo(),
-                    request.getEmail(),
-                    request.getPassword()
-            );
+            User user;
+            if(request.hasLicenseNo())
+            {
+                user = new User(
+                        request.getName(),
+                        request.getPhoneNumber(),
+                        new ArrayList<>(),
+                        request.getLicenseNo(),
+                        request.getEmail(),
+                        request.getPassword()
+                );
+            }
+            else {
+                user = new User(
+                        request.getName(),
+                        request.getPhoneNumber(),
+                        new ArrayList<>(),
+                        request.getEmail(),
+                        request.getPassword()
+                );
+            }
+
             userRepository.save(user);
             UserMessage userMessage1 = UserMessage.newBuilder()
                     .setName(request.getName())
