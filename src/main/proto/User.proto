@@ -21,7 +21,7 @@ message StatusMessage{
 
 message CreateAccountMessage{
   string name = 1;
-  int32 licenseNo = 2;
+  optional int32 licenseNo = 2;
   int32 phoneNumber = 3;
   string email = 4;
   string password = 5;
