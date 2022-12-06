@@ -15,8 +15,9 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "ride_id", referencedColumnName = "id")
     private Ride ride;
-    private String passengerName;
-    private String passengerPhone;
+    @ManyToOne
+    @JoinColumn(name = "passenger_id", referencedColumnName = "id")
+    private User user;
 
     @Column(nullable=true)
     private Boolean isAccepted;
@@ -34,10 +35,9 @@ public class Reservation {
         this.id = id;
     }
 
-    public Reservation(Ride ride, String passengerName, String passengerPhone) {
+    public Reservation(Ride ride, User user) {
         this.ride = ride;
-        this.passengerName = passengerName;
-        this.passengerPhone = passengerPhone;
+        this.user = user;
         isAccepted = null;
     }
 
@@ -49,20 +49,12 @@ public class Reservation {
         this.ride = ride;
     }
 
-    public String getPassengerName() {
-        return passengerName;
+    public User getUser() {
+        return user;
     }
 
-    public void setPassengerName(String passengerName) {
-        this.passengerName = passengerName;
-    }
-
-    public String getPassengerPhone() {
-        return passengerPhone;
-    }
-
-    public void setPassengerPhone(String passengerPhone) {
-        this.passengerPhone = passengerPhone;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Boolean isAccepted() {

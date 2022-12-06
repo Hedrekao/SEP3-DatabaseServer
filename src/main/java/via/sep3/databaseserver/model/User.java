@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="drivers")
-public class Driver {
+@Table(name="users")
+public class User {
 
     @Id
     @SequenceGenerator(name="seq-gen",sequenceName="MY_SEQ_GEN",initialValue=205, allocationSize=12)
@@ -16,7 +16,8 @@ public class Driver {
 
     private int phone;
 
-    private int licenseNo;
+    @Column(nullable=true)
+    private Integer licenseNo;
 
     private String email;
 
@@ -30,14 +31,23 @@ public class Driver {
         this.id = id;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "driver")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<Ride> rides;
 
-    public Driver(String name, int phone, List<Ride> rides, int licenseNo, String email, String password) {
+    public User(String name, int phone, List<Ride> rides, int licenseNo, String email, String password) {
         this.name = name;
         this.phone = phone;
         this.rides = rides;
         this.licenseNo = licenseNo;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, int phone, List<Ride> rides,  String email, String password) {
+        this.name = name;
+        this.phone = phone;
+        this.rides = rides;
+        this.licenseNo = null;
         this.email = email;
         this.password = password;
     }
@@ -72,7 +82,7 @@ public class Driver {
         this.rides = rides;
     }
 
-    protected Driver()
+    protected User()
     {
 
     }

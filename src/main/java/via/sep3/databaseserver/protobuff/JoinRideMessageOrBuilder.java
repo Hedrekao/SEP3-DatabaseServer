@@ -14,26 +14,8 @@ public interface JoinRideMessageOrBuilder extends
   int getRideId();
 
   /**
-   * <code>string passengerName = 2;</code>
-   * @return The passengerName.
+   * <code>int32 passengerId = 2;</code>
+   * @return The passengerId.
    */
-  java.lang.String getPassengerName();
-  /**
-   * <code>string passengerName = 2;</code>
-   * @return The bytes for passengerName.
-   */
-  com.google.protobuf.ByteString
-      getPassengerNameBytes();
-
-  /**
-   * <code>string passengerPhone = 3;</code>
-   * @return The passengerPhone.
-   */
-  java.lang.String getPassengerPhone();
-  /**
-   * <code>string passengerPhone = 3;</code>
-   * @return The bytes for passengerPhone.
-   */
-  com.google.protobuf.ByteString
-      getPassengerPhoneBytes();
+  int getPassengerId();
 }

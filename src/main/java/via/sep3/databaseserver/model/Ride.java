@@ -23,16 +23,16 @@ public class Ride {
     private long startTime;
     @ManyToOne
     @JoinColumn(name = "driver_id", referencedColumnName = "id")
-    private Driver driver;
+    private User user;
 
     @Column(columnDefinition = "int default 5")
     private int capacity;
 
-    public Ride(Location startLocation, Location destination, long startTime, Driver driver, int capacity) {
+    public Ride(Location startLocation, Location destination, long startTime, User user, int capacity) {
         this.startLocation = startLocation;
         this.destination = destination;
         this.startTime = startTime;
-        this.driver = driver;
+        this.user = user;
         this.capacity = capacity;
     }
 
@@ -73,12 +73,12 @@ public class Ride {
         this.id = id;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public User getDriver() {
+        return user;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setDriver(User user) {
+        this.user = user;
     }
 
     public int getCapacity() {

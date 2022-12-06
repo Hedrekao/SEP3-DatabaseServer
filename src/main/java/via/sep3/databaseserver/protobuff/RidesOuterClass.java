@@ -80,16 +80,15 @@ public final class RidesOuterClass {
       "ity\030\002 \001(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001" +
       "(\t\022\023\n\013coordinateX\030\005 \001(\003\022\023\n\013coordinateY\030\006" +
       " \001(\003\"8\n\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005p" +
-      "hone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"P\n\017JoinRideMessag" +
-      "e\022\016\n\006rideId\030\001 \001(\005\022\025\n\rpassengerName\030\002 \001(\t" +
-      "\022\026\n\016passengerPhone\030\003 \001(\t\"2\n\023Confirmation" +
-      "Message\022\033\n\023confirmationMessage\030\001 \001(\t2\240\001\n" +
-      "\005Rides\0223\n\010getRides\022\025.EpochTimelineMessag" +
-      "e\032\020.RidesCollection\0222\n\010joinRide\022\020.JoinRi" +
-      "deMessage\032\024.ConfirmationMessage\022.\n\ncreat" +
-      "eRide\022\022.CreateRideMessage\032\014.RideMessageB" +
-      "%\n!via.sep3.databaseserver.protobuffP\001b\006" +
-      "proto3"
+      "hone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"6\n\017JoinRideMessag" +
+      "e\022\016\n\006rideId\030\001 \001(\005\022\023\n\013passengerId\030\002 \001(\005\"2" +
+      "\n\023ConfirmationMessage\022\033\n\023confirmationMes" +
+      "sage\030\001 \001(\t2\240\001\n\005Rides\0223\n\010getRides\022\025.Epoch" +
+      "TimelineMessage\032\020.RidesCollection\0222\n\010joi" +
+      "nRide\022\020.JoinRideMessage\032\024.ConfirmationMe" +
+      "ssage\022.\n\ncreateRide\022\022.CreateRideMessage\032" +
+      "\014.RideMessageB%\n!via.sep3.databaseserver" +
+      ".protobuffP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -136,7 +135,7 @@ public final class RidesOuterClass {
     internal_static_JoinRideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRideMessage_descriptor,
-        new java.lang.String[] { "RideId", "PassengerName", "PassengerPhone", });
+        new java.lang.String[] { "RideId", "PassengerId", });
     internal_static_ConfirmationMessage_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_ConfirmationMessage_fieldAccessorTable = new

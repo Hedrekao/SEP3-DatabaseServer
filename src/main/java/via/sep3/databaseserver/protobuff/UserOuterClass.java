@@ -15,6 +15,16 @@ public final class UserOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LicenseMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LicenseMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_NullMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_NullMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CreateAccountMessage_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -35,10 +45,10 @@ public final class UserOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_BoolMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetDriverMessage_descriptor;
+    internal_static_DriverMessageId_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetDriverMessage_fieldAccessorTable;
+      internal_static_DriverMessageId_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -48,53 +58,68 @@ public final class UserOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nUser.proto\"m\n\024CreateAccountMessage\022\014\n\004" +
-      "name\030\001 \001(\t\022\021\n\tlicenseNo\030\002 \001(\005\022\023\n\013phoneNu" +
-      "mber\030\003 \001(\005\022\r\n\005email\030\004 \001(\t\022\020\n\010password\030\005 " +
-      "\001(\t\"?\n\013UserMessage\022\014\n\004name\030\001 \001(\t\022\023\n\013phon" +
-      "eNumber\030\002 \001(\005\022\r\n\005email\030\003 \001(\t\"/\n\014LoginMes" +
-      "sage\022\r\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"/\n" +
-      "\013BoolMessage\022\016\n\006status\030\001 \001(\010\022\020\n\010driverId" +
-      "\030\002 \001(\005\"$\n\020GetDriverMessage\022\020\n\010driverId\030\001" +
-      " \001(\0052\220\001\n\004User\0224\n\rcreateAccount\022\025.CreateA" +
-      "ccountMessage\032\014.UserMessage\022$\n\005login\022\r.L" +
-      "oginMessage\032\014.BoolMessage\022,\n\tgetDriver\022\021" +
-      ".GetDriverMessage\032\014.UserMessageB%\n!via.s" +
-      "ep3.databaseserver.protobuffP\001b\006proto3"
+      "\n\nUser.proto\"#\n\016LicenseMessage\022\021\n\tlicens" +
+      "eNo\030\001 \001(\005\"\r\n\013NullMessage\"m\n\024CreateAccoun" +
+      "tMessage\022\014\n\004name\030\001 \001(\t\022\021\n\tlicenseNo\030\002 \001(" +
+      "\005\022\023\n\013phoneNumber\030\003 \001(\005\022\r\n\005email\030\004 \001(\t\022\020\n" +
+      "\010password\030\005 \001(\t\"?\n\013UserMessage\022\014\n\004name\030\001" +
+      " \001(\t\022\023\n\013phoneNumber\030\002 \001(\005\022\r\n\005email\030\003 \001(\t" +
+      "\"/\n\014LoginMessage\022\r\n\005email\030\001 \001(\t\022\020\n\010passw" +
+      "ord\030\002 \001(\t\"/\n\013BoolMessage\022\016\n\006status\030\001 \001(\010" +
+      "\022\020\n\010driverId\030\002 \001(\005\"#\n\017DriverMessageId\022\020\n" +
+      "\010driverId\030\001 \001(\0052\277\001\n\004User\0224\n\rcreateAccoun" +
+      "t\022\025.CreateAccountMessage\032\014.UserMessage\022$" +
+      "\n\005login\022\r.LoginMessage\032\014.BoolMessage\022+\n\t" +
+      "getDriver\022\020.DriverMessageId\032\014.UserMessag" +
+      "e\022.\n\rupdateLicense\022\017.LicenseMessage\032\014.Nu" +
+      "llMessageB%\n!via.sep3.databaseserver.pro" +
+      "tobuffP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_CreateAccountMessage_descriptor =
+    internal_static_LicenseMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_LicenseMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LicenseMessage_descriptor,
+        new java.lang.String[] { "LicenseNo", });
+    internal_static_NullMessage_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_NullMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_NullMessage_descriptor,
+        new java.lang.String[] { });
+    internal_static_CreateAccountMessage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_CreateAccountMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateAccountMessage_descriptor,
         new java.lang.String[] { "Name", "LicenseNo", "PhoneNumber", "Email", "Password", });
     internal_static_UserMessage_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_UserMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserMessage_descriptor,
         new java.lang.String[] { "Name", "PhoneNumber", "Email", });
     internal_static_LoginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_LoginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginMessage_descriptor,
         new java.lang.String[] { "Email", "Password", });
     internal_static_BoolMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_BoolMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_BoolMessage_descriptor,
         new java.lang.String[] { "Status", "DriverId", });
-    internal_static_GetDriverMessage_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_GetDriverMessage_fieldAccessorTable = new
+    internal_static_DriverMessageId_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_DriverMessageId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetDriverMessage_descriptor,
+        internal_static_DriverMessageId_descriptor,
         new java.lang.String[] { "DriverId", });
   }
 

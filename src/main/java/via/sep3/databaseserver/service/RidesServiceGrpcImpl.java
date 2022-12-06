@@ -2,19 +2,17 @@ package via.sep3.databaseserver.service;
 
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
-import org.springframework.stereotype.Service;
-import via.sep3.databaseserver.model.Driver;
+import via.sep3.databaseserver.model.User;
 import via.sep3.databaseserver.model.Location;
 import via.sep3.databaseserver.model.Reservation;
 import via.sep3.databaseserver.model.Ride;
 
 
 import via.sep3.databaseserver.protobuff.*;
-import via.sep3.databaseserver.repository.DriverRepository;
+import via.sep3.databaseserver.repository.UserRepository;
 import via.sep3.databaseserver.repository.ReservationRepository;
 import via.sep3.databaseserver.repository.RideRepository;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,13 +24,13 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     private RideRepository rideRepository;
     private ReservationRepository reservationRepository;
 
-    private DriverRepository driverRepository;
+    private UserRepository userRepository;
 
-    public RidesServiceGrpcImpl(RideRepository repository, ReservationRepository reservationRepository, DriverRepository driverRepository)
+    public RidesServiceGrpcImpl(RideRepository repository, ReservationRepository reservationRepository, UserRepository userRepository)
     {
         rideRepository = repository;
         this.reservationRepository = reservationRepository;
-        this.driverRepository = driverRepository;
+        this.userRepository = userRepository;
     }
 
 
@@ -59,13 +57,13 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         try
         {
             int rideId = request.getRideId();
-            String passengerName = request.getPassengerName();
-            String passengerPhone = request.getPassengerPhone();
+            int passengerId = request.getPassengerId();
+            Optional<User> userOptional = userRepository.findById(passengerId);
             Optional<Ride> rideOptional = rideRepository.findById(rideId);
-            if (rideOptional.isPresent())
+            if (rideOptional.isPresent() && userOptional.isPresent())
             {
                 Ride ride = rideOptional.get();
-                Reservation reservation = new Reservation(ride, passengerName, passengerPhone);
+                Reservation reservation = new Reservation(ride, userOptional.get());
                 reservationRepository.save(reservation);
                 ConfirmationMessage confirmation = ConfirmationMessage.newBuilder().setConfirmationMessage("Reservation was saved into database").build();
                 responseObserver.onNext(confirmation);
@@ -99,14 +97,14 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                     startLocation.getCoordinateX(), startLocation.getCoordinateY());
             Location destinationTemp = new Location(destination.getCountry(), destination.getCity(), destination.getStreet(), destination.getZipcode(),
                     destination.getCoordinateX(), destination.getCoordinateY());
-            Driver driverTemp = null;
-            Optional<Driver> optionalDriver = driverRepository.findById(driverId);
+            User userTemp = null;
+            Optional<User> optionalDriver = userRepository.findById(driverId);
 
-            driverTemp = optionalDriver.get();
+            userTemp = optionalDriver.get();
 
 
 
-            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, driverTemp, capacity);
+            Ride ride = new Ride(startLocationTemp, destinationTemp, startDate, userTemp, capacity);
             rideRepository.save(ride);
 
             RideMessage rideMessage1 = createRideMessage(ride);
@@ -123,8 +121,8 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     {
         Location destination = ride.getDestination();
         Location startLocation = ride.getStartLocation();
-        Driver driver = ride.getDriver();
-        DriverMessage driverMessage = DriverMessage.newBuilder().setId(driver.getId()).setName(driver.getName()).setPhone(driver.getPhone() + "").build();
+        User user = ride.getDriver();
+        DriverMessage driverMessage = DriverMessage.newBuilder().setId(user.getId()).setName(user.getName()).setPhone(user.getPhone() + "").build();
         LocationMessage startLocationMessage = LocationMessage.newBuilder().
                 setCity(startLocation.getCity()).
                 setCountry(startLocation.getCountry()).

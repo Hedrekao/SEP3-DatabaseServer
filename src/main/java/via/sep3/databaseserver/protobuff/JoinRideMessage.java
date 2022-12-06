@@ -16,8 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private JoinRideMessage() {
-    passengerName_ = "";
-    passengerPhone_ = "";
   }
 
   @java.lang.Override
@@ -55,16 +53,9 @@ private static final long serialVersionUID = 0L;
             rideId_ = input.readInt32();
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            passengerName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            passengerPhone_ = s;
+            passengerId_ = input.readInt32();
             break;
           }
           default: {
@@ -112,80 +103,15 @@ private static final long serialVersionUID = 0L;
     return rideId_;
   }
 
-  public static final int PASSENGERNAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object passengerName_;
+  public static final int PASSENGERID_FIELD_NUMBER = 2;
+  private int passengerId_;
   /**
-   * <code>string passengerName = 2;</code>
-   * @return The passengerName.
+   * <code>int32 passengerId = 2;</code>
+   * @return The passengerId.
    */
   @java.lang.Override
-  public java.lang.String getPassengerName() {
-    java.lang.Object ref = passengerName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      passengerName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string passengerName = 2;</code>
-   * @return The bytes for passengerName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPassengerNameBytes() {
-    java.lang.Object ref = passengerName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      passengerName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PASSENGERPHONE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object passengerPhone_;
-  /**
-   * <code>string passengerPhone = 3;</code>
-   * @return The passengerPhone.
-   */
-  @java.lang.Override
-  public java.lang.String getPassengerPhone() {
-    java.lang.Object ref = passengerPhone_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      passengerPhone_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string passengerPhone = 3;</code>
-   * @return The bytes for passengerPhone.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPassengerPhoneBytes() {
-    java.lang.Object ref = passengerPhone_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      passengerPhone_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getPassengerId() {
+    return passengerId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -205,11 +131,8 @@ private static final long serialVersionUID = 0L;
     if (rideId_ != 0) {
       output.writeInt32(1, rideId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(passengerName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, passengerName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(passengerPhone_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, passengerPhone_);
+    if (passengerId_ != 0) {
+      output.writeInt32(2, passengerId_);
     }
     unknownFields.writeTo(output);
   }
@@ -224,11 +147,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, rideId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(passengerName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, passengerName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(passengerPhone_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, passengerPhone_);
+    if (passengerId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, passengerId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -247,10 +168,8 @@ private static final long serialVersionUID = 0L;
 
     if (getRideId()
         != other.getRideId()) return false;
-    if (!getPassengerName()
-        .equals(other.getPassengerName())) return false;
-    if (!getPassengerPhone()
-        .equals(other.getPassengerPhone())) return false;
+    if (getPassengerId()
+        != other.getPassengerId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -264,10 +183,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RIDEID_FIELD_NUMBER;
     hash = (53 * hash) + getRideId();
-    hash = (37 * hash) + PASSENGERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getPassengerName().hashCode();
-    hash = (37 * hash) + PASSENGERPHONE_FIELD_NUMBER;
-    hash = (53 * hash) + getPassengerPhone().hashCode();
+    hash = (37 * hash) + PASSENGERID_FIELD_NUMBER;
+    hash = (53 * hash) + getPassengerId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -403,9 +320,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       rideId_ = 0;
 
-      passengerName_ = "";
-
-      passengerPhone_ = "";
+      passengerId_ = 0;
 
       return this;
     }
@@ -434,8 +349,7 @@ private static final long serialVersionUID = 0L;
     public via.sep3.databaseserver.protobuff.JoinRideMessage buildPartial() {
       via.sep3.databaseserver.protobuff.JoinRideMessage result = new via.sep3.databaseserver.protobuff.JoinRideMessage(this);
       result.rideId_ = rideId_;
-      result.passengerName_ = passengerName_;
-      result.passengerPhone_ = passengerPhone_;
+      result.passengerId_ = passengerId_;
       onBuilt();
       return result;
     }
@@ -487,13 +401,8 @@ private static final long serialVersionUID = 0L;
       if (other.getRideId() != 0) {
         setRideId(other.getRideId());
       }
-      if (!other.getPassengerName().isEmpty()) {
-        passengerName_ = other.passengerName_;
-        onChanged();
-      }
-      if (!other.getPassengerPhone().isEmpty()) {
-        passengerPhone_ = other.passengerPhone_;
-        onChanged();
+      if (other.getPassengerId() != 0) {
+        setPassengerId(other.getPassengerId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -555,154 +464,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object passengerName_ = "";
+    private int passengerId_ ;
     /**
-     * <code>string passengerName = 2;</code>
-     * @return The passengerName.
+     * <code>int32 passengerId = 2;</code>
+     * @return The passengerId.
      */
-    public java.lang.String getPassengerName() {
-      java.lang.Object ref = passengerName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        passengerName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getPassengerId() {
+      return passengerId_;
     }
     /**
-     * <code>string passengerName = 2;</code>
-     * @return The bytes for passengerName.
-     */
-    public com.google.protobuf.ByteString
-        getPassengerNameBytes() {
-      java.lang.Object ref = passengerName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        passengerName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string passengerName = 2;</code>
-     * @param value The passengerName to set.
+     * <code>int32 passengerId = 2;</code>
+     * @param value The passengerId to set.
      * @return This builder for chaining.
      */
-    public Builder setPassengerName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      passengerName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string passengerName = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPassengerName() {
+    public Builder setPassengerId(int value) {
       
-      passengerName_ = getDefaultInstance().getPassengerName();
+      passengerId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string passengerName = 2;</code>
-     * @param value The bytes for passengerName to set.
+     * <code>int32 passengerId = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder setPassengerNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public Builder clearPassengerId() {
       
-      passengerName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object passengerPhone_ = "";
-    /**
-     * <code>string passengerPhone = 3;</code>
-     * @return The passengerPhone.
-     */
-    public java.lang.String getPassengerPhone() {
-      java.lang.Object ref = passengerPhone_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        passengerPhone_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string passengerPhone = 3;</code>
-     * @return The bytes for passengerPhone.
-     */
-    public com.google.protobuf.ByteString
-        getPassengerPhoneBytes() {
-      java.lang.Object ref = passengerPhone_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        passengerPhone_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string passengerPhone = 3;</code>
-     * @param value The passengerPhone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPassengerPhone(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      passengerPhone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string passengerPhone = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPassengerPhone() {
-      
-      passengerPhone_ = getDefaultInstance().getPassengerPhone();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string passengerPhone = 3;</code>
-     * @param value The bytes for passengerPhone to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPassengerPhoneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      passengerPhone_ = value;
+      passengerId_ = 0;
       onChanged();
       return this;
     }

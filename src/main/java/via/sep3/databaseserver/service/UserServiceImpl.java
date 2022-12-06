@@ -2,11 +2,9 @@ package via.sep3.databaseserver.service;
 
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
-import via.sep3.databaseserver.model.Driver;
+import via.sep3.databaseserver.model.User;
 import via.sep3.databaseserver.protobuff.*;
-import via.sep3.databaseserver.repository.DriverRepository;
-import via.sep3.databaseserver.repository.ReservationRepository;
-import via.sep3.databaseserver.repository.RideRepository;
+import via.sep3.databaseserver.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -14,18 +12,18 @@ import java.util.Optional;
 @GRpcService
 public class UserServiceImpl extends UserGrpc.UserImplBase {
 
-    private DriverRepository driverRepository;
+    private UserRepository userRepository;
 
-    public UserServiceImpl(DriverRepository driverRepository)
+    public UserServiceImpl(UserRepository userRepository)
     {
-        this.driverRepository = driverRepository;
+        this.userRepository = userRepository;
     }
 
 
     @Override
     public void createAccount(CreateAccountMessage request,  StreamObserver<UserMessage> userMessage){
         try{
-            Driver driver = new Driver(
+            User user = new User(
                     request.getName(),
                    request.getPhoneNumber(),
                     new ArrayList<>(),
@@ -33,7 +31,7 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
                     request.getEmail(),
                     request.getPassword()
             );
-            driverRepository.save(driver);
+            userRepository.save(user);
             UserMessage userMessage1 = UserMessage.newBuilder()
                     .setName(request.getName())
                     .setPhoneNumber(request.getPhoneNumber())
@@ -51,10 +49,10 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     @Override
     public void login(LoginMessage request, StreamObserver<BoolMessage> boolMessage) {
         try{
-            Optional<Driver> optionalDriver = driverRepository.findByEmailAndPassword(request.getEmail(), request.getPassword());
+            Optional<User> optionalDriver = userRepository.findByEmailAndPassword(request.getEmail(), request.getPassword());
             if(optionalDriver.isPresent()){
-                Driver driver = optionalDriver.get();
-                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setDriverId(driver.getId()).setStatus(true).build();
+                User user = optionalDriver.get();
+                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setDriverId(user.getId()).setStatus(true).build();
                 boolMessage.onNext(boolMessage1);
                 boolMessage.onCompleted();
             }
@@ -72,15 +70,15 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     }
 
     @Override
-    public void getDriver(GetDriverMessage request, StreamObserver<UserMessage> userMessage) {
+    public void getDriver(DriverMessageId request, StreamObserver<UserMessage> userMessage) {
         try{
-            Optional<Driver> optionalDriver = driverRepository.findById(request.getDriverId());
+            Optional<User> optionalDriver = userRepository.findById(request.getDriverId());
             if(optionalDriver.isPresent()){
-                Driver driver = optionalDriver.get();
+                User user = optionalDriver.get();
                 UserMessage userMessage1 = via.sep3.databaseserver.protobuff.UserMessage.newBuilder()
-                        .setName(driver.getName())
-                        .setPhoneNumber(driver.getPhone())
-                        .setEmail(driver.getEmail())
+                        .setName(user.getName())
+                        .setPhoneNumber(user.getPhone())
+                        .setEmail(user.getEmail())
                         .build();
                 userMessage.onNext(userMessage1);
                 userMessage.onCompleted();

@@ -62,8 +62,8 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         if(reservation.isAccepted() != null)
         {
 
-             message = ReservationMessage.newBuilder().setName(reservation.getPassengerName())
-                    .setPhone(reservation.getPassengerPhone())
+             message = ReservationMessage.newBuilder().setName(reservation.getUser().getName())
+                    .setPhone(Integer.toString(reservation.getUser().getPhone()))
                     .setDidAccept(BoolValue.newBuilder().setValue(reservation.isAccepted()).build())
                     .setRideId(reservation.getRide().getId()).
                      setId(reservation.getId()).build();
@@ -72,8 +72,8 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         else
         {
 
-             message = ReservationMessage.newBuilder().setName(reservation.getPassengerName())
-                    .setPhone(reservation.getPassengerPhone())
+             message = ReservationMessage.newBuilder().setName(reservation.getUser().getName())
+                     .setPhone(Integer.toString(reservation.getUser().getPhone()))
                     .setRideId(reservation.getRide().getId()).setId(reservation.getId()).build();
         }
 
