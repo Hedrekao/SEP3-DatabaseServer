@@ -107,6 +107,37 @@ public final class RidesGrpc {
     return getCreateRideMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.UserIdMessage,
+      via.sep3.databaseserver.protobuff.RidesCollection> getGetRidesByDriverIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getRidesByDriverId",
+      requestType = via.sep3.databaseserver.protobuff.UserIdMessage.class,
+      responseType = via.sep3.databaseserver.protobuff.RidesCollection.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.UserIdMessage,
+      via.sep3.databaseserver.protobuff.RidesCollection> getGetRidesByDriverIdMethod() {
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.UserIdMessage, via.sep3.databaseserver.protobuff.RidesCollection> getGetRidesByDriverIdMethod;
+    if ((getGetRidesByDriverIdMethod = RidesGrpc.getGetRidesByDriverIdMethod) == null) {
+      synchronized (RidesGrpc.class) {
+        if ((getGetRidesByDriverIdMethod = RidesGrpc.getGetRidesByDriverIdMethod) == null) {
+          RidesGrpc.getGetRidesByDriverIdMethod = getGetRidesByDriverIdMethod =
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.UserIdMessage, via.sep3.databaseserver.protobuff.RidesCollection>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getRidesByDriverId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.UserIdMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.RidesCollection.getDefaultInstance()))
+              .setSchemaDescriptor(new RidesMethodDescriptorSupplier("getRidesByDriverId"))
+              .build();
+        }
+      }
+    }
+    return getGetRidesByDriverIdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,6 +207,13 @@ public final class RidesGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateRideMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getRidesByDriverId(via.sep3.databaseserver.protobuff.UserIdMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RidesCollection> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRidesByDriverIdMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -199,6 +237,13 @@ public final class RidesGrpc {
                 via.sep3.databaseserver.protobuff.CreateRideMessage,
                 via.sep3.databaseserver.protobuff.RideMessage>(
                   this, METHODID_CREATE_RIDE)))
+          .addMethod(
+            getGetRidesByDriverIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sep3.databaseserver.protobuff.UserIdMessage,
+                via.sep3.databaseserver.protobuff.RidesCollection>(
+                  this, METHODID_GET_RIDES_BY_DRIVER_ID)))
           .build();
     }
   }
@@ -240,6 +285,14 @@ public final class RidesGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateRideMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getRidesByDriverId(via.sep3.databaseserver.protobuff.UserIdMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RidesCollection> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetRidesByDriverIdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -275,6 +328,13 @@ public final class RidesGrpc {
     public via.sep3.databaseserver.protobuff.RideMessage createRide(via.sep3.databaseserver.protobuff.CreateRideMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateRideMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sep3.databaseserver.protobuff.RidesCollection getRidesByDriverId(via.sep3.databaseserver.protobuff.UserIdMessage request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetRidesByDriverIdMethod(), getCallOptions(), request);
     }
   }
 
@@ -315,11 +375,20 @@ public final class RidesGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateRideMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.RidesCollection> getRidesByDriverId(
+        via.sep3.databaseserver.protobuff.UserIdMessage request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetRidesByDriverIdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_RIDES = 0;
   private static final int METHODID_JOIN_RIDE = 1;
   private static final int METHODID_CREATE_RIDE = 2;
+  private static final int METHODID_GET_RIDES_BY_DRIVER_ID = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -349,6 +418,10 @@ public final class RidesGrpc {
         case METHODID_CREATE_RIDE:
           serviceImpl.createRide((via.sep3.databaseserver.protobuff.CreateRideMessage) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RideMessage>) responseObserver);
+          break;
+        case METHODID_GET_RIDES_BY_DRIVER_ID:
+          serviceImpl.getRidesByDriverId((via.sep3.databaseserver.protobuff.UserIdMessage) request,
+              (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RidesCollection>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -414,6 +487,7 @@ public final class RidesGrpc {
               .addMethod(getGetRidesMethod())
               .addMethod(getJoinRideMethod())
               .addMethod(getCreateRideMethod())
+              .addMethod(getGetRidesByDriverIdMethod())
               .build();
         }
       }

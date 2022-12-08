@@ -7,6 +7,11 @@ service Rides{
   rpc getRides(EpochTimelineMessage) returns (RidesCollection);
   rpc joinRide(JoinRideMessage) returns (ConfirmationMessage);
   rpc createRide(CreateRideMessage) returns (RideMessage);
+  rpc getRidesByDriverId(UserIdMessage) returns (RidesCollection);
+}
+
+message UserIdMessage{
+  int32 userId = 1;
 }
 
 //Probably not needed for now
