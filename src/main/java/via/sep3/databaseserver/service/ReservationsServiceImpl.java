@@ -60,6 +60,26 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void getAcceptedReservationsByRideId(RideIdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
+        try {
+            List<Reservation> iterable = reservationRepository.findAllByIsAcceptedTrueAndRideId(request.getRideId());
+
+            List<ReservationMessage> reservations = new ArrayList<>();
+            for (Reservation reservation : iterable)
+            {
+                ReservationMessage reservationMessage = createReservationMessage(reservation);
+                reservations.add(reservationMessage);
+            }
+            ReservationsToAcceptCollection collection = ReservationsToAcceptCollection.newBuilder().addAllReservationMessages(reservations).build();
+            responseObserver.onNext(collection);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }    }
+
     private ReservationMessage createReservationMessage(Reservation reservation)
     {
         ReservationMessage message;

@@ -126,6 +126,27 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         }
     }
 
+    @Override
+    public void getRidesByDriverId(UserIdMessage request, StreamObserver<RidesCollection> responseObserver) {
+        try {
+            List<Ride> iterable = rideRepository.findAllByDriverId(request.getUserId());
+
+            List<RideMessage> rides = new ArrayList<>();
+            for (Ride ride : iterable)
+            {
+                RideMessage rideMessage = createRideMessage(ride);
+                rides.add(rideMessage);
+            }
+            RidesCollection ridesCollection = RidesCollection.newBuilder().addAllRides(rides).build();
+            responseObserver.onNext(ridesCollection);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private RideMessage createRideMessage(Ride ride)
     {
         Location destination = ride.getDestination();
