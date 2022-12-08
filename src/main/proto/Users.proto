@@ -3,16 +3,16 @@ syntax = "proto3";
 option java_multiple_files= true;
 option java_package= "via.sep3.databaseserver.protobuff";
 
-service User{
+service Users{
   rpc createAccount(CreateAccountMessage) returns (UserMessage);
   rpc login(LoginMessage) returns (BoolMessage);
-  rpc getDriver(DriverMessageId) returns (UserMessage);
+  rpc getDriver(UsersMessageId) returns (UserMessage);
   rpc updateLicense(LicenseMessage) returns (StatusMessage);
 }
 
 message LicenseMessage{
   int32 licenseNo = 1;
-  int32 driverId = 2;
+  int32 userId = 2;
 }
 
 message StatusMessage{
@@ -32,6 +32,7 @@ message UserMessage{
   string name = 1;
   int32 phoneNumber = 2;
   string email = 3;
+  optional int32 licenseNumber = 4;
 }
 
 message LoginMessage{
@@ -41,11 +42,12 @@ message LoginMessage{
 
 message BoolMessage{
   bool status = 1;
-  int32 driverId = 2;
+  int32 userId = 2;
+  optional int32 licenseNo = 3;
 }
 
-message DriverMessageId{
-  int32 driverId = 1;
+message UsersMessageId{
+  int32 userId = 1;
 }
 
 //it's not used but for some reason I can't build the project without it :(

@@ -3,7 +3,7 @@ package via.sep3.databaseserver.service;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
-import via.sep3.databaseserver.model.Ride;
+
 import via.sep3.databaseserver.model.User;
 
 import via.sep3.databaseserver.protobuff.*;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @GRpcService
-public class UserServiceImpl extends UserGrpc.UserImplBase {
+public class UserServiceImpl extends UsersGrpc.UsersImplBase {
 
     private UserRepository userRepository;
 
@@ -69,12 +69,20 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
             Optional<User> optionalDriver = userRepository.findByEmailAndPassword(request.getEmail(), request.getPassword());
             if(optionalDriver.isPresent()){
                 User user = optionalDriver.get();
-                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setDriverId(user.getId()).setStatus(true).build();
+                BoolMessage boolMessage1;
+                if(user.getLicenseNo() != null)
+                {
+                    boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setUserId(user.getId()).setLicenseNo(user.getLicenseNo()).setStatus(true).build();
+                }
+                else
+                {
+                    boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setUserId(user.getId()).setStatus(true).build();
+                }
                 boolMessage.onNext(boolMessage1);
                 boolMessage.onCompleted();
             }
             else {
-                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setStatus(false).setDriverId(-1).build();
+                BoolMessage boolMessage1 = via.sep3.databaseserver.protobuff.BoolMessage.newBuilder().setStatus(false).setUserId(-1).build();
 
                 //I'm not setting the driver id in that case idk if correct tomasz check pls
                 boolMessage.onNext(boolMessage1);
@@ -87,9 +95,9 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
     }
 
     @Override
-    public void getDriver(DriverMessageId request, StreamObserver<UserMessage> userMessage) {
+    public void getDriver(UsersMessageId request, StreamObserver<UserMessage> userMessage) {
         try{
-            Optional<User> optionalDriver = userRepository.findById(request.getDriverId());
+            Optional<User> optionalDriver = userRepository.findById(request.getUserId());
             if(optionalDriver.isPresent()){
                 User user = optionalDriver.get();
                 UserMessage userMessage1 = via.sep3.databaseserver.protobuff.UserMessage.newBuilder()
@@ -111,7 +119,7 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
 
     @Override
     public void updateLicense(LicenseMessage request, StreamObserver<StatusMessage> responseObserver) {
-        Optional<User> driverOptional = userRepository.findById(request.getDriverId());
+        Optional<User> driverOptional = userRepository.findById(request.getUserId());
         if(driverOptional.isPresent()){
             User driver = driverOptional.get();
             driver.setLicenseNo(request.getLicenseNo());

@@ -55,7 +55,7 @@ message DriverMessage{
 
 message JoinRideMessage{
   int32 rideId = 1;
-  int32 passengerId= 2;
+  int32 userId= 2;
 }
 
 message ConfirmationMessage{

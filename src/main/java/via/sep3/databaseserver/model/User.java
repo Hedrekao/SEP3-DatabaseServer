@@ -54,7 +54,7 @@ public class User {
 
 
 
-    public int getLicenseNo() {
+    public Integer getLicenseNo() {
         return licenseNo;
     }
 

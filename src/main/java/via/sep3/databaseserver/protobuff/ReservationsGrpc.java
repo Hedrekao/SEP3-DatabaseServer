@@ -45,27 +45,27 @@ public final class ReservationsGrpc {
     return getAcceptPassengerMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.NullMessage,
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage,
       via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAllReservationsToAcceptMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getAllReservationsToAccept",
-      requestType = via.sep3.databaseserver.protobuff.NullMessage.class,
+      requestType = via.sep3.databaseserver.protobuff.IdMessage.class,
       responseType = via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.NullMessage,
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage,
       via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAllReservationsToAcceptMethod() {
-    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.NullMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAllReservationsToAcceptMethod;
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAllReservationsToAcceptMethod;
     if ((getGetAllReservationsToAcceptMethod = ReservationsGrpc.getGetAllReservationsToAcceptMethod) == null) {
       synchronized (ReservationsGrpc.class) {
         if ((getGetAllReservationsToAcceptMethod = ReservationsGrpc.getGetAllReservationsToAcceptMethod) == null) {
           ReservationsGrpc.getGetAllReservationsToAcceptMethod = getGetAllReservationsToAcceptMethod =
-              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.NullMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>newBuilder()
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.IdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAllReservationsToAccept"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sep3.databaseserver.protobuff.NullMessage.getDefaultInstance()))
+                  via.sep3.databaseserver.protobuff.IdMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection.getDefaultInstance()))
               .setSchemaDescriptor(new ReservationsMethodDescriptorSupplier("getAllReservationsToAccept"))
@@ -133,7 +133,7 @@ public final class ReservationsGrpc {
 
     /**
      */
-    public void getAllReservationsToAccept(via.sep3.databaseserver.protobuff.NullMessage request,
+    public void getAllReservationsToAccept(via.sep3.databaseserver.protobuff.IdMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllReservationsToAcceptMethod(), responseObserver);
     }
@@ -151,7 +151,7 @@ public final class ReservationsGrpc {
             getGetAllReservationsToAcceptMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                via.sep3.databaseserver.protobuff.NullMessage,
+                via.sep3.databaseserver.protobuff.IdMessage,
                 via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>(
                   this, METHODID_GET_ALL_RESERVATIONS_TO_ACCEPT)))
           .build();
@@ -182,7 +182,7 @@ public final class ReservationsGrpc {
 
     /**
      */
-    public void getAllReservationsToAccept(via.sep3.databaseserver.protobuff.NullMessage request,
+    public void getAllReservationsToAccept(via.sep3.databaseserver.protobuff.IdMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAllReservationsToAcceptMethod(), getCallOptions()), request, responseObserver);
@@ -212,7 +212,7 @@ public final class ReservationsGrpc {
 
     /**
      */
-    public via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection getAllReservationsToAccept(via.sep3.databaseserver.protobuff.NullMessage request) {
+    public via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection getAllReservationsToAccept(via.sep3.databaseserver.protobuff.IdMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAllReservationsToAcceptMethod(), getCallOptions(), request);
     }
@@ -243,7 +243,7 @@ public final class ReservationsGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getAllReservationsToAccept(
-        via.sep3.databaseserver.protobuff.NullMessage request) {
+        via.sep3.databaseserver.protobuff.IdMessage request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetAllReservationsToAcceptMethod(), getCallOptions()), request);
     }
@@ -274,7 +274,7 @@ public final class ReservationsGrpc {
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationMessage>) responseObserver);
           break;
         case METHODID_GET_ALL_RESERVATIONS_TO_ACCEPT:
-          serviceImpl.getAllReservationsToAccept((via.sep3.databaseserver.protobuff.NullMessage) request,
+          serviceImpl.getAllReservationsToAccept((via.sep3.databaseserver.protobuff.IdMessage) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>) responseObserver);
           break;
         default:

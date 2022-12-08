@@ -24,13 +24,17 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
     }
 
     @Override
-    public void getAllReservationsToAccept(NullMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
+    public void getAllReservationsToAccept(IdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
         List<Reservation> reservations = reservationRepository.findAllByAcceptedIsNull();
         List<ReservationMessage> list = new ArrayList<>();
         for(Reservation reservation : reservations)
         {
-            ReservationMessage reservationMessage = createReservationMessage(reservation);
-            list.add(reservationMessage);
+            if(reservation.getRide().getDriver().getId() == request.getDriverId())
+            {
+                ReservationMessage reservationMessage = createReservationMessage(reservation);
+                list.add(reservationMessage);
+            }
+
         }
 
         ReservationsToAcceptCollection collection = ReservationsToAcceptCollection.newBuilder().addAllReservationMessages(list).build();

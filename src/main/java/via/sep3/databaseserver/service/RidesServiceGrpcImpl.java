@@ -37,9 +37,17 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     @Override
     public void getRides(EpochTimelineMessage request, StreamObserver<RidesCollection> responseObserver)
     {
-        List<Ride> iterable = rideRepository.findAllByStartTimeIsBetween(request.getEpochLowerBound(), request.getEpochUpperBound());
+        List<Ride> iterable;
+        if(request.hasEpochLowerBound() && request.hasEpochUpperBound())
+        {
+            iterable = rideRepository.findAllByStartTimeIsBetweenAndCapacityIsGreaterThan(request.getEpochLowerBound(), request.getEpochUpperBound(), 0);
+        }
+        else
+        {
+            iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
 
-//        List<Ride> iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
+        }
+
         List<RideMessage> rides = new ArrayList<>();
         for (Ride ride : iterable)
         {
@@ -57,7 +65,8 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         try
         {
             int rideId = request.getRideId();
-            int passengerId = request.getPassengerId();
+            int passengerId = request.getUserId();
+
             Optional<User> userOptional = userRepository.findById(passengerId);
             Optional<Ride> rideOptional = rideRepository.findById(rideId);
             if (rideOptional.isPresent() && userOptional.isPresent())
@@ -70,7 +79,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                 responseObserver.onCompleted();
             } else
             {
-                throw new Exception("There is no ride with such id");
+                throw new Exception("There is no ride or user with such id");
             }
 
 

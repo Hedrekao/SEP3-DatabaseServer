@@ -5,7 +5,7 @@ option java_package= "via.sep3.databaseserver.protobuff";
 
 service Reservations{
   rpc acceptPassenger(AcceptMessage) returns (ReservationMessage);
-  rpc getAllReservationsToAccept(NullMessage) returns (ReservationsToAcceptCollection);
+  rpc getAllReservationsToAccept(IdMessage) returns (ReservationsToAcceptCollection);
 }
 
 message AcceptMessage{
@@ -27,8 +27,8 @@ message ReservationMessage{
   //Maybe isAccepted?
 }
 
-message NullMessage{
-
+message IdMessage{
+  int32 driverId = 1;
 }
 
 message ReservationsToAcceptCollection{

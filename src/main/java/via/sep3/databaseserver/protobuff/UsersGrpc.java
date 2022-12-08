@@ -7,11 +7,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.39.0)",
     comments = "Source: Users.proto")
-public final class UserGrpc {
+public final class UsersGrpc {
 
-  private UserGrpc() {}
+  private UsersGrpc() {}
 
-  public static final String SERVICE_NAME = "User";
+  public static final String SERVICE_NAME = "Users";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateAccountMessage,
@@ -25,10 +25,10 @@ public final class UserGrpc {
   public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateAccountMessage,
       via.sep3.databaseserver.protobuff.UserMessage> getCreateAccountMethod() {
     io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.CreateAccountMessage, via.sep3.databaseserver.protobuff.UserMessage> getCreateAccountMethod;
-    if ((getCreateAccountMethod = UserGrpc.getCreateAccountMethod) == null) {
-      synchronized (UserGrpc.class) {
-        if ((getCreateAccountMethod = UserGrpc.getCreateAccountMethod) == null) {
-          UserGrpc.getCreateAccountMethod = getCreateAccountMethod =
+    if ((getCreateAccountMethod = UsersGrpc.getCreateAccountMethod) == null) {
+      synchronized (UsersGrpc.class) {
+        if ((getCreateAccountMethod = UsersGrpc.getCreateAccountMethod) == null) {
+          UsersGrpc.getCreateAccountMethod = getCreateAccountMethod =
               io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.CreateAccountMessage, via.sep3.databaseserver.protobuff.UserMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createAccount"))
@@ -37,7 +37,7 @@ public final class UserGrpc {
                   via.sep3.databaseserver.protobuff.CreateAccountMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.UserMessage.getDefaultInstance()))
-              .setSchemaDescriptor(new UserMethodDescriptorSupplier("createAccount"))
+              .setSchemaDescriptor(new UsersMethodDescriptorSupplier("createAccount"))
               .build();
         }
       }
@@ -56,10 +56,10 @@ public final class UserGrpc {
   public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LoginMessage,
       via.sep3.databaseserver.protobuff.BoolMessage> getLoginMethod() {
     io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LoginMessage, via.sep3.databaseserver.protobuff.BoolMessage> getLoginMethod;
-    if ((getLoginMethod = UserGrpc.getLoginMethod) == null) {
-      synchronized (UserGrpc.class) {
-        if ((getLoginMethod = UserGrpc.getLoginMethod) == null) {
-          UserGrpc.getLoginMethod = getLoginMethod =
+    if ((getLoginMethod = UsersGrpc.getLoginMethod) == null) {
+      synchronized (UsersGrpc.class) {
+        if ((getLoginMethod = UsersGrpc.getLoginMethod) == null) {
+          UsersGrpc.getLoginMethod = getLoginMethod =
               io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.LoginMessage, via.sep3.databaseserver.protobuff.BoolMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "login"))
@@ -68,7 +68,7 @@ public final class UserGrpc {
                   via.sep3.databaseserver.protobuff.LoginMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.BoolMessage.getDefaultInstance()))
-              .setSchemaDescriptor(new UserMethodDescriptorSupplier("login"))
+              .setSchemaDescriptor(new UsersMethodDescriptorSupplier("login"))
               .build();
         }
       }
@@ -87,10 +87,10 @@ public final class UserGrpc {
   public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.UsersMessageId,
       via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod() {
     io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.UsersMessageId, via.sep3.databaseserver.protobuff.UserMessage> getGetDriverMethod;
-    if ((getGetDriverMethod = UserGrpc.getGetDriverMethod) == null) {
-      synchronized (UserGrpc.class) {
-        if ((getGetDriverMethod = UserGrpc.getGetDriverMethod) == null) {
-          UserGrpc.getGetDriverMethod = getGetDriverMethod =
+    if ((getGetDriverMethod = UsersGrpc.getGetDriverMethod) == null) {
+      synchronized (UsersGrpc.class) {
+        if ((getGetDriverMethod = UsersGrpc.getGetDriverMethod) == null) {
+          UsersGrpc.getGetDriverMethod = getGetDriverMethod =
               io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.UsersMessageId, via.sep3.databaseserver.protobuff.UserMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getDriver"))
@@ -99,7 +99,7 @@ public final class UserGrpc {
                   via.sep3.databaseserver.protobuff.UsersMessageId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.UserMessage.getDefaultInstance()))
-              .setSchemaDescriptor(new UserMethodDescriptorSupplier("getDriver"))
+              .setSchemaDescriptor(new UsersMethodDescriptorSupplier("getDriver"))
               .build();
         }
       }
@@ -118,10 +118,10 @@ public final class UserGrpc {
   public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LicenseMessage,
       via.sep3.databaseserver.protobuff.StatusMessage> getUpdateLicenseMethod() {
     io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.LicenseMessage, via.sep3.databaseserver.protobuff.StatusMessage> getUpdateLicenseMethod;
-    if ((getUpdateLicenseMethod = UserGrpc.getUpdateLicenseMethod) == null) {
-      synchronized (UserGrpc.class) {
-        if ((getUpdateLicenseMethod = UserGrpc.getUpdateLicenseMethod) == null) {
-          UserGrpc.getUpdateLicenseMethod = getUpdateLicenseMethod =
+    if ((getUpdateLicenseMethod = UsersGrpc.getUpdateLicenseMethod) == null) {
+      synchronized (UsersGrpc.class) {
+        if ((getUpdateLicenseMethod = UsersGrpc.getUpdateLicenseMethod) == null) {
+          UsersGrpc.getUpdateLicenseMethod = getUpdateLicenseMethod =
               io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.LicenseMessage, via.sep3.databaseserver.protobuff.StatusMessage>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateLicense"))
@@ -130,7 +130,7 @@ public final class UserGrpc {
                   via.sep3.databaseserver.protobuff.LicenseMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.StatusMessage.getDefaultInstance()))
-              .setSchemaDescriptor(new UserMethodDescriptorSupplier("updateLicense"))
+              .setSchemaDescriptor(new UsersMethodDescriptorSupplier("updateLicense"))
               .build();
         }
       }
@@ -141,50 +141,50 @@ public final class UserGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static UserStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserStub>() {
+  public static UsersStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<UsersStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UsersStub>() {
         @java.lang.Override
-        public UserStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserStub(channel, callOptions);
+        public UsersStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UsersStub(channel, callOptions);
         }
       };
-    return UserStub.newStub(factory, channel);
+    return UsersStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static UserBlockingStub newBlockingStub(
+  public static UsersBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UsersBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UsersBlockingStub>() {
         @java.lang.Override
-        public UserBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserBlockingStub(channel, callOptions);
+        public UsersBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UsersBlockingStub(channel, callOptions);
         }
       };
-    return UserBlockingStub.newStub(factory, channel);
+    return UsersBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static UserFutureStub newFutureStub(
+  public static UsersFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UsersFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UsersFutureStub>() {
         @java.lang.Override
-        public UserFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserFutureStub(channel, callOptions);
+        public UsersFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UsersFutureStub(channel, callOptions);
         }
       };
-    return UserFutureStub.newStub(factory, channel);
+    return UsersFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class UserImplBase implements io.grpc.BindableService {
+  public static abstract class UsersImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -250,16 +250,16 @@ public final class UserGrpc {
 
   /**
    */
-  public static final class UserStub extends io.grpc.stub.AbstractAsyncStub<UserStub> {
-    private UserStub(
+  public static final class UsersStub extends io.grpc.stub.AbstractAsyncStub<UsersStub> {
+    private UsersStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserStub build(
+    protected UsersStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserStub(channel, callOptions);
+      return new UsersStub(channel, callOptions);
     }
 
     /**
@@ -297,16 +297,16 @@ public final class UserGrpc {
 
   /**
    */
-  public static final class UserBlockingStub extends io.grpc.stub.AbstractBlockingStub<UserBlockingStub> {
-    private UserBlockingStub(
+  public static final class UsersBlockingStub extends io.grpc.stub.AbstractBlockingStub<UsersBlockingStub> {
+    private UsersBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserBlockingStub build(
+    protected UsersBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserBlockingStub(channel, callOptions);
+      return new UsersBlockingStub(channel, callOptions);
     }
 
     /**
@@ -340,16 +340,16 @@ public final class UserGrpc {
 
   /**
    */
-  public static final class UserFutureStub extends io.grpc.stub.AbstractFutureStub<UserFutureStub> {
-    private UserFutureStub(
+  public static final class UsersFutureStub extends io.grpc.stub.AbstractFutureStub<UsersFutureStub> {
+    private UsersFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserFutureStub build(
+    protected UsersFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserFutureStub(channel, callOptions);
+      return new UsersFutureStub(channel, callOptions);
     }
 
     /**
@@ -395,10 +395,10 @@ public final class UserGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final UserImplBase serviceImpl;
+    private final UsersImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(UserImplBase serviceImpl, int methodId) {
+    MethodHandlers(UsersImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -439,32 +439,32 @@ public final class UserGrpc {
     }
   }
 
-  private static abstract class UserBaseDescriptorSupplier
+  private static abstract class UsersBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    UserBaseDescriptorSupplier() {}
+    UsersBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return via.sep3.databaseserver.protobuff.UserOuterClass.getDescriptor();
+      return via.sep3.databaseserver.protobuff.UsersOuterClass.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("User");
+      return getFileDescriptor().findServiceByName("Users");
     }
   }
 
-  private static final class UserFileDescriptorSupplier
-      extends UserBaseDescriptorSupplier {
-    UserFileDescriptorSupplier() {}
+  private static final class UsersFileDescriptorSupplier
+      extends UsersBaseDescriptorSupplier {
+    UsersFileDescriptorSupplier() {}
   }
 
-  private static final class UserMethodDescriptorSupplier
-      extends UserBaseDescriptorSupplier
+  private static final class UsersMethodDescriptorSupplier
+      extends UsersBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    UserMethodDescriptorSupplier(String methodName) {
+    UsersMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -479,11 +479,11 @@ public final class UserGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (UserGrpc.class) {
+      synchronized (UsersGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new UserFileDescriptorSupplier())
+              .setSchemaDescriptor(new UsersFileDescriptorSupplier())
               .addMethod(getCreateAccountMethod())
               .addMethod(getLoginMethod())
               .addMethod(getGetDriverMethod())

@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            passengerId_ = input.readInt32();
+            userId_ = input.readInt32();
             break;
           }
           default: {
@@ -103,15 +103,15 @@ private static final long serialVersionUID = 0L;
     return rideId_;
   }
 
-  public static final int PASSENGERID_FIELD_NUMBER = 2;
-  private int passengerId_;
+  public static final int USERID_FIELD_NUMBER = 2;
+  private int userId_;
   /**
-   * <code>int32 passengerId = 2;</code>
-   * @return The passengerId.
+   * <code>int32 userId = 2;</code>
+   * @return The userId.
    */
   @java.lang.Override
-  public int getPassengerId() {
-    return passengerId_;
+  public int getUserId() {
+    return userId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -131,8 +131,8 @@ private static final long serialVersionUID = 0L;
     if (rideId_ != 0) {
       output.writeInt32(1, rideId_);
     }
-    if (passengerId_ != 0) {
-      output.writeInt32(2, passengerId_);
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
     }
     unknownFields.writeTo(output);
   }
@@ -147,9 +147,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, rideId_);
     }
-    if (passengerId_ != 0) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, passengerId_);
+        .computeInt32Size(2, userId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -168,8 +168,8 @@ private static final long serialVersionUID = 0L;
 
     if (getRideId()
         != other.getRideId()) return false;
-    if (getPassengerId()
-        != other.getPassengerId()) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -183,8 +183,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RIDEID_FIELD_NUMBER;
     hash = (53 * hash) + getRideId();
-    hash = (37 * hash) + PASSENGERID_FIELD_NUMBER;
-    hash = (53 * hash) + getPassengerId();
+    hash = (37 * hash) + USERID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -320,7 +320,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       rideId_ = 0;
 
-      passengerId_ = 0;
+      userId_ = 0;
 
       return this;
     }
@@ -349,7 +349,7 @@ private static final long serialVersionUID = 0L;
     public via.sep3.databaseserver.protobuff.JoinRideMessage buildPartial() {
       via.sep3.databaseserver.protobuff.JoinRideMessage result = new via.sep3.databaseserver.protobuff.JoinRideMessage(this);
       result.rideId_ = rideId_;
-      result.passengerId_ = passengerId_;
+      result.userId_ = userId_;
       onBuilt();
       return result;
     }
@@ -401,8 +401,8 @@ private static final long serialVersionUID = 0L;
       if (other.getRideId() != 0) {
         setRideId(other.getRideId());
       }
-      if (other.getPassengerId() != 0) {
-        setPassengerId(other.getPassengerId());
+      if (other.getUserId() != 0) {
+        setUserId(other.getUserId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -464,33 +464,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int passengerId_ ;
+    private int userId_ ;
     /**
-     * <code>int32 passengerId = 2;</code>
-     * @return The passengerId.
+     * <code>int32 userId = 2;</code>
+     * @return The userId.
      */
     @java.lang.Override
-    public int getPassengerId() {
-      return passengerId_;
+    public int getUserId() {
+      return userId_;
     }
     /**
-     * <code>int32 passengerId = 2;</code>
-     * @param value The passengerId to set.
+     * <code>int32 userId = 2;</code>
+     * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setPassengerId(int value) {
+    public Builder setUserId(int value) {
       
-      passengerId_ = value;
+      userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 passengerId = 2;</code>
+     * <code>int32 userId = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPassengerId() {
+    public Builder clearUserId() {
       
-      passengerId_ = 0;
+      userId_ = 0;
       onChanged();
       return this;
     }

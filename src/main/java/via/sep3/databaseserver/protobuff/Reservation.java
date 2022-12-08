@@ -30,10 +30,10 @@ public final class Reservation {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReservationMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_NullMessage_descriptor;
+    internal_static_IdMessage_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_NullMessage_fieldAccessorTable;
+      internal_static_IdMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReservationsToAcceptCollection_descriptor;
   static final 
@@ -53,15 +53,15 @@ public final class Reservation {
       "\n\tBoolValue\022\r\n\005value\030\001 \001(\010\"\177\n\022Reservatio" +
       "nMessage\022\016\n\006rideId\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r" +
       "\n\005phone\030\003 \001(\t\022\"\n\tdidAccept\030\004 \001(\0132\n.BoolV" +
-      "alueH\000\210\001\001\022\n\n\002id\030\005 \001(\005B\014\n\n_didAccept\"\r\n\013N" +
-      "ullMessage\"R\n\036ReservationsToAcceptCollec" +
-      "tion\0220\n\023reservationMessages\030\001 \003(\0132\023.Rese" +
-      "rvationMessage2\223\001\n\014Reservations\0226\n\017accep" +
-      "tPassenger\022\016.AcceptMessage\032\023.Reservation" +
-      "Message\022K\n\032getAllReservationsToAccept\022\014." +
-      "NullMessage\032\037.ReservationsToAcceptCollec" +
-      "tionB%\n!via.sep3.databaseserver.protobuf" +
-      "fP\001b\006proto3"
+      "alueH\000\210\001\001\022\n\n\002id\030\005 \001(\005B\014\n\n_didAccept\"\035\n\tI" +
+      "dMessage\022\020\n\010driverId\030\001 \001(\005\"R\n\036Reservatio" +
+      "nsToAcceptCollection\0220\n\023reservationMessa" +
+      "ges\030\001 \003(\0132\023.ReservationMessage2\221\001\n\014Reser" +
+      "vations\0226\n\017acceptPassenger\022\016.AcceptMessa" +
+      "ge\032\023.ReservationMessage\022I\n\032getAllReserva" +
+      "tionsToAccept\022\n.IdMessage\032\037.Reservations" +
+      "ToAcceptCollectionB%\n!via.sep3.databases" +
+      "erver.protobuffP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -85,12 +85,12 @@ public final class Reservation {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReservationMessage_descriptor,
         new java.lang.String[] { "RideId", "Name", "Phone", "DidAccept", "Id", "DidAccept", });
-    internal_static_NullMessage_descriptor =
+    internal_static_IdMessage_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_NullMessage_fieldAccessorTable = new
+    internal_static_IdMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_NullMessage_descriptor,
-        new java.lang.String[] { });
+        internal_static_IdMessage_descriptor,
+        new java.lang.String[] { "DriverId", });
     internal_static_ReservationsToAcceptCollection_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_ReservationsToAcceptCollection_fieldAccessorTable = new
