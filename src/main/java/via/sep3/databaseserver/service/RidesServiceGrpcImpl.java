@@ -129,7 +129,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     @Override
     public void getRidesByDriverId(UserIdMessage request, StreamObserver<RidesCollection> responseObserver) {
         try {
-            List<Ride> iterable = rideRepository.findAllByDriverId(request.getUserId());
+            List<Ride> iterable = rideRepository.findAllByUserId(request.getUserId());
 
             List<RideMessage> rides = new ArrayList<>();
             for (Ride ride : iterable)

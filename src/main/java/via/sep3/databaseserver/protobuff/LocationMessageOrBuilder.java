@@ -56,14 +56,14 @@ public interface LocationMessageOrBuilder extends
       getZipcodeBytes();
 
   /**
-   * <code>int64 coordinateX = 5;</code>
+   * <code>double coordinateX = 5;</code>
    * @return The coordinateX.
    */
-  long getCoordinateX();
+  double getCoordinateX();
 
   /**
-   * <code>int64 coordinateY = 6;</code>
+   * <code>double coordinateY = 6;</code>
    * @return The coordinateY.
    */
-  long getCoordinateY();
+  double getCoordinateY();
 }

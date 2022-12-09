@@ -11,7 +11,7 @@ import via.sep3.databaseserver.repository.RideRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-@GRpcService
+@GRpcService()
 public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBase {
 
     private ReservationRepository reservationRepository;

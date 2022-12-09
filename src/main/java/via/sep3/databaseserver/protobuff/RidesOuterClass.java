@@ -84,7 +84,7 @@ public final class RidesOuterClass {
       "ion\022\033\n\005rides\030\001 \003(\0132\014.RideMessage\"{\n\017Loca" +
       "tionMessage\022\017\n\007country\030\001 \001(\t\022\014\n\004city\030\002 \001" +
       "(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001(\t\022\023\n\013c" +
-      "oordinateX\030\005 \001(\003\022\023\n\013coordinateY\030\006 \001(\003\"8\n" +
+      "oordinateX\030\005 \001(\001\022\023\n\013coordinateY\030\006 \001(\001\"8\n" +
       "\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005phone\030\002 " +
       "\001(\t\022\n\n\002id\030\003 \001(\005\"1\n\017JoinRideMessage\022\016\n\006ri" +
       "deId\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\"2\n\023Confirmati" +

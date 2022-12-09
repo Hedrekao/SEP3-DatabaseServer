@@ -15,10 +15,10 @@ public class Location {
     private String city;
     private String streetName;
     private String zipCode;
-    private long coordinateX;
-    private long coordinateY;
+    private double coordinateX;
+    private double coordinateY;
 
-    public Location(String country, String city, String streetName, String zipCode, long coordinateX, long coordinateY) {
+    public Location(String country, String city, String streetName, String zipCode, double coordinateX, double coordinateY) {
         this.country = country;
         this.city = city;
         this.streetName = streetName;
@@ -63,19 +63,19 @@ public class Location {
         this.zipCode = zipCode;
     }
 
-    public long getCoordinateX() {
+    public double getCoordinateX() {
         return coordinateX;
     }
 
-    public void setCoordinateX(long coordinateX) {
+    public void setCoordinateX(double coordinateX) {
         this.coordinateX = coordinateX;
     }
 
-    public long getCoordinateY() {
+    public double getCoordinateY() {
         return coordinateY;
     }
 
-    public void setCoordinateY(long coordinateY) {
+    public void setCoordinateY(double coordinateY) {
         this.coordinateY = coordinateY;
     }
 }

@@ -76,14 +76,14 @@ private static final long serialVersionUID = 0L;
             zipcode_ = s;
             break;
           }
-          case 40: {
+          case 41: {
 
-            coordinateX_ = input.readInt64();
+            coordinateX_ = input.readDouble();
             break;
           }
-          case 48: {
+          case 49: {
 
-            coordinateY_ = input.readInt64();
+            coordinateY_ = input.readDouble();
             break;
           }
           default: {
@@ -273,24 +273,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COORDINATEX_FIELD_NUMBER = 5;
-  private long coordinateX_;
+  private double coordinateX_;
   /**
-   * <code>int64 coordinateX = 5;</code>
+   * <code>double coordinateX = 5;</code>
    * @return The coordinateX.
    */
   @java.lang.Override
-  public long getCoordinateX() {
+  public double getCoordinateX() {
     return coordinateX_;
   }
 
   public static final int COORDINATEY_FIELD_NUMBER = 6;
-  private long coordinateY_;
+  private double coordinateY_;
   /**
-   * <code>int64 coordinateY = 6;</code>
+   * <code>double coordinateY = 6;</code>
    * @return The coordinateY.
    */
   @java.lang.Override
-  public long getCoordinateY() {
+  public double getCoordinateY() {
     return coordinateY_;
   }
 
@@ -320,11 +320,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(zipcode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, zipcode_);
     }
-    if (coordinateX_ != 0L) {
-      output.writeInt64(5, coordinateX_);
+    if (java.lang.Double.doubleToRawLongBits(coordinateX_) != 0) {
+      output.writeDouble(5, coordinateX_);
     }
-    if (coordinateY_ != 0L) {
-      output.writeInt64(6, coordinateY_);
+    if (java.lang.Double.doubleToRawLongBits(coordinateY_) != 0) {
+      output.writeDouble(6, coordinateY_);
     }
     unknownFields.writeTo(output);
   }
@@ -347,13 +347,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(zipcode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, zipcode_);
     }
-    if (coordinateX_ != 0L) {
+    if (java.lang.Double.doubleToRawLongBits(coordinateX_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, coordinateX_);
+        .computeDoubleSize(5, coordinateX_);
     }
-    if (coordinateY_ != 0L) {
+    if (java.lang.Double.doubleToRawLongBits(coordinateY_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, coordinateY_);
+        .computeDoubleSize(6, coordinateY_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -378,10 +378,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStreet())) return false;
     if (!getZipcode()
         .equals(other.getZipcode())) return false;
-    if (getCoordinateX()
-        != other.getCoordinateX()) return false;
-    if (getCoordinateY()
-        != other.getCoordinateY()) return false;
+    if (java.lang.Double.doubleToLongBits(getCoordinateX())
+        != java.lang.Double.doubleToLongBits(
+            other.getCoordinateX())) return false;
+    if (java.lang.Double.doubleToLongBits(getCoordinateY())
+        != java.lang.Double.doubleToLongBits(
+            other.getCoordinateY())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -403,10 +405,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getZipcode().hashCode();
     hash = (37 * hash) + COORDINATEX_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getCoordinateX());
+        java.lang.Double.doubleToLongBits(getCoordinateX()));
     hash = (37 * hash) + COORDINATEY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getCoordinateY());
+        java.lang.Double.doubleToLongBits(getCoordinateY()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -548,9 +550,9 @@ private static final long serialVersionUID = 0L;
 
       zipcode_ = "";
 
-      coordinateX_ = 0L;
+      coordinateX_ = 0D;
 
-      coordinateY_ = 0L;
+      coordinateY_ = 0D;
 
       return this;
     }
@@ -648,10 +650,10 @@ private static final long serialVersionUID = 0L;
         zipcode_ = other.zipcode_;
         onChanged();
       }
-      if (other.getCoordinateX() != 0L) {
+      if (other.getCoordinateX() != 0D) {
         setCoordinateX(other.getCoordinateX());
       }
-      if (other.getCoordinateY() != 0L) {
+      if (other.getCoordinateY() != 0D) {
         setCoordinateY(other.getCoordinateY());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -987,64 +989,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long coordinateX_ ;
+    private double coordinateX_ ;
     /**
-     * <code>int64 coordinateX = 5;</code>
+     * <code>double coordinateX = 5;</code>
      * @return The coordinateX.
      */
     @java.lang.Override
-    public long getCoordinateX() {
+    public double getCoordinateX() {
       return coordinateX_;
     }
     /**
-     * <code>int64 coordinateX = 5;</code>
+     * <code>double coordinateX = 5;</code>
      * @param value The coordinateX to set.
      * @return This builder for chaining.
      */
-    public Builder setCoordinateX(long value) {
+    public Builder setCoordinateX(double value) {
       
       coordinateX_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 coordinateX = 5;</code>
+     * <code>double coordinateX = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearCoordinateX() {
       
-      coordinateX_ = 0L;
+      coordinateX_ = 0D;
       onChanged();
       return this;
     }
 
-    private long coordinateY_ ;
+    private double coordinateY_ ;
     /**
-     * <code>int64 coordinateY = 6;</code>
+     * <code>double coordinateY = 6;</code>
      * @return The coordinateY.
      */
     @java.lang.Override
-    public long getCoordinateY() {
+    public double getCoordinateY() {
       return coordinateY_;
     }
     /**
-     * <code>int64 coordinateY = 6;</code>
+     * <code>double coordinateY = 6;</code>
      * @param value The coordinateY to set.
      * @return This builder for chaining.
      */
-    public Builder setCoordinateY(long value) {
+    public Builder setCoordinateY(double value) {
       
       coordinateY_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 coordinateY = 6;</code>
+     * <code>double coordinateY = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearCoordinateY() {
       
-      coordinateY_ = 0L;
+      coordinateY_ = 0D;
       onChanged();
       return this;
     }
