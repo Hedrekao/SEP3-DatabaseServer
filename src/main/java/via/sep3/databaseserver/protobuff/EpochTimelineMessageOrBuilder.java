@@ -34,4 +34,10 @@ public interface EpochTimelineMessageOrBuilder extends
    * @return The epochNow.
    */
   long getEpochNow();
+
+  /**
+   * <code>int32 userId = 4;</code>
+   * @return The userId.
+   */
+  int getUserId();
 }

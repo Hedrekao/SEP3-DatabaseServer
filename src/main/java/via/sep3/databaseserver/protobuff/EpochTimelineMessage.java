@@ -68,6 +68,11 @@ private static final long serialVersionUID = 0L;
             epochNow_ = input.readInt64();
             break;
           }
+          case 32: {
+
+            userId_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -152,6 +157,17 @@ private static final long serialVersionUID = 0L;
     return epochNow_;
   }
 
+  public static final int USERID_FIELD_NUMBER = 4;
+  private int userId_;
+  /**
+   * <code>int32 userId = 4;</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public int getUserId() {
+    return userId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -175,6 +191,9 @@ private static final long serialVersionUID = 0L;
     if (epochNow_ != 0L) {
       output.writeInt64(3, epochNow_);
     }
+    if (userId_ != 0) {
+      output.writeInt32(4, userId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -195,6 +214,10 @@ private static final long serialVersionUID = 0L;
     if (epochNow_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, epochNow_);
+    }
+    if (userId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, userId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -223,6 +246,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getEpochNow()
         != other.getEpochNow()) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -247,6 +272,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EPOCHNOW_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEpochNow());
+    hash = (37 * hash) + USERID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -390,6 +417,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000002);
       epochNow_ = 0L;
 
+      userId_ = 0;
+
       return this;
     }
 
@@ -427,6 +456,7 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.epochNow_ = epochNow_;
+      result.userId_ = userId_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -484,6 +514,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getEpochNow() != 0L) {
         setEpochNow(other.getEpochNow());
+      }
+      if (other.getUserId() != 0) {
+        setUserId(other.getUserId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -620,6 +653,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearEpochNow() {
       
       epochNow_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private int userId_ ;
+    /**
+     * <code>int32 userId = 4;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
+    }
+    /**
+     * <code>int32 userId = 4;</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(int value) {
+      
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 userId = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      
+      userId_ = 0;
       onChanged();
       return this;
     }

@@ -13,9 +13,8 @@ import via.sep3.databaseserver.repository.UserRepository;
 import via.sep3.databaseserver.repository.ReservationRepository;
 import via.sep3.databaseserver.repository.RideRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @GRpcService
 public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
@@ -37,6 +36,17 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
     @Override
     public void getRides(EpochTimelineMessage request, StreamObserver<RidesCollection> responseObserver)
     {
+        int userId = request.getUserId();
+        List<Reservation> reservationsOfTheUser = reservationRepository.findAllByUserId(userId);
+
+        Set<Integer> ridesIds = new HashSet<>();
+
+        for(Reservation reservation : reservationsOfTheUser)
+        {
+            ridesIds.add(reservation.getRide().getId());
+        }
+
+
         List<Ride> iterable;
         if(request.hasEpochLowerBound() && request.hasEpochUpperBound())
         {
@@ -47,6 +57,10 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
             iterable = rideRepository.findAllByCapacityIsGreaterThanAndStartTimeIsGreaterThan(0, request.getEpochNow());
 
         }
+
+        iterable = iterable.stream()
+                .filter(ride -> !ridesIds.contains(ride.getId()))
+                .collect(Collectors.toList());
 
         List<RideMessage> rides = new ArrayList<>();
         for (Ride ride : iterable)
