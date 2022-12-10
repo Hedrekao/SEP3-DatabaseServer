@@ -63,6 +63,11 @@ private static final long serialVersionUID = 0L;
             epochUpperBound_ = input.readInt64();
             break;
           }
+          case 24: {
+
+            epochNow_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -136,6 +141,17 @@ private static final long serialVersionUID = 0L;
     return epochUpperBound_;
   }
 
+  public static final int EPOCHNOW_FIELD_NUMBER = 3;
+  private long epochNow_;
+  /**
+   * <code>int64 epochNow = 3;</code>
+   * @return The epochNow.
+   */
+  @java.lang.Override
+  public long getEpochNow() {
+    return epochNow_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -156,6 +172,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt64(2, epochUpperBound_);
     }
+    if (epochNow_ != 0L) {
+      output.writeInt64(3, epochNow_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -172,6 +191,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, epochUpperBound_);
+    }
+    if (epochNow_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, epochNow_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -198,6 +221,8 @@ private static final long serialVersionUID = 0L;
       if (getEpochUpperBound()
           != other.getEpochUpperBound()) return false;
     }
+    if (getEpochNow()
+        != other.getEpochNow()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -219,6 +244,9 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEpochUpperBound());
     }
+    hash = (37 * hash) + EPOCHNOW_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getEpochNow());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -360,6 +388,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       epochUpperBound_ = 0L;
       bitField0_ = (bitField0_ & ~0x00000002);
+      epochNow_ = 0L;
+
       return this;
     }
 
@@ -396,6 +426,7 @@ private static final long serialVersionUID = 0L;
         result.epochUpperBound_ = epochUpperBound_;
         to_bitField0_ |= 0x00000002;
       }
+      result.epochNow_ = epochNow_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -450,6 +481,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasEpochUpperBound()) {
         setEpochUpperBound(other.getEpochUpperBound());
+      }
+      if (other.getEpochNow() != 0L) {
+        setEpochNow(other.getEpochNow());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -555,6 +589,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearEpochUpperBound() {
       bitField0_ = (bitField0_ & ~0x00000002);
       epochUpperBound_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long epochNow_ ;
+    /**
+     * <code>int64 epochNow = 3;</code>
+     * @return The epochNow.
+     */
+    @java.lang.Override
+    public long getEpochNow() {
+      return epochNow_;
+    }
+    /**
+     * <code>int64 epochNow = 3;</code>
+     * @param value The epochNow to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEpochNow(long value) {
+      
+      epochNow_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 epochNow = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEpochNow() {
+      
+      epochNow_ = 0L;
       onChanged();
       return this;
     }

@@ -40,11 +40,11 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         List<Ride> iterable;
         if(request.hasEpochLowerBound() && request.hasEpochUpperBound())
         {
-            iterable = rideRepository.findAllByStartTimeIsBetweenAndCapacityIsGreaterThan(request.getEpochLowerBound(), request.getEpochUpperBound(), 0);
+            iterable = rideRepository.findAllByStartTimeIsBetweenAndCapacityIsGreaterThanAndStartTimeIsGreaterThan(request.getEpochLowerBound(), request.getEpochUpperBound(), 0, request.getEpochNow());
         }
         else
         {
-            iterable = rideRepository.findAllByCapacityIsGreaterThan(0);
+            iterable = rideRepository.findAllByCapacityIsGreaterThanAndStartTimeIsGreaterThan(0, request.getEpochNow());
 
         }
 

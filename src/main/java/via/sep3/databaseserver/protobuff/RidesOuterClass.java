@@ -69,33 +69,34 @@ public final class RidesOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\013Rides.proto\"\037\n\rUserIdMessage\022\016\n\006userId" +
-      "\030\001 \001(\005\"z\n\024EpochTimelineMessage\022\034\n\017epochL" +
-      "owerBound\030\001 \001(\003H\000\210\001\001\022\034\n\017epochUpperBound\030" +
-      "\002 \001(\003H\001\210\001\001B\022\n\020_epochLowerBoundB\022\n\020_epoch" +
-      "UpperBound\"\232\001\n\021CreateRideMessage\022\'\n\rstar" +
-      "tLocation\030\001 \001(\0132\020.LocationMessage\022%\n\013des" +
-      "tination\030\002 \001(\0132\020.LocationMessage\022\021\n\tstar" +
-      "tDate\030\003 \001(\003\022\020\n\010driverId\030\004 \001(\005\022\020\n\010capacit" +
-      "y\030\005 \001(\005\"\256\001\n\013RideMessage\022\n\n\002id\030\001 \001(\005\022\'\n\rs" +
-      "tartLocation\030\002 \001(\0132\020.LocationMessage\022%\n\013" +
-      "destination\030\003 \001(\0132\020.LocationMessage\022\021\n\ts" +
-      "tartDate\030\004 \001(\003\022\036\n\006driver\030\005 \001(\0132\016.DriverM" +
-      "essage\022\020\n\010capacity\030\006 \001(\005\".\n\017RidesCollect" +
-      "ion\022\033\n\005rides\030\001 \003(\0132\014.RideMessage\"{\n\017Loca" +
-      "tionMessage\022\017\n\007country\030\001 \001(\t\022\014\n\004city\030\002 \001" +
-      "(\t\022\016\n\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001(\t\022\023\n\013c" +
-      "oordinateX\030\005 \001(\001\022\023\n\013coordinateY\030\006 \001(\001\"8\n" +
-      "\rDriverMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005phone\030\002 " +
-      "\001(\t\022\n\n\002id\030\003 \001(\005\"1\n\017JoinRideMessage\022\016\n\006ri" +
-      "deId\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\"2\n\023Confirmati" +
-      "onMessage\022\033\n\023confirmationMessage\030\001 \001(\t2\330" +
-      "\001\n\005Rides\0223\n\010getRides\022\025.EpochTimelineMess" +
-      "age\032\020.RidesCollection\0222\n\010joinRide\022\020.Join" +
-      "RideMessage\032\024.ConfirmationMessage\022.\n\ncre" +
-      "ateRide\022\022.CreateRideMessage\032\014.RideMessag" +
-      "e\0226\n\022getRidesByDriverId\022\016.UserIdMessage\032" +
-      "\020.RidesCollectionB%\n!via.sep3.databasese" +
-      "rver.protobuffP\001b\006proto3"
+      "\030\001 \001(\005\"\214\001\n\024EpochTimelineMessage\022\034\n\017epoch" +
+      "LowerBound\030\001 \001(\003H\000\210\001\001\022\034\n\017epochUpperBound" +
+      "\030\002 \001(\003H\001\210\001\001\022\020\n\010epochNow\030\003 \001(\003B\022\n\020_epochL" +
+      "owerBoundB\022\n\020_epochUpperBound\"\232\001\n\021Create" +
+      "RideMessage\022\'\n\rstartLocation\030\001 \001(\0132\020.Loc" +
+      "ationMessage\022%\n\013destination\030\002 \001(\0132\020.Loca" +
+      "tionMessage\022\021\n\tstartDate\030\003 \001(\003\022\020\n\010driver" +
+      "Id\030\004 \001(\005\022\020\n\010capacity\030\005 \001(\005\"\256\001\n\013RideMessa" +
+      "ge\022\n\n\002id\030\001 \001(\005\022\'\n\rstartLocation\030\002 \001(\0132\020." +
+      "LocationMessage\022%\n\013destination\030\003 \001(\0132\020.L" +
+      "ocationMessage\022\021\n\tstartDate\030\004 \001(\003\022\036\n\006dri" +
+      "ver\030\005 \001(\0132\016.DriverMessage\022\020\n\010capacity\030\006 " +
+      "\001(\005\".\n\017RidesCollection\022\033\n\005rides\030\001 \003(\0132\014." +
+      "RideMessage\"{\n\017LocationMessage\022\017\n\007countr" +
+      "y\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\016\n\006street\030\003 \001(\t\022\017\n" +
+      "\007zipcode\030\004 \001(\t\022\023\n\013coordinateX\030\005 \001(\001\022\023\n\013c" +
+      "oordinateY\030\006 \001(\001\"8\n\rDriverMessage\022\014\n\004nam" +
+      "e\030\001 \001(\t\022\r\n\005phone\030\002 \001(\t\022\n\n\002id\030\003 \001(\005\"1\n\017Jo" +
+      "inRideMessage\022\016\n\006rideId\030\001 \001(\005\022\016\n\006userId\030" +
+      "\002 \001(\005\"2\n\023ConfirmationMessage\022\033\n\023confirma" +
+      "tionMessage\030\001 \001(\t2\330\001\n\005Rides\0223\n\010getRides\022" +
+      "\025.EpochTimelineMessage\032\020.RidesCollection" +
+      "\0222\n\010joinRide\022\020.JoinRideMessage\032\024.Confirm" +
+      "ationMessage\022.\n\ncreateRide\022\022.CreateRideM" +
+      "essage\032\014.RideMessage\0226\n\022getRidesByDriver" +
+      "Id\022\016.UserIdMessage\032\020.RidesCollectionB%\n!" +
+      "via.sep3.databaseserver.protobuffP\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -112,7 +113,7 @@ public final class RidesOuterClass {
     internal_static_EpochTimelineMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EpochTimelineMessage_descriptor,
-        new java.lang.String[] { "EpochLowerBound", "EpochUpperBound", "EpochLowerBound", "EpochUpperBound", });
+        new java.lang.String[] { "EpochLowerBound", "EpochUpperBound", "EpochNow", "EpochLowerBound", "EpochUpperBound", });
     internal_static_CreateRideMessage_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_CreateRideMessage_fieldAccessorTable = new

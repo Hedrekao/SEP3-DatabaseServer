@@ -28,4 +28,10 @@ public interface EpochTimelineMessageOrBuilder extends
    * @return The epochUpperBound.
    */
   long getEpochUpperBound();
+
+  /**
+   * <code>int64 epochNow = 3;</code>
+   * @return The epochNow.
+   */
+  long getEpochNow();
 }
