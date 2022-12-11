@@ -20,6 +20,11 @@ public final class RidesOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UserIdMessage_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RideIdMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RideIdMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_EpochTimelineMessage_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -69,34 +74,36 @@ public final class RidesOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\013Rides.proto\"\037\n\rUserIdMessage\022\016\n\006userId" +
-      "\030\001 \001(\005\"\234\001\n\024EpochTimelineMessage\022\034\n\017epoch" +
-      "LowerBound\030\001 \001(\003H\000\210\001\001\022\034\n\017epochUpperBound" +
-      "\030\002 \001(\003H\001\210\001\001\022\020\n\010epochNow\030\003 \001(\003\022\016\n\006userId\030" +
-      "\004 \001(\005B\022\n\020_epochLowerBoundB\022\n\020_epochUpper" +
-      "Bound\"\232\001\n\021CreateRideMessage\022\'\n\rstartLoca" +
-      "tion\030\001 \001(\0132\020.LocationMessage\022%\n\013destinat" +
-      "ion\030\002 \001(\0132\020.LocationMessage\022\021\n\tstartDate" +
-      "\030\003 \001(\003\022\020\n\010driverId\030\004 \001(\005\022\020\n\010capacity\030\005 \001" +
-      "(\005\"\256\001\n\013RideMessage\022\n\n\002id\030\001 \001(\005\022\'\n\rstartL" +
-      "ocation\030\002 \001(\0132\020.LocationMessage\022%\n\013desti" +
-      "nation\030\003 \001(\0132\020.LocationMessage\022\021\n\tstartD" +
-      "ate\030\004 \001(\003\022\036\n\006driver\030\005 \001(\0132\016.DriverMessag" +
-      "e\022\020\n\010capacity\030\006 \001(\005\".\n\017RidesCollection\022\033" +
-      "\n\005rides\030\001 \003(\0132\014.RideMessage\"{\n\017LocationM" +
-      "essage\022\017\n\007country\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\016\n" +
-      "\006street\030\003 \001(\t\022\017\n\007zipcode\030\004 \001(\t\022\023\n\013coordi" +
-      "nateX\030\005 \001(\001\022\023\n\013coordinateY\030\006 \001(\001\"8\n\rDriv" +
-      "erMessage\022\014\n\004name\030\001 \001(\t\022\r\n\005phone\030\002 \001(\t\022\n" +
-      "\n\002id\030\003 \001(\005\"1\n\017JoinRideMessage\022\016\n\006rideId\030" +
-      "\001 \001(\005\022\016\n\006userId\030\002 \001(\005\"2\n\023ConfirmationMes" +
-      "sage\022\033\n\023confirmationMessage\030\001 \001(\t2\330\001\n\005Ri" +
-      "des\0223\n\010getRides\022\025.EpochTimelineMessage\032\020" +
-      ".RidesCollection\0222\n\010joinRide\022\020.JoinRideM" +
-      "essage\032\024.ConfirmationMessage\022.\n\ncreateRi" +
-      "de\022\022.CreateRideMessage\032\014.RideMessage\0226\n\022" +
-      "getRidesByDriverId\022\016.UserIdMessage\032\020.Rid" +
-      "esCollectionB%\n!via.sep3.databaseserver." +
-      "protobuffP\001b\006proto3"
+      "\030\001 \001(\005\"\037\n\rRideIdMessage\022\016\n\006rideId\030\001 \001(\005\"" +
+      "\234\001\n\024EpochTimelineMessage\022\034\n\017epochLowerBo" +
+      "und\030\001 \001(\003H\000\210\001\001\022\034\n\017epochUpperBound\030\002 \001(\003H" +
+      "\001\210\001\001\022\020\n\010epochNow\030\003 \001(\003\022\016\n\006userId\030\004 \001(\005B\022" +
+      "\n\020_epochLowerBoundB\022\n\020_epochUpperBound\"\232" +
+      "\001\n\021CreateRideMessage\022\'\n\rstartLocation\030\001 " +
+      "\001(\0132\020.LocationMessage\022%\n\013destination\030\002 \001" +
+      "(\0132\020.LocationMessage\022\021\n\tstartDate\030\003 \001(\003\022" +
+      "\020\n\010driverId\030\004 \001(\005\022\020\n\010capacity\030\005 \001(\005\"\256\001\n\013" +
+      "RideMessage\022\n\n\002id\030\001 \001(\005\022\'\n\rstartLocation" +
+      "\030\002 \001(\0132\020.LocationMessage\022%\n\013destination\030" +
+      "\003 \001(\0132\020.LocationMessage\022\021\n\tstartDate\030\004 \001" +
+      "(\003\022\036\n\006driver\030\005 \001(\0132\016.DriverMessage\022\020\n\010ca" +
+      "pacity\030\006 \001(\005\".\n\017RidesCollection\022\033\n\005rides" +
+      "\030\001 \003(\0132\014.RideMessage\"{\n\017LocationMessage\022" +
+      "\017\n\007country\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\016\n\006street" +
+      "\030\003 \001(\t\022\017\n\007zipcode\030\004 \001(\t\022\023\n\013coordinateX\030\005" +
+      " \001(\001\022\023\n\013coordinateY\030\006 \001(\001\"8\n\rDriverMessa" +
+      "ge\022\014\n\004name\030\001 \001(\t\022\r\n\005phone\030\002 \001(\t\022\n\n\002id\030\003 " +
+      "\001(\005\"1\n\017JoinRideMessage\022\016\n\006rideId\030\001 \001(\005\022\016" +
+      "\n\006userId\030\002 \001(\005\"2\n\023ConfirmationMessage\022\033\n" +
+      "\023confirmationMessage\030\001 \001(\t2\205\002\n\005Rides\0223\n\010" +
+      "getRides\022\025.EpochTimelineMessage\032\020.RidesC" +
+      "ollection\0222\n\010joinRide\022\020.JoinRideMessage\032" +
+      "\024.ConfirmationMessage\022.\n\ncreateRide\022\022.Cr" +
+      "eateRideMessage\032\014.RideMessage\0226\n\022getRide" +
+      "sByDriverId\022\016.UserIdMessage\032\020.RidesColle" +
+      "ction\022+\n\013getRideById\022\016.RideIdMessage\032\014.R" +
+      "ideMessageB%\n!via.sep3.databaseserver.pr" +
+      "otobuffP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -108,50 +115,56 @@ public final class RidesOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserIdMessage_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_EpochTimelineMessage_descriptor =
+    internal_static_RideIdMessage_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_RideIdMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RideIdMessage_descriptor,
+        new java.lang.String[] { "RideId", });
+    internal_static_EpochTimelineMessage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_EpochTimelineMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EpochTimelineMessage_descriptor,
         new java.lang.String[] { "EpochLowerBound", "EpochUpperBound", "EpochNow", "UserId", "EpochLowerBound", "EpochUpperBound", });
     internal_static_CreateRideMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_CreateRideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateRideMessage_descriptor,
         new java.lang.String[] { "StartLocation", "Destination", "StartDate", "DriverId", "Capacity", });
     internal_static_RideMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_RideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RideMessage_descriptor,
         new java.lang.String[] { "Id", "StartLocation", "Destination", "StartDate", "Driver", "Capacity", });
     internal_static_RidesCollection_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_RidesCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RidesCollection_descriptor,
         new java.lang.String[] { "Rides", });
     internal_static_LocationMessage_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_LocationMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LocationMessage_descriptor,
         new java.lang.String[] { "Country", "City", "Street", "Zipcode", "CoordinateX", "CoordinateY", });
     internal_static_DriverMessage_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_DriverMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DriverMessage_descriptor,
         new java.lang.String[] { "Name", "Phone", "Id", });
     internal_static_JoinRideMessage_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_JoinRideMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_JoinRideMessage_descriptor,
         new java.lang.String[] { "RideId", "UserId", });
     internal_static_ConfirmationMessage_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_ConfirmationMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ConfirmationMessage_descriptor,

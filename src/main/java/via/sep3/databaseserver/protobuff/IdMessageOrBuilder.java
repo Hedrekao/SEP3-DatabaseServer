@@ -8,8 +8,8 @@ public interface IdMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 driverId = 1;</code>
-   * @return The driverId.
+   * <code>int32 id = 1;</code>
+   * @return The id.
    */
-  int getDriverId();
+  int getId();
 }

@@ -161,6 +161,27 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         }
     }
 
+    @Override
+    public void getRideById(RideIdMessage request, StreamObserver<RideMessage> responseObserver) {
+
+        try {
+            Optional<Ride> optionalRide = rideRepository.findById(request.getRideId());
+            if(optionalRide.isPresent()){
+                Ride ride = optionalRide.get();
+                RideMessage rideMessage = createRideMessage(ride);
+                responseObserver.onNext(rideMessage);
+                responseObserver.onCompleted();
+            }
+            else{
+                throw new Exception("There is no ride with such id");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private RideMessage createRideMessage(Ride ride)
     {
         Location destination = ride.getDestination();

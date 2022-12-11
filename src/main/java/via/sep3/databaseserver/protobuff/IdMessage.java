@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            driverId_ = input.readInt32();
+            id_ = input.readInt32();
             break;
           }
           default: {
@@ -87,15 +87,15 @@ private static final long serialVersionUID = 0L;
             via.sep3.databaseserver.protobuff.IdMessage.class, via.sep3.databaseserver.protobuff.IdMessage.Builder.class);
   }
 
-  public static final int DRIVERID_FIELD_NUMBER = 1;
-  private int driverId_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private int id_;
   /**
-   * <code>int32 driverId = 1;</code>
-   * @return The driverId.
+   * <code>int32 id = 1;</code>
+   * @return The id.
    */
   @java.lang.Override
-  public int getDriverId() {
-    return driverId_;
+  public int getId() {
+    return id_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -112,8 +112,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (driverId_ != 0) {
-      output.writeInt32(1, driverId_);
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -124,9 +124,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (driverId_ != 0) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, driverId_);
+        .computeInt32Size(1, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -143,8 +143,8 @@ private static final long serialVersionUID = 0L;
     }
     via.sep3.databaseserver.protobuff.IdMessage other = (via.sep3.databaseserver.protobuff.IdMessage) obj;
 
-    if (getDriverId()
-        != other.getDriverId()) return false;
+    if (getId()
+        != other.getId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -156,8 +156,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DRIVERID_FIELD_NUMBER;
-    hash = (53 * hash) + getDriverId();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      driverId_ = 0;
+      id_ = 0;
 
       return this;
     }
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public via.sep3.databaseserver.protobuff.IdMessage buildPartial() {
       via.sep3.databaseserver.protobuff.IdMessage result = new via.sep3.databaseserver.protobuff.IdMessage(this);
-      result.driverId_ = driverId_;
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -368,8 +368,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(via.sep3.databaseserver.protobuff.IdMessage other) {
       if (other == via.sep3.databaseserver.protobuff.IdMessage.getDefaultInstance()) return this;
-      if (other.getDriverId() != 0) {
-        setDriverId(other.getDriverId());
+      if (other.getId() != 0) {
+        setId(other.getId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -400,33 +400,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int driverId_ ;
+    private int id_ ;
     /**
-     * <code>int32 driverId = 1;</code>
-     * @return The driverId.
+     * <code>int32 id = 1;</code>
+     * @return The id.
      */
     @java.lang.Override
-    public int getDriverId() {
-      return driverId_;
+    public int getId() {
+      return id_;
     }
     /**
-     * <code>int32 driverId = 1;</code>
-     * @param value The driverId to set.
+     * <code>int32 id = 1;</code>
+     * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setDriverId(int value) {
+    public Builder setId(int value) {
       
-      driverId_ = value;
+      id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 driverId = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDriverId() {
+    public Builder clearId() {
       
-      driverId_ = 0;
+      id_ = 0;
       onChanged();
       return this;
     }

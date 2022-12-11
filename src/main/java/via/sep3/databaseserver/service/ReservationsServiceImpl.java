@@ -29,7 +29,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         List<ReservationMessage> list = new ArrayList<>();
         for(Reservation reservation : reservations)
         {
-            if(reservation.getRide().getDriver().getId() == request.getDriverId())
+            if(reservation.getRide().getDriver().getId() == request.getId())
             {
                 ReservationMessage reservationMessage = createReservationMessage(reservation);
                 list.add(reservationMessage);
@@ -61,9 +61,9 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
     }
 
     @Override
-    public void getAcceptedReservationsByRideId(RideIdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
+    public void getAcceptedReservationsByRideId(IdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
         try {
-            List<Reservation> iterable = reservationRepository.findAllByIsAcceptedTrueAndRideId(request.getRideId());
+            List<Reservation> iterable = reservationRepository.findAllByIsAcceptedTrueAndRideId(request.getId());
 
             List<ReservationMessage> reservations = new ArrayList<>();
             for (Reservation reservation : iterable)

@@ -76,27 +76,27 @@ public final class ReservationsGrpc {
     return getGetAllReservationsToAcceptMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.RideIdMessage,
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage,
       via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAcceptedReservationsByRideIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getAcceptedReservationsByRideId",
-      requestType = via.sep3.databaseserver.protobuff.RideIdMessage.class,
+      requestType = via.sep3.databaseserver.protobuff.IdMessage.class,
       responseType = via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.RideIdMessage,
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage,
       via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAcceptedReservationsByRideIdMethod() {
-    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.RideIdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAcceptedReservationsByRideIdMethod;
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.IdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getGetAcceptedReservationsByRideIdMethod;
     if ((getGetAcceptedReservationsByRideIdMethod = ReservationsGrpc.getGetAcceptedReservationsByRideIdMethod) == null) {
       synchronized (ReservationsGrpc.class) {
         if ((getGetAcceptedReservationsByRideIdMethod = ReservationsGrpc.getGetAcceptedReservationsByRideIdMethod) == null) {
           ReservationsGrpc.getGetAcceptedReservationsByRideIdMethod = getGetAcceptedReservationsByRideIdMethod =
-              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.RideIdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>newBuilder()
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.IdMessage, via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAcceptedReservationsByRideId"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sep3.databaseserver.protobuff.RideIdMessage.getDefaultInstance()))
+                  via.sep3.databaseserver.protobuff.IdMessage.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection.getDefaultInstance()))
               .setSchemaDescriptor(new ReservationsMethodDescriptorSupplier("getAcceptedReservationsByRideId"))
@@ -174,7 +174,7 @@ public final class ReservationsGrpc {
      * i think return is ok
      * </pre>
      */
-    public void getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.RideIdMessage request,
+    public void getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.IdMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAcceptedReservationsByRideIdMethod(), responseObserver);
     }
@@ -199,7 +199,7 @@ public final class ReservationsGrpc {
             getGetAcceptedReservationsByRideIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                via.sep3.databaseserver.protobuff.RideIdMessage,
+                via.sep3.databaseserver.protobuff.IdMessage,
                 via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>(
                   this, METHODID_GET_ACCEPTED_RESERVATIONS_BY_RIDE_ID)))
           .build();
@@ -241,7 +241,7 @@ public final class ReservationsGrpc {
      * i think return is ok
      * </pre>
      */
-    public void getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.RideIdMessage request,
+    public void getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.IdMessage request,
         io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAcceptedReservationsByRideIdMethod(), getCallOptions()), request, responseObserver);
@@ -281,7 +281,7 @@ public final class ReservationsGrpc {
      * i think return is ok
      * </pre>
      */
-    public via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.RideIdMessage request) {
+    public via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection getAcceptedReservationsByRideId(via.sep3.databaseserver.protobuff.IdMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAcceptedReservationsByRideIdMethod(), getCallOptions(), request);
     }
@@ -323,7 +323,7 @@ public final class ReservationsGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection> getAcceptedReservationsByRideId(
-        via.sep3.databaseserver.protobuff.RideIdMessage request) {
+        via.sep3.databaseserver.protobuff.IdMessage request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetAcceptedReservationsByRideIdMethod(), getCallOptions()), request);
     }
@@ -359,7 +359,7 @@ public final class ReservationsGrpc {
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>) responseObserver);
           break;
         case METHODID_GET_ACCEPTED_RESERVATIONS_BY_RIDE_ID:
-          serviceImpl.getAcceptedReservationsByRideId((via.sep3.databaseserver.protobuff.RideIdMessage) request,
+          serviceImpl.getAcceptedReservationsByRideId((via.sep3.databaseserver.protobuff.IdMessage) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ReservationsToAcceptCollection>) responseObserver);
           break;
         default:
