@@ -10,6 +10,7 @@ import via.sep3.databaseserver.repository.RideRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @GRpcService()
 public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBase {
@@ -61,6 +62,55 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
     }
 
     @Override
+    public void getAllReservationsByUserId(IdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
+        List<Reservation> reservations = reservationRepository.findAllByUserId(request.getId());
+        List<ReservationMessage> list = new ArrayList<>();
+        for(Reservation reservation : reservations)
+        {
+            if(reservation.getRide().getDriver().getId() == request.getId())
+            {
+                ReservationMessage reservationMessage = createReservationMessage(reservation);
+                list.add(reservationMessage);
+            }
+
+        }
+
+        ReservationsToAcceptCollection collection = ReservationsToAcceptCollection.newBuilder().addAllReservationMessages(list).build();
+
+        responseObserver.onNext(collection);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void changeReservationStatus(ChangeReservStatusMessage request, StreamObserver<BoolValue> responseObserver) {
+        Optional<Reservation> optionalReservation = reservationRepository.findById(request.getId());
+
+        if(optionalReservation.isPresent())
+        {
+            try {
+                Reservation reservation = optionalReservation.get();
+                reservation.setStatus(reservation.getStatus());
+                reservationRepository.save(reservation);
+                BoolValue boolValue = BoolValue.newBuilder().setValue(true).build();
+                responseObserver.onNext(boolValue);
+                responseObserver.onCompleted();
+            }
+            catch (Exception e)
+            {
+                BoolValue boolValue = BoolValue.newBuilder().setValue(false).build();
+                responseObserver.onNext(boolValue);
+                responseObserver.onCompleted();
+            }
+        }
+        else
+        {
+            BoolValue boolValue = BoolValue.newBuilder().setValue(false).build();
+            responseObserver.onNext(boolValue);
+            responseObserver.onCompleted();
+        }
+    }
+
+    @Override
     public void getAcceptedReservationsByRideId(IdMessage request, StreamObserver<ReservationsToAcceptCollection> responseObserver) {
         try {
             List<Reservation> iterable = reservationRepository.findAllByIsAcceptedTrueAndRideId(request.getId());
@@ -90,7 +140,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
                     .setPhone(Integer.toString(reservation.getUser().getPhone()))
                     .setDidAccept(BoolValue.newBuilder().setValue(reservation.isAccepted()).build())
                     .setRideId(reservation.getRide().getId()).
-                     setId(reservation.getId()).build();
+                     setId(reservation.getId()).setStatus(reservation.getStatus()).build();
 
         }
         else

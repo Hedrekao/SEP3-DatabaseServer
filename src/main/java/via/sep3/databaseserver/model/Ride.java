@@ -28,17 +28,29 @@ public class Ride {
     @Column(columnDefinition = "int default 5")
     private int capacity;
 
+    private boolean isCancelled;
+
     public Ride(Location startLocation, Location destination, long startTime, User user, int capacity) {
         this.startLocation = startLocation;
         this.destination = destination;
         this.startTime = startTime;
         this.user = user;
         this.capacity = capacity;
+        this.isCancelled = false;
     }
 
     protected Ride()
     {
 
+    }
+
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
     }
 
     public Location getStartLocation() {

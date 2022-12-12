@@ -53,12 +53,28 @@ public interface ReservationMessageOrBuilder extends
   via.sep3.databaseserver.protobuff.BoolValueOrBuilder getDidAcceptOrBuilder();
 
   /**
-   * <pre>
-   *Maybe isAccepted?
-   * </pre>
-   *
    * <code>int32 id = 5;</code>
    * @return The id.
    */
   int getId();
+
+  /**
+   * <pre>
+   *Maybe isAccepted?
+   * </pre>
+   *
+   * <code>string status = 6;</code>
+   * @return The status.
+   */
+  java.lang.String getStatus();
+  /**
+   * <pre>
+   *Maybe isAccepted?
+   * </pre>
+   *
+   * <code>string status = 6;</code>
+   * @return The bytes for status.
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
 }

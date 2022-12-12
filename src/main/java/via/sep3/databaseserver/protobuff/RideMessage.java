@@ -102,6 +102,11 @@ private static final long serialVersionUID = 0L;
             capacity_ = input.readInt32();
             break;
           }
+          case 56: {
+
+            isCancelled_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -247,6 +252,17 @@ private static final long serialVersionUID = 0L;
     return capacity_;
   }
 
+  public static final int ISCANCELLED_FIELD_NUMBER = 7;
+  private boolean isCancelled_;
+  /**
+   * <code>bool isCancelled = 7;</code>
+   * @return The isCancelled.
+   */
+  @java.lang.Override
+  public boolean getIsCancelled() {
+    return isCancelled_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -278,6 +294,9 @@ private static final long serialVersionUID = 0L;
     }
     if (capacity_ != 0) {
       output.writeInt32(6, capacity_);
+    }
+    if (isCancelled_ != false) {
+      output.writeBool(7, isCancelled_);
     }
     unknownFields.writeTo(output);
   }
@@ -311,6 +330,10 @@ private static final long serialVersionUID = 0L;
     if (capacity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, capacity_);
+    }
+    if (isCancelled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, isCancelled_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -348,6 +371,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getCapacity()
         != other.getCapacity()) return false;
+    if (getIsCancelled()
+        != other.getIsCancelled()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -378,6 +403,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CAPACITY_FIELD_NUMBER;
     hash = (53 * hash) + getCapacity();
+    hash = (37 * hash) + ISCANCELLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsCancelled());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -535,6 +563,8 @@ private static final long serialVersionUID = 0L;
       }
       capacity_ = 0;
 
+      isCancelled_ = false;
+
       return this;
     }
 
@@ -579,6 +609,7 @@ private static final long serialVersionUID = 0L;
         result.driver_ = driverBuilder_.build();
       }
       result.capacity_ = capacity_;
+      result.isCancelled_ = isCancelled_;
       onBuilt();
       return result;
     }
@@ -644,6 +675,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getCapacity() != 0) {
         setCapacity(other.getCapacity());
+      }
+      if (other.getIsCancelled() != false) {
+        setIsCancelled(other.getIsCancelled());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1120,6 +1154,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearCapacity() {
       
       capacity_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean isCancelled_ ;
+    /**
+     * <code>bool isCancelled = 7;</code>
+     * @return The isCancelled.
+     */
+    @java.lang.Override
+    public boolean getIsCancelled() {
+      return isCancelled_;
+    }
+    /**
+     * <code>bool isCancelled = 7;</code>
+     * @param value The isCancelled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsCancelled(boolean value) {
+      
+      isCancelled_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isCancelled = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsCancelled() {
+      
+      isCancelled_ = false;
       onChanged();
       return this;
     }

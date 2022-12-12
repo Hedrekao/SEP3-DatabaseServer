@@ -69,4 +69,10 @@ public interface RideMessageOrBuilder extends
    * @return The capacity.
    */
   int getCapacity();
+
+  /**
+   * <code>bool isCancelled = 7;</code>
+   * @return The isCancelled.
+   */
+  boolean getIsCancelled();
 }

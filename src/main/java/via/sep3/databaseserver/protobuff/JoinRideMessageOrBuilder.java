@@ -14,6 +14,11 @@ public interface JoinRideMessageOrBuilder extends
   int getRideId();
 
   /**
+   * <pre>
+   *string passengerName = 2;
+   *string passengerPhone = 3;
+   * </pre>
+   *
    * <code>int32 userId = 2;</code>
    * @return The userId.
    */

@@ -182,6 +182,40 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         }
     }
 
+    @Override
+    public void changeRideStatus(ChangeRideStatusMessage request, StreamObserver<ConfirmationMessage> responseObserver) {
+        try {
+            Optional<Ride> optionalRide = rideRepository.findById(request.getId());
+            if(optionalRide.isPresent()){
+                Ride ride = optionalRide.get();
+                if(request.getStatus().equals("Cancelled"))
+                {
+                    ride.setCancelled(true);
+                }
+                rideRepository.save(ride);
+                List<Reservation> reservations = reservationRepository.findAllByRideId(request.getId());
+                for(Reservation reservation : reservations)
+                {
+                    reservation.setStatus("Cancelled by driver");
+                    reservationRepository.save(reservation);
+                }
+                ConfirmationMessage message = ConfirmationMessage.newBuilder().setConfirmationMessage("Ok").build();
+                responseObserver.onNext(message);
+                responseObserver.onCompleted();
+            }
+            else{
+                throw new Exception("There is no ride with such id");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            ConfirmationMessage message = ConfirmationMessage.newBuilder().setConfirmationMessage("Error").build();
+            responseObserver.onNext(message);
+            responseObserver.onCompleted();
+        }
+    }
+
     private RideMessage createRideMessage(Ride ride)
     {
         Location destination = ride.getDestination();

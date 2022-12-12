@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private ReservationMessage() {
     name_ = "";
     phone_ = "";
+    status_ = "";
   }
 
   @java.lang.Override
@@ -84,6 +85,12 @@ private static final long serialVersionUID = 0L;
           case 40: {
 
             id_ = input.readInt32();
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            status_ = s;
             break;
           }
           default: {
@@ -237,16 +244,58 @@ private static final long serialVersionUID = 0L;
   public static final int ID_FIELD_NUMBER = 5;
   private int id_;
   /**
-   * <pre>
-   *Maybe isAccepted?
-   * </pre>
-   *
    * <code>int32 id = 5;</code>
    * @return The id.
    */
   @java.lang.Override
   public int getId() {
     return id_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 6;
+  private volatile java.lang.Object status_;
+  /**
+   * <pre>
+   *Maybe isAccepted?
+   * </pre>
+   *
+   * <code>string status = 6;</code>
+   * @return The status.
+   */
+  @java.lang.Override
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *Maybe isAccepted?
+   * </pre>
+   *
+   * <code>string status = 6;</code>
+   * @return The bytes for status.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -278,6 +327,9 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0) {
       output.writeInt32(5, id_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, status_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -304,6 +356,9 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, id_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -333,6 +388,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getId()
         != other.getId()) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -356,6 +413,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -504,6 +563,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       id_ = 0;
 
+      status_ = "";
+
       return this;
     }
 
@@ -544,6 +605,7 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.id_ = id_;
+      result.status_ = status_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -609,6 +671,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getId() != 0) {
         setId(other.getId());
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -945,10 +1011,6 @@ private static final long serialVersionUID = 0L;
 
     private int id_ ;
     /**
-     * <pre>
-     *Maybe isAccepted?
-     * </pre>
-     *
      * <code>int32 id = 5;</code>
      * @return The id.
      */
@@ -957,10 +1019,6 @@ private static final long serialVersionUID = 0L;
       return id_;
     }
     /**
-     * <pre>
-     *Maybe isAccepted?
-     * </pre>
-     *
      * <code>int32 id = 5;</code>
      * @param value The id to set.
      * @return This builder for chaining.
@@ -972,16 +1030,108 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *Maybe isAccepted?
-     * </pre>
-     *
      * <code>int32 id = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       
       id_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <pre>
+     *Maybe isAccepted?
+     * </pre>
+     *
+     * <code>string status = 6;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Maybe isAccepted?
+     * </pre>
+     *
+     * <code>string status = 6;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Maybe isAccepted?
+     * </pre>
+     *
+     * <code>string status = 6;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Maybe isAccepted?
+     * </pre>
+     *
+     * <code>string status = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Maybe isAccepted?
+     * </pre>
+     *
+     * <code>string status = 6;</code>
+     * @param value The bytes for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }

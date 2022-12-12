@@ -22,6 +22,8 @@ public class Reservation {
     @Column(nullable=true)
     private Boolean isAccepted;
 
+    private String status;
+
     protected Reservation()
     {
 
@@ -38,7 +40,16 @@ public class Reservation {
     public Reservation(Ride ride, User user) {
         this.ride = ride;
         this.user = user;
+        this.status = "Pending";
         isAccepted = null;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Ride getRide() {

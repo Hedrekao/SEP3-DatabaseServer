@@ -4,25 +4,26 @@
 package via.sep3.databaseserver.protobuff;
 
 /**
- * Protobuf type {@code JoinRideMessage}
+ * Protobuf type {@code ChangeRideStatusMessage}
  */
-public final class JoinRideMessage extends
+public final class ChangeRideStatusMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:JoinRideMessage)
-    JoinRideMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:ChangeRideStatusMessage)
+    ChangeRideStatusMessageOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use JoinRideMessage.newBuilder() to construct.
-  private JoinRideMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ChangeRideStatusMessage.newBuilder() to construct.
+  private ChangeRideStatusMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private JoinRideMessage() {
+  private ChangeRideStatusMessage() {
+    status_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new JoinRideMessage();
+    return new ChangeRideStatusMessage();
   }
 
   @java.lang.Override
@@ -30,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JoinRideMessage(
+  private ChangeRideStatusMessage(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,12 +51,13 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            rideId_ = input.readInt32();
+            id_ = input.readInt32();
             break;
           }
-          case 16: {
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            userId_ = input.readInt32();
+            status_ = s;
             break;
           }
           default: {
@@ -81,42 +83,64 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_JoinRideMessage_descriptor;
+    return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_ChangeRideStatusMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_JoinRideMessage_fieldAccessorTable
+    return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_ChangeRideStatusMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            via.sep3.databaseserver.protobuff.JoinRideMessage.class, via.sep3.databaseserver.protobuff.JoinRideMessage.Builder.class);
+            via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.class, via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.Builder.class);
   }
 
-  public static final int RIDEID_FIELD_NUMBER = 1;
-  private int rideId_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private int id_;
   /**
-   * <code>int32 rideId = 1;</code>
-   * @return The rideId.
+   * <code>int32 id = 1;</code>
+   * @return The id.
    */
   @java.lang.Override
-  public int getRideId() {
-    return rideId_;
+  public int getId() {
+    return id_;
   }
 
-  public static final int USERID_FIELD_NUMBER = 2;
-  private int userId_;
+  public static final int STATUS_FIELD_NUMBER = 2;
+  private volatile java.lang.Object status_;
   /**
-   * <pre>
-   *string passengerName = 2;
-   *string passengerPhone = 3;
-   * </pre>
-   *
-   * <code>int32 userId = 2;</code>
-   * @return The userId.
+   * <code>string status = 2;</code>
+   * @return The status.
    */
   @java.lang.Override
-  public int getUserId() {
-    return userId_;
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 2;</code>
+   * @return The bytes for status.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,11 +157,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (rideId_ != 0) {
-      output.writeInt32(1, rideId_);
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
     }
-    if (userId_ != 0) {
-      output.writeInt32(2, userId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -148,13 +172,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (rideId_ != 0) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, rideId_);
+        .computeInt32Size(1, id_);
     }
-    if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, userId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -166,15 +189,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof via.sep3.databaseserver.protobuff.JoinRideMessage)) {
+    if (!(obj instanceof via.sep3.databaseserver.protobuff.ChangeRideStatusMessage)) {
       return super.equals(obj);
     }
-    via.sep3.databaseserver.protobuff.JoinRideMessage other = (via.sep3.databaseserver.protobuff.JoinRideMessage) obj;
+    via.sep3.databaseserver.protobuff.ChangeRideStatusMessage other = (via.sep3.databaseserver.protobuff.ChangeRideStatusMessage) obj;
 
-    if (getRideId()
-        != other.getRideId()) return false;
-    if (getUserId()
-        != other.getUserId()) return false;
+    if (getId()
+        != other.getId()) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -186,78 +209,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + RIDEID_FIELD_NUMBER;
-    hash = (53 * hash) + getRideId();
-    hash = (37 * hash) + USERID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(byte[] data)
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseDelimitedFrom(java.io.InputStream input)
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseDelimitedFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage parseFrom(
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -270,7 +293,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(via.sep3.databaseserver.protobuff.JoinRideMessage prototype) {
+  public static Builder newBuilder(via.sep3.databaseserver.protobuff.ChangeRideStatusMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -286,26 +309,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code JoinRideMessage}
+   * Protobuf type {@code ChangeRideStatusMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:JoinRideMessage)
-      via.sep3.databaseserver.protobuff.JoinRideMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:ChangeRideStatusMessage)
+      via.sep3.databaseserver.protobuff.ChangeRideStatusMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_JoinRideMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_ChangeRideStatusMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_JoinRideMessage_fieldAccessorTable
+      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_ChangeRideStatusMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              via.sep3.databaseserver.protobuff.JoinRideMessage.class, via.sep3.databaseserver.protobuff.JoinRideMessage.Builder.class);
+              via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.class, via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.Builder.class);
     }
 
-    // Construct using via.sep3.databaseserver.protobuff.JoinRideMessage.newBuilder()
+    // Construct using via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -323,9 +346,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      rideId_ = 0;
+      id_ = 0;
 
-      userId_ = 0;
+      status_ = "";
 
       return this;
     }
@@ -333,17 +356,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_JoinRideMessage_descriptor;
+      return via.sep3.databaseserver.protobuff.RidesOuterClass.internal_static_ChangeRideStatusMessage_descriptor;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.JoinRideMessage getDefaultInstanceForType() {
-      return via.sep3.databaseserver.protobuff.JoinRideMessage.getDefaultInstance();
+    public via.sep3.databaseserver.protobuff.ChangeRideStatusMessage getDefaultInstanceForType() {
+      return via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.getDefaultInstance();
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.JoinRideMessage build() {
-      via.sep3.databaseserver.protobuff.JoinRideMessage result = buildPartial();
+    public via.sep3.databaseserver.protobuff.ChangeRideStatusMessage build() {
+      via.sep3.databaseserver.protobuff.ChangeRideStatusMessage result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -351,10 +374,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public via.sep3.databaseserver.protobuff.JoinRideMessage buildPartial() {
-      via.sep3.databaseserver.protobuff.JoinRideMessage result = new via.sep3.databaseserver.protobuff.JoinRideMessage(this);
-      result.rideId_ = rideId_;
-      result.userId_ = userId_;
+    public via.sep3.databaseserver.protobuff.ChangeRideStatusMessage buildPartial() {
+      via.sep3.databaseserver.protobuff.ChangeRideStatusMessage result = new via.sep3.databaseserver.protobuff.ChangeRideStatusMessage(this);
+      result.id_ = id_;
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -393,21 +416,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof via.sep3.databaseserver.protobuff.JoinRideMessage) {
-        return mergeFrom((via.sep3.databaseserver.protobuff.JoinRideMessage)other);
+      if (other instanceof via.sep3.databaseserver.protobuff.ChangeRideStatusMessage) {
+        return mergeFrom((via.sep3.databaseserver.protobuff.ChangeRideStatusMessage)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(via.sep3.databaseserver.protobuff.JoinRideMessage other) {
-      if (other == via.sep3.databaseserver.protobuff.JoinRideMessage.getDefaultInstance()) return this;
-      if (other.getRideId() != 0) {
-        setRideId(other.getRideId());
+    public Builder mergeFrom(via.sep3.databaseserver.protobuff.ChangeRideStatusMessage other) {
+      if (other == via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.getDefaultInstance()) return this;
+      if (other.getId() != 0) {
+        setId(other.getId());
       }
-      if (other.getUserId() != 0) {
-        setUserId(other.getUserId());
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -424,11 +448,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      via.sep3.databaseserver.protobuff.JoinRideMessage parsedMessage = null;
+      via.sep3.databaseserver.protobuff.ChangeRideStatusMessage parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (via.sep3.databaseserver.protobuff.JoinRideMessage) e.getUnfinishedMessage();
+        parsedMessage = (via.sep3.databaseserver.protobuff.ChangeRideStatusMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -438,79 +462,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int rideId_ ;
+    private int id_ ;
     /**
-     * <code>int32 rideId = 1;</code>
-     * @return The rideId.
+     * <code>int32 id = 1;</code>
+     * @return The id.
      */
     @java.lang.Override
-    public int getRideId() {
-      return rideId_;
+    public int getId() {
+      return id_;
     }
     /**
-     * <code>int32 rideId = 1;</code>
-     * @param value The rideId to set.
+     * <code>int32 id = 1;</code>
+     * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setRideId(int value) {
+    public Builder setId(int value) {
       
-      rideId_ = value;
+      id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 rideId = 1;</code>
+     * <code>int32 id = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearRideId() {
+    public Builder clearId() {
       
-      rideId_ = 0;
+      id_ = 0;
       onChanged();
       return this;
     }
 
-    private int userId_ ;
+    private java.lang.Object status_ = "";
     /**
-     * <pre>
-     *string passengerName = 2;
-     *string passengerPhone = 3;
-     * </pre>
-     *
-     * <code>int32 userId = 2;</code>
-     * @return The userId.
+     * <code>string status = 2;</code>
+     * @return The status.
      */
-    @java.lang.Override
-    public int getUserId() {
-      return userId_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <pre>
-     *string passengerName = 2;
-     *string passengerPhone = 3;
-     * </pre>
-     *
-     * <code>int32 userId = 2;</code>
-     * @param value The userId to set.
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 2;</code>
+     * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(int value) {
-      
-      userId_ = value;
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <pre>
-     *string passengerName = 2;
-     *string passengerPhone = 3;
-     * </pre>
-     *
-     * <code>int32 userId = 2;</code>
+     * <code>string status = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearStatus() {
       
-      userId_ = 0;
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 2;</code>
+     * @param value The bytes for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }
@@ -527,41 +581,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:JoinRideMessage)
+    // @@protoc_insertion_point(builder_scope:ChangeRideStatusMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:JoinRideMessage)
-  private static final via.sep3.databaseserver.protobuff.JoinRideMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:ChangeRideStatusMessage)
+  private static final via.sep3.databaseserver.protobuff.ChangeRideStatusMessage DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.JoinRideMessage();
+    DEFAULT_INSTANCE = new via.sep3.databaseserver.protobuff.ChangeRideStatusMessage();
   }
 
-  public static via.sep3.databaseserver.protobuff.JoinRideMessage getDefaultInstance() {
+  public static via.sep3.databaseserver.protobuff.ChangeRideStatusMessage getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<JoinRideMessage>
-      PARSER = new com.google.protobuf.AbstractParser<JoinRideMessage>() {
+  private static final com.google.protobuf.Parser<ChangeRideStatusMessage>
+      PARSER = new com.google.protobuf.AbstractParser<ChangeRideStatusMessage>() {
     @java.lang.Override
-    public JoinRideMessage parsePartialFrom(
+    public ChangeRideStatusMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JoinRideMessage(input, extensionRegistry);
+      return new ChangeRideStatusMessage(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<JoinRideMessage> parser() {
+  public static com.google.protobuf.Parser<ChangeRideStatusMessage> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<JoinRideMessage> getParserForType() {
+  public com.google.protobuf.Parser<ChangeRideStatusMessage> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public via.sep3.databaseserver.protobuff.JoinRideMessage getDefaultInstanceForType() {
+  public via.sep3.databaseserver.protobuff.ChangeRideStatusMessage getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -169,6 +169,37 @@ public final class RidesGrpc {
     return getGetRideByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.ChangeRideStatusMessage,
+      via.sep3.databaseserver.protobuff.ConfirmationMessage> getChangeRideStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ChangeRideStatus",
+      requestType = via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.class,
+      responseType = via.sep3.databaseserver.protobuff.ConfirmationMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.ChangeRideStatusMessage,
+      via.sep3.databaseserver.protobuff.ConfirmationMessage> getChangeRideStatusMethod() {
+    io.grpc.MethodDescriptor<via.sep3.databaseserver.protobuff.ChangeRideStatusMessage, via.sep3.databaseserver.protobuff.ConfirmationMessage> getChangeRideStatusMethod;
+    if ((getChangeRideStatusMethod = RidesGrpc.getChangeRideStatusMethod) == null) {
+      synchronized (RidesGrpc.class) {
+        if ((getChangeRideStatusMethod = RidesGrpc.getChangeRideStatusMethod) == null) {
+          RidesGrpc.getChangeRideStatusMethod = getChangeRideStatusMethod =
+              io.grpc.MethodDescriptor.<via.sep3.databaseserver.protobuff.ChangeRideStatusMessage, via.sep3.databaseserver.protobuff.ConfirmationMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ChangeRideStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.ChangeRideStatusMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  via.sep3.databaseserver.protobuff.ConfirmationMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new RidesMethodDescriptorSupplier("ChangeRideStatus"))
+              .build();
+        }
+      }
+    }
+    return getChangeRideStatusMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class RidesGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRideByIdMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void changeRideStatus(via.sep3.databaseserver.protobuff.ChangeRideStatusMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getChangeRideStatusMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -289,6 +327,13 @@ public final class RidesGrpc {
                 via.sep3.databaseserver.protobuff.RideIdMessage,
                 via.sep3.databaseserver.protobuff.RideMessage>(
                   this, METHODID_GET_RIDE_BY_ID)))
+          .addMethod(
+            getChangeRideStatusMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                via.sep3.databaseserver.protobuff.ChangeRideStatusMessage,
+                via.sep3.databaseserver.protobuff.ConfirmationMessage>(
+                  this, METHODID_CHANGE_RIDE_STATUS)))
           .build();
     }
   }
@@ -346,6 +391,14 @@ public final class RidesGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetRideByIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void changeRideStatus(via.sep3.databaseserver.protobuff.ChangeRideStatusMessage request,
+        io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getChangeRideStatusMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -395,6 +448,13 @@ public final class RidesGrpc {
     public via.sep3.databaseserver.protobuff.RideMessage getRideById(via.sep3.databaseserver.protobuff.RideIdMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetRideByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public via.sep3.databaseserver.protobuff.ConfirmationMessage changeRideStatus(via.sep3.databaseserver.protobuff.ChangeRideStatusMessage request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getChangeRideStatusMethod(), getCallOptions(), request);
     }
   }
 
@@ -451,6 +511,14 @@ public final class RidesGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetRideByIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<via.sep3.databaseserver.protobuff.ConfirmationMessage> changeRideStatus(
+        via.sep3.databaseserver.protobuff.ChangeRideStatusMessage request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getChangeRideStatusMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_RIDES = 0;
@@ -458,6 +526,7 @@ public final class RidesGrpc {
   private static final int METHODID_CREATE_RIDE = 2;
   private static final int METHODID_GET_RIDES_BY_DRIVER_ID = 3;
   private static final int METHODID_GET_RIDE_BY_ID = 4;
+  private static final int METHODID_CHANGE_RIDE_STATUS = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -495,6 +564,10 @@ public final class RidesGrpc {
         case METHODID_GET_RIDE_BY_ID:
           serviceImpl.getRideById((via.sep3.databaseserver.protobuff.RideIdMessage) request,
               (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.RideMessage>) responseObserver);
+          break;
+        case METHODID_CHANGE_RIDE_STATUS:
+          serviceImpl.changeRideStatus((via.sep3.databaseserver.protobuff.ChangeRideStatusMessage) request,
+              (io.grpc.stub.StreamObserver<via.sep3.databaseserver.protobuff.ConfirmationMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -562,6 +635,7 @@ public final class RidesGrpc {
               .addMethod(getCreateRideMethod())
               .addMethod(getGetRidesByDriverIdMethod())
               .addMethod(getGetRideByIdMethod())
+              .addMethod(getChangeRideStatusMethod())
               .build();
         }
       }
