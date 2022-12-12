@@ -72,7 +72,7 @@ public class Reservation {
         return isAccepted;
     }
 
-    public void setAccepted(boolean accepted) {
+    public void setAccepted(Boolean accepted) {
         isAccepted = accepted;
     }
 }

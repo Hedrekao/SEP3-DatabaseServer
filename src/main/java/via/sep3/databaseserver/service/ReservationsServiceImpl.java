@@ -90,7 +90,11 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
             try {
                 Reservation reservation = optionalReservation.get();
                 reservation.setStatus(reservation.getStatus());
+                reservation.setAccepted(null);
+                Ride ride = rideRepository.findById(reservation.getRide().getId()).get();
                 reservationRepository.save(reservation);
+                ride.setCapacity(ride.getCapacity() + 1);
+                rideRepository.save(ride);
                 BoolValue boolValue = BoolValue.newBuilder().setValue(true).build();
                 responseObserver.onNext(boolValue);
                 responseObserver.onCompleted();
