@@ -9,6 +9,17 @@ service Rides{
   rpc createRide(CreateRideMessage) returns (RideMessage);
   rpc getRidesByDriverId(UserIdMessage) returns (RidesCollection);
   rpc getRideById(RideIdMessage) returns (RideMessage);
+
+  rpc ChangeRideStatus(ChangeRideStatusMessage) returns(NullMessage);
+}
+
+message NullMessage{
+
+}
+
+message ChangeRideStatusMessage{
+  int32 id = 1;
+  string status = 2;
 }
 
 message UserIdMessage{
@@ -32,7 +43,7 @@ message CreateRideMessage{
   LocationMessage startLocation = 1;
   LocationMessage destination = 2;
   int64 startDate = 3;
-  int32 driverId= 4;
+  int32 driverId = 4;
   int32 capacity = 5;
 }
 
@@ -43,6 +54,7 @@ message RideMessage{
   int64 startDate = 4;
   DriverMessage driver = 5;
   int32 capacity = 6;
+  string status = 7;
 }
 
 message RidesCollection{
@@ -68,7 +80,9 @@ message DriverMessage{
 
 message JoinRideMessage{
   int32 rideId = 1;
-  int32 userId= 2;
+  int32 userId = 2;
+  //string passengerName = 2;
+  //string passengerPhone = 3;
 }
 
 message ConfirmationMessage{
