@@ -13,9 +13,11 @@ public interface ReservationRepository extends CrudRepository<Reservation,Intege
     @Query("select r from Reservation r where r.isAccepted is null")
     List<Reservation> findAllByAcceptedIsNull();
     List<Reservation> findAllByIsAcceptedTrueAndRideId(int id);
+    @Query("select r from Reservation r where r.ride.id = ?1")
     List<Reservation> findAllByRideId(int id);
 
 
+    @Query("select r from Reservation r where r.user.id = ?1")
     List<Reservation> findAllByUserId(int id);
 }
 

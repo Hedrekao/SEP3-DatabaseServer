@@ -51,6 +51,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         Reservation reservation = reservationRepository.findById(id).get();
 
         reservation.setAccepted(request.getDidAccept());
+        reservation.setStatus(request.getDidAccept() ? "Accepted" : "Rejected");
         reservationRepository.save(reservation);
 
         Ride ride = rideRepository.findById(reservation.getRide().getId()).get();
@@ -67,11 +68,9 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         List<ReservationMessage> list = new ArrayList<>();
         for(Reservation reservation : reservations)
         {
-            if(reservation.getRide().getDriver().getId() == request.getId())
-            {
+
                 ReservationMessage reservationMessage = createReservationMessage(reservation);
                 list.add(reservationMessage);
-            }
 
         }
 
@@ -89,7 +88,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
         {
             try {
                 Reservation reservation = optionalReservation.get();
-                reservation.setStatus(reservation.getStatus());
+                reservation.setStatus(request.getStatus());
                 reservation.setAccepted(null);
                 Ride ride = rideRepository.findById(reservation.getRide().getId()).get();
                 reservationRepository.save(reservation);
@@ -152,7 +151,7 @@ public class ReservationsServiceImpl extends ReservationsGrpc.ReservationsImplBa
 
              message = ReservationMessage.newBuilder().setName(reservation.getUser().getName())
                      .setPhone(Integer.toString(reservation.getUser().getPhone()))
-                    .setRideId(reservation.getRide().getId()).setId(reservation.getId()).build();
+                    .setRideId(reservation.getRide().getId()).setId(reservation.getId()).setStatus(reservation.getStatus()).build();
         }
 
 

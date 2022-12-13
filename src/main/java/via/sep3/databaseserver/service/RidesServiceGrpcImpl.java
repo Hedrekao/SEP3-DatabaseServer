@@ -50,11 +50,11 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
         List<Ride> iterable;
         if(request.hasEpochLowerBound() && request.hasEpochUpperBound())
         {
-            iterable = rideRepository.findAllByStartTimeIsBetweenAndCapacityIsGreaterThanAndStartTimeIsGreaterThan(request.getEpochLowerBound(), request.getEpochUpperBound(), 0, request.getEpochNow());
+            iterable = rideRepository.findAllByStartTimeIsBetweenAndCapacityIsGreaterThanAndStartTimeIsGreaterThanAndIsCancelledFalse(request.getEpochLowerBound(), request.getEpochUpperBound(), 0, request.getEpochNow());
         }
         else
         {
-            iterable = rideRepository.findAllByCapacityIsGreaterThanAndStartTimeIsGreaterThan(0, request.getEpochNow());
+            iterable = rideRepository.findAllByCapacityIsGreaterThanAndStartTimeIsGreaterThanAndIsCancelledFalse(0, request.getEpochNow());
 
         }
 
@@ -197,6 +197,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                 for(Reservation reservation : reservations)
                 {
                     reservation.setStatus("Cancelled by driver");
+                    reservation.setAccepted(null);
                     reservationRepository.save(reservation);
                 }
                 ConfirmationMessage message = ConfirmationMessage.newBuilder().setConfirmationMessage("Ok").build();
@@ -244,6 +245,7 @@ public class RidesServiceGrpcImpl extends RidesGrpc.RidesImplBase
                 setDriver(driverMessage).
                 setDestination(destinationMessage).
                 setStartLocation(startLocationMessage).setId(ride.getId()).
+                setIsCancelled(ride.isCancelled()).
                 build();
 
         return rideMessage;
