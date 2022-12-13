@@ -27,6 +27,10 @@ public class UserServiceImpl extends UsersGrpc.UsersImplBase {
     public void createAccount(CreateAccountMessage request,  StreamObserver<UserMessage> userMessage){
         try{
             User user;
+            if(userRepository.findByEmail(request.getEmail()).isPresent())
+            {
+                throw new Exception("User with such email exists");
+            }
             if(request.hasLicenseNo())
             {
                 user = new User(
@@ -60,6 +64,9 @@ public class UserServiceImpl extends UsersGrpc.UsersImplBase {
         catch (Exception e)
         {
             System.out.println(e.getMessage());
+            UserMessage userMessage1 = UserMessage.newBuilder().build();
+            userMessage.onNext(userMessage1 );
+            userMessage.onCompleted();
         }
     }
 

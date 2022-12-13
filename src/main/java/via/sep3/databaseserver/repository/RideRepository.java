@@ -19,7 +19,6 @@ public interface RideRepository extends CrudRepository<Ride, Integer> {
             where r.startTime between ?1 and ?2 and r.capacity > ?3 and r.startTime > ?4 and r.isCancelled = false""")
     List<Ride> findAllByStartTimeIsBetweenAndCapacityIsGreaterThanAndStartTimeIsGreaterThanAndIsCancelledFalse(Long startTime, Long endTime, int capacity, Long epochNow);
 
-    List<Ride> findAllByStartTimeIsGreaterThan(Long epoch);
     @Query("select r from Ride r where r.capacity > ?1 and r.startTime > ?2 and r.isCancelled = false")
     List<Ride> findAllByCapacityIsGreaterThanAndStartTimeIsGreaterThanAndIsCancelledFalse(int capacity, Long epoch);
 
